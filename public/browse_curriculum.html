@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curriculum Browser - CoreForge Nexus</title>
     <style>
-        body {
+        body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
+            margin: 0; 
             background-color: #f0f2f5; /* Light gray background */
-            color: #333;
+            color: #333; 
             line-height: 1.5;
         }
-        .app-header {
+        .app-header { 
             background-color: #343a40; /* Darker header */
-            color: white;
-            padding: 0.75rem 1rem;
-            text-align: center;
-            position: fixed;
-            top: 0; left: 0; right: 0;
+            color: white; 
+            padding: 0.75rem 1rem; 
+            text-align: center; 
+            position: fixed; 
+            top: 0; left: 0; right: 0; 
             z-index: 1000;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
@@ -42,38 +42,38 @@
             text-decoration: underline;
         }
 
-        .container {
-            display: flex;
+        .container { 
+            display: flex; 
             height: calc(100vh - 58px); /* Adjusted for new header height */
             margin-top: 58px; /* Adjusted for new header height */
             padding: 10px;
             gap: 10px; /* Space between columns */
         }
-        .column {
-            flex: 1;
-            padding: 1rem;
+        .column { 
+            flex: 1; 
+            padding: 1rem; 
             border: 1px solid #d1d5db; /* Gray 300 */
-            overflow-y: auto;
-            background-color: #ffffff;
-            border-radius: 8px;
+            overflow-y: auto; 
+            background-color: #ffffff; 
+            border-radius: 8px; 
             box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
         }
-        .column:last-child {
+        .column:last-child { 
             border-right: 1px solid #d1d5db; /* Keep border for consistency */
-            flex: 3; /* Lesson content column is wider */
+            flex: 3; /* Lesson content column is wider */ 
         }
-        .column h2 {
-            font-size: 1.25em;
+        .column h2 { 
+            font-size: 1.25em; 
             color: #1f2937; /* Gray 800 */
             border-bottom: 1px solid #e5e7eb; /* Gray 200 */
-            padding-bottom: 0.75rem;
-            margin-top: 0;
+            padding-bottom: 0.75rem; 
+            margin-top: 0; 
             margin-bottom: 1rem;
             font-weight: 600;
         }
         ul { list-style-type: none; padding: 0; }
-        li button {
-            display: block; width: 100%; padding: 0.75rem 1rem; margin-bottom: 0.5rem;
+        li button { 
+            display: block; width: 100%; padding: 0.75rem 1rem; margin-bottom: 0.5rem; 
             text-align: left; background-color: #f9fafb; /* Gray 50 */
             border: 1px solid #e5e7eb; /* Gray 200 */
             border-radius: 6px; cursor: pointer; font-size: 0.95em;
@@ -81,21 +81,21 @@
             color: #374151; /* Gray 700 */
         }
         li button:hover { background-color: #f3f4f6; border-color: #d1d5db; } /* Gray 100 & Gray 300 */
-        li button.selected {
+        li button.selected { 
             background-color: #e0e7ff; /* Indigo 100 */
             border-color: #a5b4fc; /* Indigo 300 */
             color: #3730a3; /* Indigo 800 */
-            font-weight: 600;
+            font-weight: 600; 
         }
-        #lesson-content-area {
-            white-space: pre-wrap;
+        #lesson-content-area { 
+            white-space: pre-wrap; 
             font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-            background-color: #fdfdff;
-            padding: 1rem;
+            background-color: #fdfdff; 
+            padding: 1rem; 
             border: 1px solid #e5e7eb; /* Gray 200 */
-            border-radius: 6px;
-            font-size: 0.9em;
-            line-height: 1.7;
+            border-radius: 6px; 
+            font-size: 0.9em; 
+            line-height: 1.7; 
             color: #111827; /* Gray 900 */
             min-height: 100px; /* Ensure it has some height when empty */
         }
@@ -105,15 +105,15 @@
             font-style: italic;
             color: #6b7280; /* Gray 500 */
         }
-        .loading span {
+        .loading span { 
             display: inline-block;
             margin-left: 0.5rem;
             font-size: 0.85em;
             color: #4b5563; /* Gray 600 */
         }
-        .error {
+        .error { 
             color: #ef4444; /* Red 500 */
-            font-weight: 500;
+            font-weight: 500; 
             padding: 0.5rem;
             background-color: #fee2e2; /* Red 100 */
             border: 1px solid #fca5a5; /* Red 300 */
@@ -199,7 +199,7 @@
             }
             console.error(`Error (${type}): ${message}`);
         }
-
+        
         function createButton(item, clickHandler, type) {
             const button = document.createElement('button');
             // Sanitize item display name - very basic
@@ -229,7 +229,7 @@
                 const response = await fetch(url);
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status} ${response.statusText}`);
                 const data = await response.json();
-
+                
                 if (data && data.length > 0) {
                     data.forEach(item => {
                         const displayItem = typeof item === 'string' ? { id: item, name: item } : item;

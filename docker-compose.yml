@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    container_name: mathquest-frontend
+    networks:
+      - mathquest-net
+    depends_on:
+      backend-agent:
+        condition: service_healthy
+
+  backend-agent:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    container_name: mathquest-agent
+    networks:
+      - mathquest-net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5001/api/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  mathquest-net:
+    driver: bridge

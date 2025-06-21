@@ -3,15 +3,13 @@ import { BarChart2, Zap } from 'lucide-react'; // Zap for mastery
 import { useApp } from '../contexts/AppContext';
 import { Card } from '../components/Card';
 import { Topic } from '../types';
+import { useNavigate } from 'react-router-dom';
 
-type ActiveView = 'dashboard' | 'learningZone' | 'progressCenter' | 'explorationZone';
+// DEV_NOTE: navigateTo prop removed, using useNavigate from react-router-dom.
 
-interface ProgressCenterProps {
-  navigateTo: (view: ActiveView, topicId?: string) => void;
-}
-
-export const ProgressCenter: React.FC<ProgressCenterProps> = ({ navigateTo }) => {
+export const ProgressView: React.FC = () => { // Renamed component
   const { user, topics } = useApp();
+  const navigate = useNavigate();
 
   if (!user) {
     return <div className="text-center p-8"><p>Loading user data...</p></div>;
@@ -46,10 +44,11 @@ export const ProgressCenter: React.FC<ProgressCenterProps> = ({ navigateTo }) =>
               <div
                 key={topic.id}
                 className={`p-4 sm:p-5 rounded-lg border-2 cursor-pointer hover:shadow-lg transition-all duration-200 ease-in-out transform hover:-translate-y-1 ${getTopicCardStyle(progress)}`}
-                onClick={() => navigateTo('learningZone', topic.id)}
+                // DEV_NOTE: Navigate to learning view, potentially passing topicId as a query param or part of the path
+                onClick={() => navigate(`/learning?topicId=${topic.id}`)}
                 role="button"
                 tabIndex={0}
-                onKeyPress={(e) => e.key === 'Enter' && navigateTo('learningZone', topic.id)}
+                onKeyPress={(e) => e.key === 'Enter' && navigate(`/learning?topicId=${topic.id}`)}
                 aria-label={`Topic: ${topic.name}, Progress: ${percentage}%`}
               >
                 <div className="flex justify-between items-start">

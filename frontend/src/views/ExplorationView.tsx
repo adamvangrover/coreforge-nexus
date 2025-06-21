@@ -23,7 +23,7 @@ interface FunctionPlotOptions {
     // Add other top-level options like tip, plugins etc.
 }
 
-export const ExplorationZone: React.FC = () => {
+export const ExplorationView: React.FC = () => { // Renamed component
     const plotRef = useRef<HTMLDivElement>(null);
     const [equation, setEquation] = useState<string>('x^2');
     const [plotError, setPlotError] = useState<string | null>(null);

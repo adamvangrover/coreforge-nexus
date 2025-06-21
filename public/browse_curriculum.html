@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Browser - CoreForge Nexus</title>
+    <style>
+        body { font-family: sans-serif; margin: 0; background-color: #f4f4f9; color: #333; }
+        .container { display: flex; height: calc(100vh - 50px); margin-top: 50px; }
+        .column { flex: 1; padding: 15px; border-right: 1px solid #ddd; overflow-y: auto; background-color: #fff; margin: 5px; border-radius: 5px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .column:last-child { border-right: none; flex: 3; /* Lesson content column is wider */ }
+        h2 { font-size: 1.2em; color: #333; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 0; }
+        ul { list-style-type: none; padding: 0; }
+        li button {
+            display: block; width: 100%; padding: 10px; margin-bottom: 5px;
+            text-align: left; background-color: #f9f9f9; border: 1px solid #eee;
+            border-radius: 4px; cursor: pointer; font-size: 0.9em;
+        }
+        li button:hover { background-color: #e9e9f9; }
+        li button.selected { background-color: #d0d0ff; font-weight: bold; }
+        #lesson-content-area { white-space: pre-wrap; /* Preserve whitespace and newlines */ font-family: monospace; background-color: #fdfdfd; padding: 15px; border: 1px solid #eee; border-radius: 4px; font-size: 0.9em; line-height: 1.6; }
+        .loading { color: #777; font-style: italic; }
+        .error { color: red; font-weight: bold; }
+        header {
+            background-color: #333; color: white; padding: 10px 20px; text-align: center;
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height:30px;
+        }
+        /* DEV_NOTE: This is a very basic visual structure. Can be enhanced with more CSS. */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CoreForge Nexus - Simple Curriculum Browser</h1>
+    </header>
+
+    <div class="container">
+        <div class="column" id="grade-levels-column">
+            <h2>Grade Levels <span id="loading-grades" class="loading" style="display:none;">(loading...)</span></h2>
+            <ul id="grade-levels-list"></ul>
+            <div id="error-grades" class="error"></div>
+        </div>
+        <div class="column" id="subjects-column">
+            <h2>Subjects <span id="loading-subjects" class="loading" style="display:none;">(loading...)</span></h2>
+            <ul id="subjects-list"></ul>
+            <div id="error-subjects" class="error"></div>
+        </div>
+        <div class="column" id="lessons-column">
+            <h2>Lessons <span id="loading-lessons" class="loading" style="display:none;">(loading...)</span></h2>
+            <ul id="lessons-list"></ul>
+            <div id="error-lessons" class="error"></div>
+        </div>
+        <div class="column" id="content-column">
+            <h2>Lesson Content <span id="loading-content" class="loading" style="display:none;">(loading...)</span></h2>
+            <div id="lesson-content-area">Select a lesson to view its content.</div>
+            <div id="error-content" class="error"></div>
+        </div>
+    </div>
+
+    <script>
+        // DEV_NOTE: API_BASE_URL assumes the backend is running and accessible.
+        // If running this HTML file locally without serving it through the same domain as the API,
+        // CORS issues might occur unless the backend API is configured to allow all origins (which it is for localhost:3000).
+        const API_BASE_URL = '/api/v1/curriculum'; // Relative to where this HTML is served if served by same app, or full URL.
+
+        const gradeLevelsList = document.getElementById('grade-levels-list');
+        const subjectsList = document.getElementById('subjects-list');
+        const lessonsList = document.getElementById('lessons-list');
+        const lessonContentArea = document.getElementById('lesson-content-area');
+
+        const loadingIndicators = {
+            grades: document.getElementById('loading-grades'),
+            subjects: document.getElementById('loading-subjects'),
+            lessons: document.getElementById('loading-lessons'),
+            content: document.getElementById('loading-content'),
+        };
+
+        const errorDisplays = {
+            grades: document.getElementById('error-grades'),
+            subjects: document.getElementById('error-subjects'),
+            lessons: document.getElementById('error-lessons'),
+            content: document.getElementById('error-content'),
+        };
+
+        let currentSelectedGrade = null;
+        let currentSelectedSubject = null;
+        let currentSelectedLesson = null;
+
+        function setLoading(type, isLoading) {
+            if (loadingIndicators[type]) loadingIndicators[type].style.display = isLoading ? 'inline' : 'none';
+            if (errorDisplays[type]) errorDisplays[type].textContent = ''; // Clear previous errors
+        }
+
+        function setError(type, message) {
+            if (errorDisplays[type]) errorDisplays[type].textContent = message;
+            console.error(`Error (${type}): ${message}`);
+        }
+
+        function createButton(item, clickHandler, type) {
+            const button = document.createElement('button');
+            // Sanitize item display name - very basic
+            button.textContent = String(item.name || item).replace(/_/g, ' ').replace(/\.md$/, '');
+            button.dataset.id = item.id || item; // Use item.id if object, else item itself
+            button.onclick = ()_ => {
+                // Remove 'selected' class from siblings
+                const parentUl = button.closest('ul');
+                if (parentUl) {
+                    Array.from(parentUl.querySelectorAll('button.selected')).forEach(btn => btn.classList.remove('selected'));
+                }
+                button.classList.add('selected');
+                clickHandler(item.id || item);
+            };
+            const li = document.createElement('li');
+            li.appendChild(button);
+            return li;
+        }
+
+        async function fetchAndDisplay(url, listElement, clickHandler, type, nextListElement = null, nextContentArea = null) {
+            setLoading(type, true);
+            if (listElement) listElement.innerHTML = ''; // Clear previous items
+            if (nextListElement) nextListElement.innerHTML = ''; // Clear next column
+            if (nextContentArea) nextContentArea.textContent = `Select a ${type === 'grades' ? 'grade' : (type === 'subjects' ? 'subject' : 'lesson')} to continue.`;
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status} ${response.statusText}`);
+                const data = await response.json();
+
+                if (data && data.length > 0) {
+                    data.forEach(item => {
+                        // For curriculum API, items are strings. We make them objects for consistency if needed.
+                        const displayItem = typeof item === 'string' ? { id: item, name: item } : item;
+                        listElement.appendChild(createButton(displayItem, clickHandler, type));
+                    });
+                } else {
+                    listElement.innerHTML = `<li><em class="text-sm text-gray-500">No ${type} found.</em></li>`;
+                }
+            } catch (e) {
+                setError(type, `Failed to load ${type}: ${e.message}`);
+            } finally {
+                setLoading(type, false);
+            }
+        }
+
+        async function fetchAndDisplayContent(url, contentElement, type) {
+            setLoading(type, true);
+            contentElement.textContent = ''; // Clear previous content
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status} ${response.statusText}`);
+                const data = await response.text(); // Markdown as plain text
+                contentElement.textContent = data;
+            } catch (e) {
+                setError(type, `Failed to load content: ${e.message}`);
+            } finally {
+                setLoading(type, false);
+            }
+        }
+
+        function loadSubjects(gradeId) {
+            currentSelectedGrade = gradeId;
+            currentSelectedSubject = null;
+            currentSelectedLesson = null;
+            lessonsList.innerHTML = '';
+            lessonContentArea.textContent = 'Select a subject and then a lesson.';
+            fetchAndDisplay(`${API_BASE_URL}/${gradeId}/subjects`, subjectsList, loadLessons, 'subjects', lessonsList, lessonContentArea);
+        }
+
+        function loadLessons(subjectId) {
+            currentSelectedSubject = subjectId;
+            currentSelectedLesson = null;
+            lessonContentArea.textContent = 'Select a lesson to view its content.';
+            if (!currentSelectedGrade) {
+                setError('lessons', 'Grade level not selected.');
+                return;
+            }
+            fetchAndDisplay(`${API_BASE_URL}/${currentSelectedGrade}/${subjectId}/lessons`, lessonsList, loadLessonContent, 'lessons', null, lessonContentArea);
+        }
+
+        function loadLessonContent(lessonFilename) {
+            currentSelectedLesson = lessonFilename;
+            if (!currentSelectedGrade || !currentSelectedSubject) {
+                setError('content', 'Grade level or subject not selected.');
+                return;
+            }
+            fetchAndDisplayContent(`${API_BASE_URL}/${currentSelectedGrade}/${currentSelectedSubject}/${lessonFilename}`, lessonContentArea, 'content');
+        }
+
+        // Initial load: Grade Levels
+        fetchAndDisplay(`${API_BASE_URL}/grade-levels`, gradeLevelsList, loadSubjects, 'grades', subjectsList, lessonContentArea);
+
+    </script>
+</body>
+</html>

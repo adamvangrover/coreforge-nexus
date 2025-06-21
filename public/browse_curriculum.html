@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Browser - CoreForge Nexus</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f2f5; /* Light gray background */
+            color: #333;
+            line-height: 1.5;
+        }
+        .app-header {
+            background-color: #343a40; /* Darker header */
+            color: white;
+            padding: 0.75rem 1rem;
+            text-align: center;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .app-header h1 {
+            margin: 0;
+            font-size: 1.5em;
+            font-weight: 500;
+        }
+        .nav-links {
+            position: absolute;
+            top: 0.75rem;
+            right: 1rem;
+            font-size: 0.9em;
+        }
+        .nav-links a {
+            color: #f0f2f5;
+            text-decoration: none;
+            margin-left: 1rem;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            display: flex;
+            height: calc(100vh - 58px); /* Adjusted for new header height */
+            margin-top: 58px; /* Adjusted for new header height */
+            padding: 10px;
+            gap: 10px; /* Space between columns */
+        }
+        .column {
+            flex: 1;
+            padding: 1rem;
+            border: 1px solid #d1d5db; /* Gray 300 */
+            overflow-y: auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+        }
+        .column:last-child {
+            border-right: 1px solid #d1d5db; /* Keep border for consistency */
+            flex: 3; /* Lesson content column is wider */
+        }
+        .column h2 {
+            font-size: 1.25em;
+            color: #1f2937; /* Gray 800 */
+            border-bottom: 1px solid #e5e7eb; /* Gray 200 */
+            padding-bottom: 0.75rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        ul { list-style-type: none; padding: 0; }
+        li button {
+            display: block; width: 100%; padding: 0.75rem 1rem; margin-bottom: 0.5rem;
+            text-align: left; background-color: #f9fafb; /* Gray 50 */
+            border: 1px solid #e5e7eb; /* Gray 200 */
+            border-radius: 6px; cursor: pointer; font-size: 0.95em;
+            transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+            color: #374151; /* Gray 700 */
+        }
+        li button:hover { background-color: #f3f4f6; border-color: #d1d5db; } /* Gray 100 & Gray 300 */
+        li button.selected {
+            background-color: #e0e7ff; /* Indigo 100 */
+            border-color: #a5b4fc; /* Indigo 300 */
+            color: #3730a3; /* Indigo 800 */
+            font-weight: 600;
+        }
+        #lesson-content-area {
+            white-space: pre-wrap;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            background-color: #fdfdff;
+            padding: 1rem;
+            border: 1px solid #e5e7eb; /* Gray 200 */
+            border-radius: 6px;
+            font-size: 0.9em;
+            line-height: 1.7;
+            color: #111827; /* Gray 900 */
+            min-height: 100px; /* Ensure it has some height when empty */
+        }
+        .loading-placeholder, .error-placeholder {
+            padding: 1rem;
+            text-align: center;
+            font-style: italic;
+            color: #6b7280; /* Gray 500 */
+        }
+        .loading span {
+            display: inline-block;
+            margin-left: 0.5rem;
+            font-size: 0.85em;
+            color: #4b5563; /* Gray 600 */
+        }
+        .error {
+            color: #ef4444; /* Red 500 */
+            font-weight: 500;
+            padding: 0.5rem;
+            background-color: #fee2e2; /* Red 100 */
+            border: 1px solid #fca5a5; /* Red 300 */
+            border-radius: 4px;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="app-header">
+        <h1>CoreForge Nexus - Simple Curriculum Browser</h1>
+        <div class="nav-links">
+            <a href="../index.html">Project Home</a>
+            <a href="../README.md">Developer README</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="column" id="grade-levels-column">
+            <h2>Grade Levels <span id="loading-grades" class="loading" style="display:none;"><span>(loading...)</span></span></h2>
+            <ul id="grade-levels-list"><li class="loading-placeholder">Loading grade levels...</li></ul>
+            <div id="error-grades" class="error" style="display:none;"></div>
+        </div>
+        <div class="column" id="subjects-column">
+            <h2>Subjects <span id="loading-subjects" class="loading" style="display:none;"><span>(loading...)</span></span></h2>
+            <ul id="subjects-list"><li class="loading-placeholder">Select a grade level first.</li></ul>
+            <div id="error-subjects" class="error" style="display:none;"></div>
+        </div>
+        <div class="column" id="lessons-column">
+            <h2>Lessons <span id="loading-lessons" class="loading" style="display:none;"><span>(loading...)</span></span></h2>
+            <ul id="lessons-list"><li class="loading-placeholder">Select a subject first.</li></ul>
+            <div id="error-lessons" class="error" style="display:none;"></div>
+        </div>
+        <div class="column" id="content-column">
+            <h2>Lesson Content <span id="loading-content" class="loading" style="display:none;"><span>(loading...)</span></span></h2>
+            <div id="lesson-content-area" class="loading-placeholder">Select a lesson to view its content.</div>
+            <div id="error-content" class="error" style="display:none;"></div>
+        </div>
+    </div>
+
+    <script>
+        // DEV_NOTE: API_BASE_URL assumes the backend is running and accessible.
+        // If running this HTML file locally without serving it through the same domain as the API,
+        // CORS issues might occur. The backend API on localhost:8000 (from docker) should allow localhost:3000 (frontend)
+        // and potentially other localhost ports if configured. Direct file access (file://) might be blocked by default browser security.
+        const API_BASE_URL = '/api/v1/curriculum'; // Relative to where this HTML is served if served by same app, or full URL.
+
+        const gradeLevelsList = document.getElementById('grade-levels-list');
+        const subjectsList = document.getElementById('subjects-list');
+        const lessonsList = document.getElementById('lessons-list');
+        const lessonContentArea = document.getElementById('lesson-content-area');
+
+        const loadingIndicators = {
+            grades: document.getElementById('loading-grades'),
+            subjects: document.getElementById('loading-subjects'),
+            lessons: document.getElementById('loading-lessons'),
+            content: document.getElementById('loading-content'),
+        };
+
+        const errorDisplays = {
+            grades: document.getElementById('error-grades'),
+            subjects: document.getElementById('error-subjects'),
+            lessons: document.getElementById('error-lessons'),
+            content: document.getElementById('error-content'),
+        };
+
+        let currentSelectedGrade = null;
+        let currentSelectedSubject = null;
+        let currentSelectedLesson = null;
+
+        function setLoading(type, isLoading) {
+            if (loadingIndicators[type]) loadingIndicators[type].style.display = isLoading ? 'inline-block' : 'none'; // Use inline-block for span
+            if (errorDisplays[type]) {
+                errorDisplays[type].textContent = '';
+                errorDisplays[type].style.display = 'none';
+            }
+        }
+
+        function setError(type, message) {
+            if (errorDisplays[type]) {
+                errorDisplays[type].textContent = message;
+                errorDisplays[type].style.display = 'block';
+            }
+            console.error(`Error (${type}): ${message}`);
+        }
+
+        function createButton(item, clickHandler, type) {
+            const button = document.createElement('button');
+            // Sanitize item display name - very basic
+            button.textContent = String(item.name || item).replace(/_/g, ' ').replace(/\.md$/, '');
+            button.dataset.id = item.id || item; // Use item.id if object, else item itself
+            button.onclick = ()_ => {
+                // Remove 'selected' class from siblings
+                const parentUl = button.closest('ul');
+                if (parentUl) {
+                    Array.from(parentUl.querySelectorAll('button.selected')).forEach(btn => btn.classList.remove('selected'));
+                }
+                button.classList.add('selected');
+                clickHandler(item.id || item);
+            };
+            const li = document.createElement('li');
+            li.appendChild(button);
+            return li;
+        }
+
+        async function fetchAndDisplay(url, listElement, clickHandler, type, nextListElement = null, nextContentArea = null) {
+            setLoading(type, true);
+            if (listElement) listElement.innerHTML = ''; // Clear previous items
+            if (nextListElement) nextListElement.innerHTML = ''; // Clear next column
+            if (nextContentArea) nextContentArea.textContent = `Select a ${type === 'grades' ? 'grade' : (type === 'subjects' ? 'subject' : 'lesson')} to continue.`;
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status} ${response.statusText}`);
+                const data = await response.json();
+
+                if (data && data.length > 0) {
+                    data.forEach(item => {
+                        const displayItem = typeof item === 'string' ? { id: item, name: item } : item;
+                        listElement.appendChild(createButton(displayItem, clickHandler, type));
+                    });
+                } else {
+                    listElement.innerHTML = `<li class="loading-placeholder">No ${type} found.</li>`;
+                }
+            } catch (e) {
+                const errorMessage = e instanceof Error ? e.message : String(e);
+                setError(type, `Failed to load ${type}: ${errorMessage}`);
+                if (listElement) listElement.innerHTML = `<li class="loading-placeholder">Error loading ${type}.</li>`;
+            } finally {
+                setLoading(type, false);
+            }
+        }
+
+        async function fetchAndDisplayContent(url, contentElement, type) {
+            setLoading(type, true);
+            contentElement.textContent = ''; // Clear previous content
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status} ${response.statusText}`);
+                const data = await response.text(); // Markdown as plain text
+                contentElement.textContent = data;
+            } catch (e) {
+                setError(type, `Failed to load content: ${e.message}`);
+            } finally {
+                setLoading(type, false);
+            }
+        }
+
+        function loadSubjects(gradeId) {
+            currentSelectedGrade = gradeId;
+            currentSelectedSubject = null;
+            currentSelectedLesson = null;
+            lessonsList.innerHTML = '';
+            lessonContentArea.textContent = 'Select a subject and then a lesson.';
+            fetchAndDisplay(`${API_BASE_URL}/${gradeId}/subjects`, subjectsList, loadLessons, 'subjects', lessonsList, lessonContentArea);
+        }
+
+        function loadLessons(subjectId) {
+            currentSelectedSubject = subjectId;
+            currentSelectedLesson = null;
+            lessonContentArea.textContent = 'Select a lesson to view its content.';
+            if (!currentSelectedGrade) {
+                setError('lessons', 'Grade level not selected.');
+                return;
+            }
+            fetchAndDisplay(`${API_BASE_URL}/${currentSelectedGrade}/${subjectId}/lessons`, lessonsList, loadLessonContent, 'lessons', null, lessonContentArea);
+        }
+
+        function loadLessonContent(lessonFilename) {
+            currentSelectedLesson = lessonFilename;
+            if (!currentSelectedGrade || !currentSelectedSubject) {
+                setError('content', 'Grade level or subject not selected.');
+                return;
+            }
+            fetchAndDisplayContent(`${API_BASE_URL}/${currentSelectedGrade}/${currentSelectedSubject}/${lessonFilename}`, lessonContentArea, 'content');
+        }
+
+        // Initial load: Grade Levels
+        fetchAndDisplay(`${API_BASE_URL}/grade-levels`, gradeLevelsList, loadSubjects, 'grades', subjectsList, lessonContentArea);
+
+    </script>
+</body>
+</html>

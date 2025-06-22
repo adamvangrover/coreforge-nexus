@@ -120,6 +120,40 @@
             border-radius: 4px;
             margin-top: 0.5rem;
         }
+        /* Basic prose styling for rendered Markdown */
+        .prose h1, .prose h2, .prose h3 { margin-top: 1.2em; margin-bottom: 0.6em; line-height: 1.25; font-weight: 600; }
+        .prose h1 { font-size: 1.8em; }
+        .prose h2 { font-size: 1.5em; }
+        .prose h3 { font-size: 1.25em; }
+        .prose p { margin-bottom: 1em; }
+        .prose ul, .prose ol { margin-bottom: 1em; padding-left: 1.5em; }
+        .prose li { margin-bottom: 0.25em; }
+        .prose pre { 
+            background-color: #2d3748; /* Gray 800 from index.html */
+            color: #e2e8f0; /* Gray 200 */
+            padding: 1rem; 
+            border-radius: 6px; 
+            overflow-x: auto; 
+            font-size: 0.85em;
+            margin-bottom: 1em;
+        }
+        .prose code { /* Inline code */
+            background-color: #e9ecef;
+            padding: 0.2em 0.4em;
+            margin: 0;
+            font-size: 85%;
+            border-radius: 3px;
+        }
+        .prose blockquote {
+            border-left: 3px solid #a0aec0; /* Cool Gray 400 */
+            padding-left: 1em;
+            margin-left: 0;
+            font-style: italic;
+            color: #4a5568; /* Gray 700 */
+        }
+        .prose table { width: auto; border-collapse: collapse; margin-bottom: 1em; }
+        .prose th, .prose td { border: 1px solid #d1d5db; padding: 0.5em 0.75em; }
+        .prose th { background-color: #f9fafb; }
     </style>
 </head>
 <body>
@@ -151,15 +185,17 @@
             <h2>Lesson Content <span id="loading-content" class="loading" style="display:none;"><span>(loading...)</span></span></h2>
             <div id="lesson-content-area" class="loading-placeholder">Select a lesson to view its content.</div>
             <div id="error-content" class="error" style="display:none;"></div>
+            <div id="lesson-content-rendered" class="prose" style="display:none;"></div> <!-- For Marked.js output -->
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
-        // DEV_NOTE: API_BASE_URL assumes the backend is running and accessible.
-        // If running this HTML file locally without serving it through the same domain as the API,
-        // CORS issues might occur. The backend API on localhost:8000 (from docker) should allow localhost:3000 (frontend)
-        // and potentially other localhost ports if configured. Direct file access (file://) might be blocked by default browser security.
-        const API_BASE_URL = '/api/v1/curriculum'; // Relative to where this HTML is served if served by same app, or full URL.
+        // DEV_NOTE: For standalone operation on GitHub Pages, API_BASE_URL is not used.
+        // We fetch curriculum_manifest.json and then relative paths to .md files.
+        const MANIFEST_PATH = '../curriculum_manifest.json'; // Path relative to browse_curriculum.html in public/
+
+        let curriculumData = null; // To store the loaded manifest
 
         const gradeLevelsList = document.getElementById('grade-levels-list');
         const subjectsList = document.getElementById('subjects-list');
@@ -180,12 +216,14 @@
             content: document.getElementById('error-content'),
         };
 
-        let currentSelectedGrade = null;
-        let currentSelectedSubject = null;
-        let currentSelectedLesson = null;
+        const lessonContentRendered = document.getElementById('lesson-content-rendered');
+
+        let selectedGradeData = null;
+        let selectedSubjectData = null;
+        // No need for currentSelectedLesson data storage as path comes from manifest item
 
         function setLoading(type, isLoading) {
-            if (loadingIndicators[type]) loadingIndicators[type].style.display = isLoading ? 'inline-block' : 'none'; // Use inline-block for span
+            if (loadingIndicators[type]) loadingIndicators[type].style.display = isLoading ? 'inline-block' : 'none';
             if (errorDisplays[type]) {
                 errorDisplays[type].textContent = '';
                 errorDisplays[type].style.display = 'none';
@@ -200,99 +238,113 @@
             console.error(`Error (${type}): ${message}`);
         }
         
-        function createButton(item, clickHandler, type) {
+        function createButton(item, clickHandler) { // Removed type, item is now always an object from manifest
             const button = document.createElement('button');
-            // Sanitize item display name - very basic
-            button.textContent = String(item.name || item).replace(/_/g, ' ').replace(/\.md$/, '');
-            button.dataset.id = item.id || item; // Use item.id if object, else item itself
-            button.onclick = ()_ => {
-                // Remove 'selected' class from siblings
+            button.textContent = item.name; // name is already formatted in manifest
+            button.dataset.id = item.id; 
+            button.onclick = () => {
                 const parentUl = button.closest('ul');
                 if (parentUl) {
                     Array.from(parentUl.querySelectorAll('button.selected')).forEach(btn => btn.classList.remove('selected'));
                 }
                 button.classList.add('selected');
-                clickHandler(item.id || item);
+                clickHandler(item); // Pass the whole item object
             };
             const li = document.createElement('li');
             li.appendChild(button);
             return li;
         }
 
-        async function fetchAndDisplay(url, listElement, clickHandler, type, nextListElement = null, nextContentArea = null) {
-            setLoading(type, true);
-            if (listElement) listElement.innerHTML = ''; // Clear previous items
-            if (nextListElement) nextListElement.innerHTML = ''; // Clear next column
-            if (nextContentArea) nextContentArea.textContent = `Select a ${type === 'grades' ? 'grade' : (type === 'subjects' ? 'subject' : 'lesson')} to continue.`;
+        function displayItems(listElement, items, clickHandler, placeholderText) {
+            listElement.innerHTML = ''; // Clear previous items
+            if (items && items.length > 0) {
+                items.forEach(item => {
+                    listElement.appendChild(createButton(item, clickHandler));
+                });
+            } else {
+                listElement.innerHTML = `<li class="loading-placeholder">${placeholderText}</li>`;
+            }
+        }
+        
+        async function loadLessonContent(lesson) { // lesson is an object from manifest
+            setLoading('content', true);
+            lessonContentArea.style.display = 'none'; // Hide plain text area
+            lessonContentRendered.style.display = 'none'; // Hide rendered area
+            lessonContentRendered.innerHTML = ''; // Clear previous rendered content
+            
+            // Path in manifest is relative to repo root.
+            // browse_curriculum.html is in public/. So, need to adjust path.
+            // Example: manifest path "curriculum/Elementary_K-5/Arts/Grade_K-5_Arts_NYSArts.md"
+            // needs to be fetched as "../curriculum/Elementary_K-5/Arts/Grade_K-5_Arts_NYSArts.md"
+            // if browse_curriculum.html is in public/
+            // Or, if the manifest path itself is already correct for relative fetching from public/:
+            // e.g. path: "../curriculum/..." - current manifest has "curriculum/..."
+            // So, we prepend "../" to the path from manifest.
+            const relativePath = `../${lesson.path}`;
 
             try {
-                const response = await fetch(url);
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status} ${response.statusText}`);
-                const data = await response.json();
-                
-                if (data && data.length > 0) {
-                    data.forEach(item => {
-                        const displayItem = typeof item === 'string' ? { id: item, name: item } : item;
-                        listElement.appendChild(createButton(displayItem, clickHandler, type));
-                    });
+                const response = await fetch(relativePath);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status} ${response.statusText} for ${relativePath}`);
+                const markdownText = await response.text();
+                if (typeof marked !== 'undefined') {
+                    lessonContentRendered.innerHTML = marked.parse(markdownText);
+                    lessonContentRendered.style.display = 'block';
                 } else {
-                    listElement.innerHTML = `<li class="loading-placeholder">No ${type} found.</li>`;
+                    lessonContentArea.textContent = markdownText; // Fallback to plain text
+                    lessonContentArea.style.display = 'block';
+                    setError('content', 'Marked.js library not loaded. Displaying raw Markdown.');
                 }
             } catch (e) {
                 const errorMessage = e instanceof Error ? e.message : String(e);
-                setError(type, `Failed to load ${type}: ${errorMessage}`);
-                if (listElement) listElement.innerHTML = `<li class="loading-placeholder">Error loading ${type}.</li>`;
+                setError('content', `Failed to load lesson content: ${errorMessage}`);
+                lessonContentArea.textContent = 'Error loading content.';
+                lessonContentArea.style.display = 'block';
             } finally {
-                setLoading(type, false);
+                setLoading('content', false);
             }
         }
 
-        async function fetchAndDisplayContent(url, contentElement, type) {
-            setLoading(type, true);
-            contentElement.textContent = ''; // Clear previous content
-            try {
-                const response = await fetch(url);
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status} ${response.statusText}`);
-                const data = await response.text(); // Markdown as plain text
-                contentElement.textContent = data;
-            } catch (e) {
-                setError(type, `Failed to load content: ${e.message}`);
-            } finally {
-                setLoading(type, false);
-            }
-        }
-
-        function loadSubjects(gradeId) {
-            currentSelectedGrade = gradeId;
-            currentSelectedSubject = null;
-            currentSelectedLesson = null;
-            lessonsList.innerHTML = '';
+        function displaySubjects(grade) { // grade is an object from manifest
+            selectedGradeData = grade;
+            selectedSubjectData = null;
+            displayItems(subjectsList, grade.subjects, displayLessons, 'Select a subject.');
+            lessonsList.innerHTML = '<li class="loading-placeholder">Select a subject first.</li>';
+            lessonContentArea.style.display = 'block'; // Show placeholder
             lessonContentArea.textContent = 'Select a subject and then a lesson.';
-            fetchAndDisplay(`${API_BASE_URL}/${gradeId}/subjects`, subjectsList, loadLessons, 'subjects', lessonsList, lessonContentArea);
+            lessonContentRendered.style.display = 'none';
         }
 
-        function loadLessons(subjectId) {
-            currentSelectedSubject = subjectId;
-            currentSelectedLesson = null;
+        function displayLessons(subject) { // subject is an object from manifest
+            selectedSubjectData = subject;
+            displayItems(lessonsList, subject.lessons, loadLessonContent, 'Select a lesson.');
+            lessonContentArea.style.display = 'block'; // Show placeholder
             lessonContentArea.textContent = 'Select a lesson to view its content.';
-            if (!currentSelectedGrade) {
-                setError('lessons', 'Grade level not selected.');
-                return;
-            }
-            fetchAndDisplay(`${API_BASE_URL}/${currentSelectedGrade}/${subjectId}/lessons`, lessonsList, loadLessonContent, 'lessons', null, lessonContentArea);
+            lessonContentRendered.style.display = 'none';
         }
 
-        function loadLessonContent(lessonFilename) {
-            currentSelectedLesson = lessonFilename;
-            if (!currentSelectedGrade || !currentSelectedSubject) {
-                setError('content', 'Grade level or subject not selected.');
-                return;
+        async function initializeBrowser() {
+            setLoading('grades', true);
+            try {
+                const response = await fetch(MANIFEST_PATH);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status} ${response.statusText}`);
+                curriculumData = await response.json();
+                if (curriculumData && curriculumData.gradeLevels) {
+                    displayItems(gradeLevelsList, curriculumData.gradeLevels, displaySubjects, 'No grade levels found in manifest.');
+                } else {
+                    setError('grades', 'Manifest is empty or has incorrect format.');
+                    gradeLevelsList.innerHTML = '<li class="loading-placeholder">Error loading curriculum structure.</li>';
+                }
+            } catch (e) {
+                const errorMessage = e instanceof Error ? e.message : String(e);
+                setError('grades', `Failed to load curriculum manifest: ${errorMessage}`);
+                gradeLevelsList.innerHTML = '<li class="loading-placeholder">Could not load curriculum structure. Ensure manifest exists.</li>';
+            } finally {
+                setLoading('grades', false);
             }
-            fetchAndDisplayContent(`${API_BASE_URL}/${currentSelectedGrade}/${currentSelectedSubject}/${lessonFilename}`, lessonContentArea, 'content');
         }
 
-        // Initial load: Grade Levels
-        fetchAndDisplay(`${API_BASE_URL}/grade-levels`, gradeLevelsList, loadSubjects, 'grades', subjectsList, lessonContentArea);
+        // Initial load
+        initializeBrowser();
 
     </script>
 </body>

@@ -1,5 +1,29 @@
 # CoreForge Nexus: K-12 Learning Platform
 
+**CoreForge Nexus** is an ambitious project to build a comprehensive, K-12 accredited learning platform. Our vision is to provide an engaging and effective educational experience for students, supporting them through their K-12 journey and beyond, including GED preparation, US citizenship test readiness, and ESL proficiency.
+
+**For the best starting point to explore this project, please open the `index.html` file at the root of this repository in your web browser.**
+
+## Project Entry Points
+
+1.  **`index.html` (Root Project Landing Page):**
+    *   **Recommended First Stop.** Provides a user-friendly overview of the project, its goals, technology stack, and how to explore its different components.
+    *   Includes links to this `README.md`, the standalone curriculum browser, and instructions for running the full application.
+    *   Showcases client-side rendered examples of curriculum content.
+    *   **How to view:** Open `index.html` directly in your browser or view it on GitHub Pages: [https://adamvangrover.github.io/coreforge-nexus/](https://adamvangrover.github.io/coreforge-nexus/)
+
+2.  **`public/browse_curriculum.html` (Standalone Curriculum Browser):**
+    *   A lightweight HTML page that allows you to browse the curriculum structure (grade levels, subjects, lessons) and view lesson content (Markdown rendered to HTML).
+    *   **Standalone:** Uses a `curriculum_manifest.json` and client-side JavaScript to fetch and display content directly from the `curriculum/` directory. It does **not** require the backend API to be running for browsing.
+    *   **How to view:** Open `public/browse_curriculum.html` directly in your browser or view on GitHub Pages: [https://adamvangrover.github.io/coreforge-nexus/public/browse_curriculum.html](https://adamvangrover.github.io/coreforge-nexus/public/browse_curriculum.html)
+    *   The `public/curriculum_manifest.json` file is crucial for this browser. See `DEV_SUGGESTIONS.md` for notes on keeping it updated.
+
+3.  **Full React/FastAPI Application (For Active Development & Full Features):**
+    *   The main, feature-rich platform with a React frontend and FastAPI backend.
+    *   This is the system intended for full interactivity, user accounts (future), and dynamic content.
+    *   Requires running both frontend and backend services. See "Running the Full Application" section below.
+
+## Vision & Mission (Detailed)
 **CoreForge Nexus** (formerly conceptualized as CoreLoop, FoundryEdu, EduNexus, LMS-Core-Kit) is an ambitious project to build a comprehensive, K-12 accredited learning platform. Our vision is to provide an engaging and effective educational experience for students, ultimately supporting them through their K-12 journey and beyond, including GED preparation, US citizenship test readiness, and ESL (English as a Second Language) proficiency.
 
 ## Vision & Mission
@@ -7,6 +31,56 @@
 *   **Vision:** To be a leading online learning platform that empowers students of all ages and backgrounds with accessible, high-quality education.
 *   **Mission:** To develop a flexible, interactive, and comprehensive curriculum delivery system that adapts to individual learning needs and prepares students for future success.
 
+## Current Status & Key Components
+
+*   **Curriculum Content:** Stored as Markdown files in the `/curriculum` directory. A `public/curriculum_manifest.json` provides a structured map of this content for static browsing.
+*   **Standalone HTML Browsers:** `index.html` (project overview) and `public/browse_curriculum.html` (curriculum browser) for easy static viewing (e.g., on GitHub Pages).
+*   **React Frontend (`/frontend`):** The main application UI, built with React, TypeScript, and Tailwind CSS. Features routing for Dashboard, My Learning, My Progress, etc.
+*   **FastAPI Backend (`/backend`):** Python backend serving a curriculum API (from filesystem for now) and planned to handle user data, assessments, etc.
+*   **Dockerization (`docker-compose.yml`, Dockerfiles):** For containerized development and deployment.
+
+## Target Features (For the Full React/FastAPI Application)
+
+*   Comprehensive K-12 curriculum, GED prep, US Citizenship, ESL modules.
+*   Interactive learning modules (quizzes, simulations).
+*   Personalized learning paths and progress tracking.
+*   Teacher/Administrator portals.
+*   (See `DEV_SUGGESTIONS.md` for a more detailed roadmap).
+
+## Running the Full Application (React Frontend & FastAPI Backend)
+
+This project uses Node.js for the frontend (React) and Python for the backend (FastAPI). Docker is recommended.
+
+**Prerequisites:** Node.js, npm, Python, Pip, Docker & Docker Compose.
+
+**1. Running with Docker (Recommended):**
+    *   Clone the repository.
+    *   From the root directory, run: `docker-compose up --build`
+    *   **Access:**
+        *   React Frontend: `http://localhost:3000` (Nginx serves the built React app).
+        *   Backend API: `http://localhost:8000` (e.g., `http://localhost:8000/api/v1/curriculum/grade-levels`).
+        *   The standalone HTML browsers will also be available via `http://localhost:3000/index.html` and `http://localhost:3000/public/browse_curriculum.html`.
+
+**2. Running Manually (Frontend - React App):**
+    *   `cd frontend`
+    *   `npm install` (see known issues below)
+    *   `npm start`
+    *   Access: `http://localhost:3000`
+
+**3. Running Manually (Backend - FastAPI):**
+    *   `cd backend`
+    *   Create/activate a Python virtual environment.
+    *   `pip install -r requirements.txt`
+    *   Run (from `backend` dir): `uvicorn main:app --host 0.0.0.0 --port 8000 --reload`
+    *   Or (from project root): `uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload`
+
+## Developer Notes & Future Work
+
+*   **`DEV_SUGGESTIONS.md`:** This file in the root directory contains a detailed list of suggestions for future development, next steps, and areas for improvement. Please consult it for a roadmap.
+*   **Curriculum Manifest:** `public/curriculum_manifest.json` is key for the standalone HTML browsers. It should be regenerated if the `curriculum/` directory changes (see `DEV_SUGGESTIONS.md` for automation ideas).
+*   **Dependencies & Environment (Known Issue):**
+    *   There have been intermittent issues with `npm install` and `pip install` failing in some automated agent environments. If you encounter this, manual dependency installation or environment troubleshooting might be necessary. The `package.json` and `requirements.txt` files define the needed dependencies.
+=======
 ## Current Status
 
 The platform is currently under active development. We are focusing on:

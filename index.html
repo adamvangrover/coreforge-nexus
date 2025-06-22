@@ -119,9 +119,48 @@
             font-style: italic;
             color: #4a5568; /* Gray 700 */
         }
+        .featured-lesson {
+            background-color: #f9fafb; /* Gray 50 */
+            border: 1px solid #e5e7eb; /* Gray 200 */
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+        .featured-lesson h3 {
+            margin-top: 0;
+            font-size: 1.25rem;
+            color: #1f2937; /* Gray 800 */
+        }
+        .featured-lesson .prose { /* Basic prose styling for rendered Markdown */
+             font-size: 0.95rem; line-height: 1.6;
+        }
+        .prose h1, .prose h2, .prose h3 { margin-top: 1em; margin-bottom: 0.5em; line-height: 1.2; font-weight: 600; }
+        .prose h1 { font-size: 1.5em; }
+        .prose h2 { font-size: 1.3em; }
+        .prose h3 { font-size: 1.15em; }
+        .prose p { margin-bottom: 0.8em; }
+        .prose ul, .prose ol { margin-bottom: 0.8em; padding-left: 1.5em; }
+        .prose li { margin-bottom: 0.2em; }
+        .prose pre {
+            background-color: #2d3748; color: #e2e8f0; padding: 0.8rem;
+            border-radius: 4px; overflow-x: auto; font-size: 0.85em; margin-bottom: 0.8em;
+        }
+        .prose code {
+            background-color: #e9ecef; padding: 0.1em 0.3em; margin: 0;
+            font-size: 85%; border-radius: 3px;
+        }
+        .prose blockquote {
+            border-left: 3px solid #a0aec0; padding-left: 0.8em; margin-left: 0;
+            font-style: italic; color: #4a5568;
+        }
+         .prose table { width: auto; border-collapse: collapse; margin-bottom: 0.8em; }
+        .prose th, .prose td { border: 1px solid #d1d5db; padding: 0.4em 0.6em; }
+        .prose th { background-color: #f9fafb; }
     </style>
 </head>
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
     <header>
         <h1>CoreForge Nexus</h1>
         <p>A K-12 Accredited Learning Platform for a Brighter Future</p>
@@ -205,7 +244,20 @@ Addition is bringing two or more numbers (or things) together to make a new tota
 
 Example: If you have 2 apples and get 1 more, you have 2 + 1 = 3 apples.</code></pre>
             </div>
-            <p>You can explore the full structure and content using the <a href="public/browse_curriculum.html">Simple Curriculum Browser</a> when the backend is running.</p>
+            <p>You can explore the full structure and content using the <a href="public/browse_curriculum.html">Simple Curriculum Browser</a>.</p>
+
+            <div id="featured-lessons-container" style="margin-top: 2rem;">
+                 <h3>Featured Lesson Examples (Client-Side Rendered)</h3>
+                 <div id="featured-lesson-1" class="featured-lesson">
+                     <h4>Loading Elementary Math Example...</h4>
+                     <div class="prose"></div>
+                 </div>
+                 <div id="featured-lesson-2" class="featured-lesson" style="margin-top:1rem;">
+                     <h4>Loading High School ELA Example...</h4>
+                     <div class="prose"></div>
+                 </div>
+            </div>
+
         </section>
 
     </div>
@@ -213,5 +265,52 @@ Example: If you have 2 apples and get 1 more, you have 2 + 1 = 3 apples.</code><
     <footer>
         <p>&copy; CoreForge Nexus Project. (License TBD)</p>
     </footer>
+
+    <script>
+        async function fetchAndRenderMarkdown(filePath, targetElementId, titleElementId, defaultTitle) {
+            const targetDiv = document.querySelector(`#${targetElementId} .prose`);
+            const titleDiv = document.getElementById(titleElementId);
+            if (!targetDiv || !titleDiv) return;
+
+            try {
+                const response = await fetch(filePath);
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch ${filePath}: ${response.status} ${response.statusText}`);
+                }
+                const markdownText = await response.text();
+                if (typeof marked !== 'undefined') {
+                    targetDiv.innerHTML = marked.parse(markdownText);
+                    // Extract H1 for title, or use default
+                    const h1Match = markdownText.match(/^#\s*(.*)/m);
+                    titleDiv.textContent = h1Match ? h1Match[1] : defaultTitle;
+
+                } else {
+                    targetDiv.textContent = 'Marked.js library not loaded. Cannot render Markdown.';
+                    titleDiv.textContent = defaultTitle + " (Error)";
+                }
+            } catch (error) {
+                console.error('Error fetching or rendering markdown:', error);
+                targetDiv.textContent = `Error loading lesson: ${error.message}`;
+                titleDiv.textContent = defaultTitle + " (Error)";
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // DEV_NOTE: Ensure these paths are correct relative to index.html (root)
+            fetchAndRenderMarkdown(
+                'curriculum/Elementary_K-5/Mathematics/Grade1_Math_NYSNextGen.md',
+                'featured-lesson-1',
+                'featured-lesson-1 h4',
+                'Elementary Math Example'
+            );
+            fetchAndRenderMarkdown(
+                'curriculum/High_9-12/EnglishLanguageArts/English9_NYSNextGen.md',
+                'featured-lesson-2',
+                'featured-lesson-2 h4',
+                'High School ELA Example'
+            );
+        });
+    </script>
+
 </body>
 </html>

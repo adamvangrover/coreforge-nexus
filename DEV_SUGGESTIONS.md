@@ -81,4 +81,27 @@ This document outlines potential next steps and areas for future development to 
     *   Gamification, AI tutoring, community features.
     *   Accessibility (a11y) audit and improvements.
 
+## VI. Standalone HTML Browsers & Curriculum Manifest (for GitHub Pages / Static Viewing)
+
+1.  **`curriculum_manifest.json` Maintenance:**
+    *   **Current State:** Manually generated based on `ls` output. This is error-prone and not scalable.
+    *   **Suggestion:** Create a simple Python or Node.js script (e.g., `scripts/generate_manifest.py`) that automatically scans the `curriculum/` directory and generates/updates `public/curriculum_manifest.json`.
+    *   This script should be run whenever curriculum files are added, removed, or reorganized.
+    *   Consider adding this script to a pre-commit hook or as part of a build process if a more formal build system is adopted for static assets.
+2.  **Enhancing Standalone Browsers (`index.html`, `public/browse_curriculum.html`):**
+    *   **Search Functionality:** Add client-side search to `public/browse_curriculum.html` to filter lessons based on keywords (would search the loaded `curriculum_manifest.json`).
+    *   **Improved Styling:** While basic styling is in place, further UI/UX refinements can always be made.
+    *   **Error Handling:** More robust error handling for fetch operations or if the manifest is malformed.
+3.  **LLM Interaction Points with Static Assets:**
+    *   **Manifest as Knowledge Base:** An LLM could use `curriculum_manifest.json` as a structured input to understand the available curriculum. It could:
+        *   Answer questions like "What math topics are available for Elementary K-5?".
+        *   Help generate learning paths by suggesting sequences of lessons based on the manifest.
+        *   Identify gaps in the curriculum based on the manifest's structure.
+    *   **Content Processing:** An LLM could be tasked to process the raw Markdown content of lessons (fetched via their paths in the manifest) for summarization, question generation (for quizzes), keyword extraction, or translation.
+    *   **Maintaining Consistency:** An LLM could potentially assist in validating the manifest against the actual directory structure or checking for broken links if it has filesystem access or tools to simulate it.
+    *   **Generating New Content/Manifest Entries:** If an LLM helps generate new Markdown lesson content, it could also be prompted to generate the corresponding entry for `curriculum_manifest.json`.
+4.  **Consideration for Large Curriculum:**
+    *   If the curriculum grows very large, `curriculum_manifest.json` could become very big. For client-side performance, consider splitting the manifest (e.g., one manifest per grade level) or implementing more advanced data loading strategies if `public/browse_curriculum.html` becomes slow. For now, it's likely fine.
+
+
 This list provides a solid roadmap for iterative development. Prioritization will depend on project goals and resources.

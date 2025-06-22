@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoreForge Nexus - K-12 Learning Platform</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        header {
+            background-color: #4a5568; /* Slate 700 */
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+        header p {
+            margin-top: 0.5rem;
+            font-size: 1.1rem;
+            color: #e2e8f0; /* Slate 200 */
+        }
+        .container {
+            max-width: 960px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .section {
+            background-color: white;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+        }
+        .section h2 {
+            font-size: 1.75rem;
+            color: #2c3e50; /* Darker blue-gray */
+            margin-top: 0;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .section p, .section ul {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        .section ul {
+            padding-left: 1.5rem;
+        }
+        .section li {
+            margin-bottom: 0.5rem;
+        }
+        .quick-links a, .cta-button {
+            display: inline-block;
+            background-color: #4299e1; /* Blue 500 */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .quick-links a:hover, .cta-button:hover {
+            background-color: #3182ce; /* Blue 600 */
+        }
+        .quick-links a.secondary {
+            background-color: #a0aec0; /* Cool Gray 400 */
+        }
+        .quick-links a.secondary:hover {
+            background-color: #718096; /* Cool Gray 500 */
+        }
+        code {
+            background-color: #e9ecef;
+            padding: 0.2em 0.4em;
+            margin: 0;
+            font-size: 85%;
+            border-radius: 3px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+        pre {
+            background-color: #2d3748; /* Gray 800 */
+            color: #e2e8f0; /* Gray 200 */
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.9em;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+            color: #718096; /* Cool Gray 500 */
+        }
+        .tech-stack-item {
+            background-color: #edf2f7; /* Gray 200 */
+            color: #4a5568; /* Gray 700 */
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.9em;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .curriculum-example {
+            border-left: 3px solid #4299e1; /* Blue 500 */
+            padding-left: 1rem;
+            margin-top: 0.5rem;
+            font-style: italic;
+            color: #4a5568; /* Gray 700 */
+        }
+        .featured-lesson {
+            background-color: #f9fafb; /* Gray 50 */
+            border: 1px solid #e5e7eb; /* Gray 200 */
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+        .featured-lesson h3 {
+            margin-top: 0;
+            font-size: 1.25rem;
+            color: #1f2937; /* Gray 800 */
+        }
+        .featured-lesson .prose { /* Basic prose styling for rendered Markdown */
+             font-size: 0.95rem; line-height: 1.6;
+        }
+        .prose h1, .prose h2, .prose h3 { margin-top: 1em; margin-bottom: 0.5em; line-height: 1.2; font-weight: 600; }
+        .prose h1 { font-size: 1.5em; }
+        .prose h2 { font-size: 1.3em; }
+        .prose h3 { font-size: 1.15em; }
+        .prose p { margin-bottom: 0.8em; }
+        .prose ul, .prose ol { margin-bottom: 0.8em; padding-left: 1.5em; }
+        .prose li { margin-bottom: 0.2em; }
+        .prose pre {
+            background-color: #2d3748; color: #e2e8f0; padding: 0.8rem;
+            border-radius: 4px; overflow-x: auto; font-size: 0.85em; margin-bottom: 0.8em;
+        }
+        .prose code {
+            background-color: #e9ecef; padding: 0.1em 0.3em; margin: 0;
+            font-size: 85%; border-radius: 3px;
+        }
+        .prose blockquote {
+            border-left: 3px solid #a0aec0; padding-left: 0.8em; margin-left: 0;
+            font-style: italic; color: #4a5568;
+        }
+         .prose table { width: auto; border-collapse: collapse; margin-bottom: 0.8em; }
+        .prose th, .prose td { border: 1px solid #d1d5db; padding: 0.4em 0.6em; }
+        .prose th { background-color: #f9fafb; }
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <header>
+        <h1>CoreForge Nexus</h1>
+        <p>A K-12 Accredited Learning Platform for a Brighter Future</p>
+    </header>
+
+    <div class="container">
+        <section class="section quick-links">
+            <h2>Quick Access</h2>
+            <a href="README.md">Developer README</a>
+            <a href="public/browse_curriculum.html">Simple Curriculum Browser</a>
+            <a href="#run-full-app" class="secondary">Run Full React Application</a>
+        </section>
+
+        <section class="section">
+            <h2>About CoreForge Nexus</h2>
+            <p>CoreForge Nexus is an ambitious open-source project aimed at creating a comprehensive, K-12 accredited learning platform. Our vision is to provide an engaging, adaptive, and effective educational experience for students of all backgrounds.</p>
+            <p>The platform supports core K-12 subjects and aims to include modules for GED preparation, US citizenship test readiness, and ESL (English as a Second Language) proficiency.</p>
+        </section>
+
+        <section class="section">
+            <h2>Project Overview & Features</h2>
+            <div id="curriculum-stats" style="margin-bottom: 1.5rem; padding: 1rem; background-color: #eef2ff; border-radius: 6px; border: 1px solid #c7d2fe;">
+                <h3 style="margin-top:0; font-size: 1.1rem; color: #4338ca;">Curriculum at a Glance:</h3>
+                <p style="margin:0.25rem 0;">Loading stats...</p>
+            </div>
+            <ul>
+                <li><strong>Comprehensive Curriculum:</strong> K-12 content with future modules for GED, US Citizenship, and ESL.</li>
+                <li><strong>Interactive Learning:</strong> Moving towards engaging lessons with quizzes, simulations, and interactive elements (React app).</li>
+                <li><strong>User Progression:</strong> Plans for tracking student progress and personalizing learning paths.</li>
+                <li><strong>Modern Technology:</strong> Built with React/TypeScript for the frontend and Python/FastAPI for the backend.</li>
+                <li><strong>Dockerized Environment:</strong> Easy setup and consistent development/deployment using Docker.</li>
+                <li><strong>Open Source:</strong> Community-driven development (future goal).</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Technology Stack</h2>
+            <p>
+                <span class="tech-stack-item">React</span>
+                <span class="tech-stack-item">TypeScript</span>
+                <span class="tech-stack-item">Tailwind CSS (Frontend)</span>
+                <span class="tech-stack-item">Python</span>
+                <span class="tech-stack-item">FastAPI (Backend)</span>
+                <span class="tech-stack-item">Docker</span>
+                <span class="tech-stack-item">Nginx (for serving React build)</span>
+                <span class="tech-stack-item">Markdown (for curriculum content)</span>
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>How to Explore This Project</h2>
+            <p>There are several ways to explore CoreForge Nexus:</p>
+            <ol>
+                <li>
+                    <strong>Read the Detailed README:</strong> For developers and those wanting an in-depth understanding of the architecture, setup, and contribution guidelines.
+                    <br><a href="README.md" class="cta-button secondary" style="font-size:0.9em; padding:0.5rem 1rem;">View README.md</a>
+                </li>
+                <li>
+                    <strong>Use the Simple HTML Curriculum Browser:</strong> For a quick, lightweight way to browse the available curriculum structure and view lesson content as plain text. This requires the backend API to be running.
+                    <br><a href="public/browse_curriculum.html" class="cta-button secondary" style="font-size:0.9em; padding:0.5rem 1rem;">Open Simple Browser</a>
+                </li>
+                <li id="run-full-app">
+                    <strong>Run the Full React Application:</strong> For the complete interactive experience. This involves running both the frontend and backend services, preferably using Docker.
+                    <p><strong>Basic Docker Command:</strong></p>
+                    <pre><code>docker-compose up --build</code></pre>
+                    <p>Once running, access the React app at <a href="http://localhost:3000">http://localhost:3000</a> and the backend API at <a href="http://localhost:8000/api/v1/curriculum/grade-levels">http://localhost:8000/api/v1/...</a> (e.g., for curriculum).</p>
+                    <p><em>(See <a href="README.md#getting-started-running-the-platform">README for detailed setup instructions</a> for manual and Docker methods.)</em></p>
+                </li>
+            </ol>
+        </section>
+
+        <section class="section">
+            <h2>Curriculum Examples</h2>
+            <p>The curriculum is stored in Markdown files within the <code>./curriculum</code> directory, organized by grade level and subject.</p>
+            <div class="curriculum-example">
+                <p><strong>Example File Path:</strong> <code>curriculum/Elementary_K-5/Mathematics/Grade1_Math_NYSNextGen.md</code></p>
+                <p>This file would contain Markdown content for 1st Grade Math, aligned with NYS Next Gen standards.</p>
+            </div>
+            <div class="curriculum-example">
+                <p><strong>Example Content Snippet (Conceptual from a Markdown file):</strong></p>
+                <pre><code># Chapter 1: Addition Basics
+
+## What is Addition?
+Addition is bringing two or more numbers (or things) together to make a new total.
+
+Example: If you have 2 apples and get 1 more, you have 2 + 1 = 3 apples.</code></pre>
+            </div>
+            <p>You can explore the full structure and content using the <a href="public/browse_curriculum.html">Simple Curriculum Browser</a>.</p>
+
+            <div id="featured-lessons-container" style="margin-top: 2rem;">
+                 <h3>Featured Lesson Examples (Client-Side Rendered)</h3>
+                 <div id="featured-lesson-1" class="featured-lesson">
+                     <h4>Loading Elementary Math Example...</h4>
+                     <div class="prose"></div>
+                 </div>
+                 <div id="featured-lesson-2" class="featured-lesson" style="margin-top:1rem;">
+                     <h4>Loading High School ELA Example...</h4>
+                     <div class="prose"></div>
+                 </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; CoreForge Nexus Project. (License TBD)</p>
+    </footer>
+
+    <script>
+        async function fetchAndRenderMarkdown(filePath, targetElementId, titleElementId, defaultTitle) {
+            const targetDiv = document.querySelector(`#${targetElementId} .prose`);
+            const titleDiv = document.getElementById(titleElementId);
+            if (!targetDiv || !titleDiv) return;
+
+            try {
+                const response = await fetch(filePath);
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch ${filePath}: ${response.status} ${response.statusText}`);
+                }
+                const markdownText = await response.text();
+                if (typeof marked !== 'undefined') {
+                    targetDiv.innerHTML = marked.parse(markdownText);
+                    // Extract H1 for title, or use default
+                    const h1Match = markdownText.match(/^#\s*(.*)/m);
+                    titleDiv.textContent = h1Match ? h1Match[1] : defaultTitle;
+
+                } else {
+                    targetDiv.textContent = 'Marked.js library not loaded. Cannot render Markdown.';
+                    titleDiv.textContent = defaultTitle + " (Error)";
+                }
+            } catch (error) {
+                console.error('Error fetching or rendering markdown:', error);
+                targetDiv.textContent = `Error loading lesson: ${error.message}`;
+                titleDiv.textContent = defaultTitle + " (Error)";
+            }
+        }
+
+        async function loadDynamicContent() {
+            const MANIFEST_PATH = 'public/curriculum_manifest.json';
+            let curriculumData = null;
+            let allLessons = [];
+
+            try {
+                const response = await fetch(MANIFEST_PATH);
+                if (!response.ok) throw new Error(`Failed to fetch manifest: ${response.status}`);
+                curriculumData = await response.json();
+
+                if (curriculumData && curriculumData.gradeLevels) {
+                    let subjectCount = 0;
+                    let lessonCount = 0;
+                    curriculumData.gradeLevels.forEach(grade => {
+                        grade.subjects.forEach(subject => {
+                            subjectCount++;
+                            subject.lessons.forEach(lesson => {
+                                allLessons.push(lesson); // Collect all lessons
+                                lessonCount++;
+                            });
+                        });
+                    });
+
+                    const statsDiv = document.getElementById('curriculum-stats');
+                    if (statsDiv) {
+                        statsDiv.innerHTML = `
+                            <h3 style="margin-top:0; font-size: 1.1rem; color: #4338ca;">Curriculum at a Glance:</h3>
+                            <p style="margin:0.25rem 0;"><strong>Grade Levels:</strong> ${curriculumData.gradeLevels.length}</p>
+                            <p style="margin:0.25rem 0;"><strong>Total Subjects:</strong> ${subjectCount}</p>
+                            <p style="margin:0.25rem 0;"><strong>Total Lessons:</strong> ${lessonCount}</p>
+                        `;
+                    }
+                }
+            } catch (error) {
+                console.error("Error loading curriculum manifest for dynamic content:", error);
+                const statsDiv = document.getElementById('curriculum-stats');
+                if (statsDiv) {
+                     statsDiv.innerHTML = `<h3 style="margin-top:0; font-size: 1.1rem; color: #4338ca;">Curriculum at a Glance:</h3> <p style="margin:0.25rem 0; color: #ef4444;">Could not load stats.</p>`;
+                }
+            }
+
+            // Select and render featured lessons
+            const featuredLessonsContainer = document.getElementById('featured-lessons-container');
+            if (allLessons.length > 0 && featuredLessonsContainer) {
+                // Clear existing placeholders
+                document.getElementById('featured-lesson-1').style.display = 'none';
+                document.getElementById('featured-lesson-2').style.display = 'none';
+
+                let randomLessons = [];
+                let usedIndices = new Set();
+                const numFeatured = Math.min(2, allLessons.length); // Show up to 2 featured lessons
+
+                for (let i = 0; i < numFeatured; i++) {
+                    if (allLessons.length === usedIndices.size) break; // Avoid infinite loop if not enough unique lessons
+                    let randomIndex;
+                    do {
+                        randomIndex = Math.floor(Math.random() * allLessons.length);
+                    } while (usedIndices.has(randomIndex));
+                    usedIndices.add(randomIndex);
+                    randomLessons.push(allLessons[randomIndex]);
+                }
+
+                randomLessons.forEach((lesson, index) => {
+                    const lessonDivId = `dynamic-featured-lesson-${index + 1}`;
+                    const lessonContainer = document.createElement('div');
+                    lessonContainer.id = lessonDivId;
+                    lessonContainer.className = 'featured-lesson';
+                    lessonContainer.style.marginTop = index > 0 ? '1rem' : '0';
+                    lessonContainer.innerHTML = `<h4>Loading: ${lesson.name}</h4><div class="prose"></div>`;
+                    featuredLessonsContainer.appendChild(lessonContainer);
+
+                    // Path in manifest is relative to repo root. index.html is at root.
+                    fetchAndRenderMarkdown(lesson.path, lessonDivId, `${lessonDivId} h4`, lesson.name);
+                });
+
+            } else if (featuredLessonsContainer) {
+                // If manifest failed or no lessons, update placeholders
+                document.getElementById('featured-lesson-1').innerHTML = '<h4>Math Example Unavailable</h4><div class="prose"><p>Could not load lesson.</p></div>';
+                 document.getElementById('featured-lesson-2').innerHTML = '<h4>ELA Example Unavailable</h4><div class="prose"><p>Could not load lesson.</p></div>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadDynamicContent);
+    </script>
+</body>
+</html>

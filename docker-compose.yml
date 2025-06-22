@@ -1,34 +1,50 @@
 version: '3.8'
 
+# DEV_NOTE: This docker-compose setup is for local development.
+# For production, consider more robust configurations, especially for Nginx,
+# static file serving, and backend worker management (e.g., Gunicorn with Uvicorn workers).
+
 services:
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
+      # DEV_NOTE: Frontend Dockerfile builds static assets and serves them with Nginx on port 80.
+      # This maps port 3000 on the host to port 80 in the container.
       - "3000:80"
-    container_name: mathquest-frontend
+    container_name: coreforge-nexus-frontend
     networks:
-      - mathquest-net
+      - coreforge-nexus-net
     depends_on:
-      backend-agent:
+      backend: # Renamed from backend-agent
         condition: service_healthy
+    # DEV_NOTE: For development, you might want to mount volumes to see code changes reflected:
+    # volumes:
+    #   - ./frontend:/app
+    #   - /app/node_modules # Exclude node_modules from being overwritten by host mount
 
-  backend-agent:
+  backend: # Renamed from backend-agent
     build:
       context: ./backend
       dockerfile: Dockerfile
     ports:
-      - "5001:5001"
-    container_name: mathquest-agent
+      # FastAPI backend now runs on port 8000 as per backend/main.py and backend/Dockerfile
+      - "8000:8000"
+    container_name: coreforge-nexus-backend # Renamed
     networks:
-      - mathquest-net
+      - coreforge-nexus-net
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:5001/api/health"]
-      interval: 10s
-      timeout: 5s
+      # DEV_NOTE: Ensure the /health endpoint is available and returns a 2xx status.
+      # The backend now runs on port 8000.
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
+      interval: 15s # Increased interval slightly
+      timeout: 10s
       retries: 5
+    # DEV_NOTE: For development with Uvicorn's --reload, volume mounting is useful:
+    # volumes:
+    #  - ./backend:/app
 
 networks:
-  mathquest-net:
+  coreforge-nexus-net: # Renamed network
     driver: bridge

@@ -103,4 +103,5 @@ This document outlines potential next steps and areas for future development to 
 4.  **Consideration for Large Curriculum:**
     *   If the curriculum grows very large, `curriculum_manifest.json` could become very big. For client-side performance, consider splitting the manifest (e.g., one manifest per grade level) or implementing more advanced data loading strategies if `public/browse_curriculum.html` becomes slow. For now, it's likely fine.
 
+
 This list provides a solid roadmap for iterative development. Prioritization will depend on project goals and resources.

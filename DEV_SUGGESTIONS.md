@@ -91,6 +91,7 @@ This document outlines potential next steps and areas for future development to 
         *   Add options for verbosity or quiet mode.
     *   **Process:** This script should be run whenever curriculum files in `curriculum/` are added, removed, or reorganized to keep the manifest in sync.
     *   **Automation Idea:** Consider adding this script to a pre-commit hook or as part of a CI/CD pipeline step to ensure the manifest is always up-to-date with curriculum changes.
+
 2.  **Enhancing Standalone Browsers (`index.html`, `public/browse_curriculum.html`):**
     *   **Search Functionality:** Add client-side search to `public/browse_curriculum.html` to filter lessons based on keywords (would search the loaded `curriculum_manifest.json`).
     *   **Improved Styling:** While basic styling is in place, further UI/UX refinements can always be made.
@@ -105,5 +106,6 @@ This document outlines potential next steps and areas for future development to 
     *   **Generating New Content/Manifest Entries:** If an LLM helps generate new Markdown lesson content, it could also be prompted to generate the corresponding entry for `curriculum_manifest.json`.
 4.  **Consideration for Large Curriculum:**
     *   If the curriculum grows very large, `curriculum_manifest.json` could become very big. For client-side performance, consider splitting the manifest (e.g., one manifest per grade level) or implementing more advanced data loading strategies if `public/browse_curriculum.html` becomes slow. For now, it's likely fine.
+
 
 This list provides a solid roadmap for iterative development. Prioritization will depend on project goals and resources.

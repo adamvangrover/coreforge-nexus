@@ -2,7 +2,7 @@
   "gradeLevels": [
     {
       "id": "Elementary_K-5",
-      "name": "Elementary K - 5",
+      "name": "Elementary K 5",
       "subjects": [
         {
           "id": "Arts",
@@ -10,7 +10,7 @@
           "lessons": [
             {
               "id": "Grade_K-5_Arts_NYSArts.md",
-              "name": "Grade K-5 Arts NYSArts",
+              "name": "Grade K 5 Arts NYSArts",
               "path": "curriculum/Elementary_K-5/Arts/Grade_K-5_Arts_NYSArts.md"
             }
           ]
@@ -21,7 +21,7 @@
           "lessons": [
             {
               "id": "Grade_K-5_CSDF_NYSCore.md",
-              "name": "Grade K-5 CSDF NYSCore",
+              "name": "Grade K 5 CSDF NYSCore",
               "path": "curriculum/Elementary_K-5/ComputerScience/Grade_K-5_CSDF_NYSCore.md"
             }
           ]
@@ -43,7 +43,7 @@
           "lessons": [
             {
               "id": "Grade_K-5_Health_NYSEDS.md",
-              "name": "Grade K-5 Health NYSEDS",
+              "name": "Grade K 5 Health NYSEDS",
               "path": "curriculum/Elementary_K-5/Health/Grade_K-5_Health_NYSEDS.md"
             }
           ]
@@ -65,7 +65,7 @@
           "lessons": [
             {
               "id": "Grade_K-5_PE_NYSSELS.md",
-              "name": "Grade K-5 PE NYSSELS",
+              "name": "Grade K 5 PE NYSSELS",
               "path": "curriculum/Elementary_K-5/PhysicalEducation/Grade_K-5_PE_NYSSELS.md"
             }
           ]
@@ -96,7 +96,7 @@
     },
     {
       "id": "High_9-12",
-      "name": "High 9 - 12",
+      "name": "High 9 12",
       "subjects": [
         {
           "id": "Arts",
@@ -271,7 +271,7 @@
     },
     {
       "id": "Middle_6-8",
-      "name": "Middle 6 - 8",
+      "name": "Middle 6 8",
       "subjects": [
         {
           "id": "EnglishLanguageArts",

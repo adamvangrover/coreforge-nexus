@@ -84,10 +84,14 @@ This document outlines potential next steps and areas for future development to 
 ## VI. Standalone HTML Browsers & Curriculum Manifest (for GitHub Pages / Static Viewing)
 
 1.  **`curriculum_manifest.json` Maintenance:**
-    *   **Current State:** Manually generated based on `ls` output. This is error-prone and not scalable.
-    *   **Suggestion:** Create a simple Python or Node.js script (e.g., `scripts/generate_manifest.py`) that automatically scans the `curriculum/` directory and generates/updates `public/curriculum_manifest.json`.
-    *   This script should be run whenever curriculum files are added, removed, or reorganized.
-    *   Consider adding this script to a pre-commit hook or as part of a build process if a more formal build system is adopted for static assets.
+    *   **Current State:** An initial Python script `scripts/generate_manifest.py` has been created to automate generation of `public/curriculum_manifest.json`.
+    *   **Next Steps for Script:**
+        *   Add more robust error handling (e.g., for unexpected directory structures).
+        *   Consider command-line arguments for input curriculum directory and output manifest path.
+        *   Add options for verbosity or quiet mode.
+    *   **Process:** This script should be run whenever curriculum files in `curriculum/` are added, removed, or reorganized to keep the manifest in sync.
+    *   **Automation Idea:** Consider adding this script to a pre-commit hook or as part of a CI/CD pipeline step to ensure the manifest is always up-to-date with curriculum changes.
+
 2.  **Enhancing Standalone Browsers (`index.html`, `public/browse_curriculum.html`):**
     *   **Search Functionality:** Add client-side search to `public/browse_curriculum.html` to filter lessons based on keywords (would search the loaded `curriculum_manifest.json`).
     *   **Improved Styling:** While basic styling is in place, further UI/UX refinements can always be made.

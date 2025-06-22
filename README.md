@@ -24,6 +24,7 @@
     *   Requires running both frontend and backend services. See "Running the Full Application" section below.
 
 ## Vision & Mission (Detailed)
+
 **CoreForge Nexus** (formerly conceptualized as CoreLoop, FoundryEdu, EduNexus, LMS-Core-Kit) is an ambitious project to build a comprehensive, K-12 accredited learning platform. Our vision is to provide an engaging and effective educational experience for students, ultimately supporting them through their K-12 journey and beyond, including GED preparation, US citizenship test readiness, and ESL (English as a Second Language) proficiency.
 
 ## Vision & Mission
@@ -77,6 +78,17 @@ This project uses Node.js for the frontend (React) and Python for the backend (F
 ## Developer Notes & Future Work
 
 *   **`DEV_SUGGESTIONS.md`:** This file in the root directory contains a detailed list of suggestions for future development, next steps, and areas for improvement. Please consult it for a roadmap.
+*   **Curriculum Manifest (`public/curriculum_manifest.json`):**
+    *   This JSON file is crucial for the standalone HTML browsers (`index.html` and `public/browse_curriculum.html`) as it maps the entire curriculum structure.
+    *   **Generating the Manifest:** If you make changes to the `curriculum/` directory (add/remove/rename files or folders), you **must** regenerate this manifest. A Python script is provided for this:
+        ```bash
+        python scripts/generate_manifest.py
+        ```
+        Run this command from the root of the repository. Ensure you have Python installed.
+    *   See `DEV_SUGGESTIONS.md` for more notes on this script and potential future automation.
+*   **Dependencies & Environment (Known Issue):**
+    *   There have been intermittent issues with `npm install` and `pip install` failing in some automated agent environments. If you encounter this, manual dependency installation or environment troubleshooting might be necessary. The `package.json` and `requirements.txt` files define the needed dependencies.
+=======
 *   **Curriculum Manifest:** `public/curriculum_manifest.json` is key for the standalone HTML browsers. It should be regenerated if the `curriculum/` directory changes (see `DEV_SUGGESTIONS.md` for automation ideas).
 *   **Dependencies & Environment (Known Issue):**
     *   There have been intermittent issues with `npm install` and `pip install` failing in some automated agent environments. If you encounter this, manual dependency installation or environment troubleshooting might be necessary. The `package.json` and `requirements.txt` files define the needed dependencies.

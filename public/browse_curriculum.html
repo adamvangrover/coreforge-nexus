@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Browser - CoreForge Nexus</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f2f5; /* Light gray background */
+            color: #333;
+            line-height: 1.5;
+        }
+        .app-header {
+            background-color: #343a40; /* Darker header */
+            color: white;
+            padding: 0.75rem 1rem;
+            text-align: center;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .app-header h1 {
+            margin: 0;
+            font-size: 1.5em;
+            font-weight: 500;
+        }
+        .nav-links {
+            position: absolute;
+            top: 0.75rem;
+            right: 1rem;
+            font-size: 0.9em;
+        }
+        .nav-links a {
+            color: #f0f2f5;
+            text-decoration: none;
+            margin-left: 1rem;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            display: flex;
+            height: calc(100vh - 58px); /* Adjusted for new header height */
+            margin-top: 58px; /* Adjusted for new header height */
+            padding: 10px;
+            gap: 10px; /* Space between columns */
+        }
+        .column {
+            flex: 1;
+            padding: 1rem;
+            border: 1px solid #d1d5db; /* Gray 300 */
+            overflow-y: auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+        }
+        .column:last-child {
+            border-right: 1px solid #d1d5db; /* Keep border for consistency */
+            flex: 3; /* Lesson content column is wider */
+        }
+        .column h2 {
+            font-size: 1.25em;
+            color: #1f2937; /* Gray 800 */
+            border-bottom: 1px solid #e5e7eb; /* Gray 200 */
+            padding-bottom: 0.75rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        ul { list-style-type: none; padding: 0; }
+        li button {
+            display: block; width: 100%; padding: 0.75rem 1rem; margin-bottom: 0.5rem;
+            text-align: left; background-color: #f9fafb; /* Gray 50 */
+            border: 1px solid #e5e7eb; /* Gray 200 */
+            border-radius: 6px; cursor: pointer; font-size: 0.95em;
+            transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+            color: #374151; /* Gray 700 */
+        }
+        li button:hover { background-color: #f3f4f6; border-color: #d1d5db; } /* Gray 100 & Gray 300 */
+        li button.selected {
+            background-color: #e0e7ff; /* Indigo 100 */
+            border-color: #a5b4fc; /* Indigo 300 */
+            color: #3730a3; /* Indigo 800 */
+            font-weight: 600;
+        }
+        #lesson-content-area {
+            white-space: pre-wrap;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            background-color: #fdfdff;
+            padding: 1rem;
+            border: 1px solid #e5e7eb; /* Gray 200 */
+            border-radius: 6px;
+            font-size: 0.9em;
+            line-height: 1.7;
+            color: #111827; /* Gray 900 */
+            min-height: 100px; /* Ensure it has some height when empty */
+        }
+        .loading-placeholder, .error-placeholder {
+            padding: 1rem;
+            text-align: center;
+            font-style: italic;
+            color: #6b7280; /* Gray 500 */
+        }
+        .loading span {
+            display: inline-block;
+            margin-left: 0.5rem;
+            font-size: 0.85em;
+            color: #4b5563; /* Gray 600 */
+        }
+        .error {
+            color: #ef4444; /* Red 500 */
+            font-weight: 500;
+            padding: 0.5rem;
+            background-color: #fee2e2; /* Red 100 */
+            border: 1px solid #fca5a5; /* Red 300 */
+            border-radius: 4px;
+            margin-top: 0.5rem;
+        }
+        /* Basic prose styling for rendered Markdown */
+        .prose h1, .prose h2, .prose h3 { margin-top: 1.2em; margin-bottom: 0.6em; line-height: 1.25; font-weight: 600; }
+        .prose h1 { font-size: 1.8em; }
+        .prose h2 { font-size: 1.5em; }
+        .prose h3 { font-size: 1.25em; }
+        .prose p { margin-bottom: 1em; }
+        .prose ul, .prose ol { margin-bottom: 1em; padding-left: 1.5em; }
+        .prose li { margin-bottom: 0.25em; }
+        .prose pre {
+            background-color: #2d3748; /* Gray 800 from index.html */
+            color: #e2e8f0; /* Gray 200 */
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.85em;
+            margin-bottom: 1em;
+        }
+        .prose code { /* Inline code */
+            background-color: #e9ecef;
+            padding: 0.2em 0.4em;
+            margin: 0;
+            font-size: 85%;
+            border-radius: 3px;
+        }
+        .prose blockquote {
+            border-left: 3px solid #a0aec0; /* Cool Gray 400 */
+            padding-left: 1em;
+            margin-left: 0;
+            font-style: italic;
+            color: #4a5568; /* Gray 700 */
+        }
+        .prose table { width: auto; border-collapse: collapse; margin-bottom: 1em; }
+        .prose th, .prose td { border: 1px solid #d1d5db; padding: 0.5em 0.75em; }
+        .prose th { background-color: #f9fafb; }
+    </style>
+</head>
+<body>
+    <header class="app-header">
+        <h1>CoreForge Nexus - Simple Curriculum Browser</h1>
+        <div class="nav-links">
+            <a href="../index.html">Project Home</a>
+            <a href="../README.md">Developer README</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="column" id="grade-levels-column">
+            <h2>Grade Levels <span id="loading-grades" class="loading" style="display:none;"><span>(loading...)</span></span></h2>
+            <ul id="grade-levels-list"><li class="loading-placeholder">Loading grade levels...</li></ul>
+            <div id="error-grades" class="error" style="display:none;"></div>
+        </div>
+        <div class="column" id="subjects-column">
+            <h2>Subjects <span id="loading-subjects" class="loading" style="display:none;"><span>(loading...)</span></span></h2>
+            <ul id="subjects-list"><li class="loading-placeholder">Select a grade level first.</li></ul>
+            <div id="error-subjects" class="error" style="display:none;"></div>
+        </div>
+        <div class="column" id="lessons-column">
+            <h2>Lessons <span id="loading-lessons" class="loading" style="display:none;"><span>(loading...)</span></span></h2>
+            <input type="text" id="lesson-filter" placeholder="Filter lessons..." style="width: calc(100% - 1.5rem); padding: 0.5rem; margin-bottom: 0.75rem; border: 1px solid #d1d5db; border-radius: 4px; font-size: 0.9em;" title="Filter lessons by name">
+            <ul id="lessons-list"><li class="loading-placeholder">Select a subject first.</li></ul>
+            <div id="error-lessons" class="error" style="display:none;"></div>
+        </div>
+        <div class="column" id="content-column">
+            <h2>
+                Lesson Content
+                <span id="loading-content" class="loading" style="display:none;"><span>(loading...)</span></span>
+                <button id="toggle-manifest-btn" style="font-size: 0.7em; padding: 2px 5px; margin-left: 10px; background-color: #e5e7eb; border: 1px solid #d1d5db; border-radius: 3px; cursor: pointer;">View Manifest</button>
+            </h2>
+            <div id="lesson-content-area" class="loading-placeholder">Select a lesson to view its content.</div>
+            <div id="error-content" class="error" style="display:none;"></div>
+            <div id="lesson-content-rendered" class="prose" style="display:none;"></div>
+            <pre id="manifest-json-display" style="display:none; background-color: #f3f4f6; border: 1px solid #e5e7eb; padding: 10px; margin-top:10px; font-size:0.8em; max-height: 300px; overflow-y:auto;"></pre>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        // DEV_NOTE: For standalone operation on GitHub Pages, this script fetches
+        // curriculum_manifest.json and then relative paths to .md files.
+        const MANIFEST_PATH = '../curriculum_manifest.json';
+
+        // DEV_NOTE: fallbackCurriculumData is embedded as a fallback if MANIFEST_PATH fetch fails.
+        // This data should be updated if the curriculum_manifest.json changes significantly.
+        // Ideally, a build script would inject this. For now, it's manually inserted.
+        const fallbackCurriculumData = {
+          "gradeLevels": [
+            {
+              "id": "Elementary_K-5",
+              "name": "Elementary K 5",
+              "subjects": [
+                {
+                  "id": "Arts",
+                  "name": "Arts",
+                  "lessons": [
+                    {
+                      "id": "Grade_K-5_Arts_NYSArts.md",
+                      "name": "Grade K 5 Arts NYSArts",
+                      "path": "curriculum/Elementary_K-5/Arts/Grade_K-5_Arts_NYSArts.md"
+                    }
+                  ]
+                },
+                {
+                  "id": "ComputerScience",
+                  "name": "ComputerScience",
+                  "lessons": [
+                    {
+                      "id": "Grade_K-5_CSDF_NYSCore.md",
+                      "name": "Grade K 5 CSDF NYSCore",
+                      "path": "curriculum/Elementary_K-5/ComputerScience/Grade_K-5_CSDF_NYSCore.md"
+                    }
+                  ]
+                },
+                {
+                  "id": "EnglishLanguageArts",
+                  "name": "EnglishLanguageArts",
+                  "lessons": [
+                    {
+                      "id": "GradeK_ELA_NYSNextGen.md",
+                      "name": "GradeK ELA NYSNextGen",
+                      "path": "curriculum/Elementary_K-5/EnglishLanguageArts/GradeK_ELA_NYSNextGen.md"
+                    }
+                  ]
+                },
+                {
+                  "id": "Health",
+                  "name": "Health",
+                  "lessons": [
+                    {
+                      "id": "Grade_K-5_Health_NYSEDS.md",
+                      "name": "Grade K 5 Health NYSEDS",
+                      "path": "curriculum/Elementary_K-5/Health/Grade_K-5_Health_NYSEDS.md"
+                    }
+                  ]
+                },
+                {
+                  "id": "Mathematics",
+                  "name": "Mathematics",
+                  "lessons": [
+                    {
+                      "id": "Grade1_Math_NYSNextGen.md",
+                      "name": "Grade1 Math NYSNextGen",
+                      "path": "curriculum/Elementary_K-5/Mathematics/Grade1_Math_NYSNextGen.md"
+                    }
+                  ]
+                },
+                {
+                  "id": "PhysicalEducation",
+                  "name": "PhysicalEducation",
+                  "lessons": [
+                    {
+                      "id": "Grade_K-5_PE_NYSSELS.md",
+                      "name": "Grade K 5 PE NYSSELS",
+                      "path": "curriculum/Elementary_K-5/PhysicalEducation/Grade_K-5_PE_NYSSELS.md"
+                    }
+                  ]
+                },
+                {
+                  "id": "Science",
+                  "name": "Science",
+                  "lessons": [
+                    {
+                      "id": "Grade3_Science_NYSSLS.md",
+                      "name": "Grade3 Science NYSSLS",
+                      "path": "curriculum/Elementary_K-5/Science/Grade3_Science_NYSSLS.md"
+                    }
+                  ]
+                },
+                {
+                  "id": "SocialStudies",
+                  "name": "SocialStudies",
+                  "lessons": [
+                    {
+                      "id": "Grade4_SocialStudies_NYSFramework.md",
+                      "name": "Grade4 SocialStudies NYSFramework",
+                      "path": "curriculum/Elementary_K-5/SocialStudies/Grade4_SocialStudies_NYSFramework.md"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "High_9-12",
+              "name": "High 9 12",
+              "subjects": [
+                {
+                  "id": "Arts",
+                  "name": "Arts",
+                  "lessons": [
+                    {
+                      "id": "VisualArts_Foundation_NYSArts.md",
+                      "name": "VisualArts Foundation NYSArts",
+                      "path": "curriculum/High_9-12/Arts/VisualArts_Foundation_NYSArts.md"
+                    }
+                  ]
+                },
+                {
+                  "id": "ComputerScience",
+                  "name": "ComputerScience",
+                  "lessons": [
+                    {
+                      "id": "CS_Intro_NYSCore.md",
+                      "name": "CS Intro NYSCore",
+                      "path": "curriculum/High_9-12/ComputerScience/CS_Intro_NYSCore.md"
+                    }
+                  ]
+                },
+                {
+                  "id": "EnglishLanguageArts",
+                  "name": "EnglishLanguageArts",
+                  "lessons": [
+                    {
+                      "id": "English10_NYSNextGen.md",
+                      "name": "English10 NYSNextGen",
+                      "path": "curriculum/High_9-12/EnglishLanguageArts/English10_NYSNextGen.md"
+                    },
+                    {
+                      "id": "English11_NYSNextGen.md",
+                      "name": "English11 NYSNextGen",
+                      "path": "curriculum/High_9-12/EnglishLanguageArts/English11_NYSNextGen.md"
+                    },
+                    {
+                      "id": "English12_NYSNextGen.md",
+                      "name": "English12 NYSNextGen",
+                      "path": "curriculum/High_9-12/EnglishLanguageArts/English12_NYSNextGen.md"
+                    },
+                    {
+                      "id": "English9_NYSNextGen.md",
+                      "name": "English9 NYSNextGen",
+                      "path": "curriculum/High_9-12/EnglishLanguageArts/English9_NYSNextGen.md"
+                    }
+                  ]
+                },
+                {
+                  "id": "Health",
+                  "name": "Health",
+                  "lessons": [
+                    {
+                      "id": "Health_HS_NYSEDS.md",
+                      "name": "Health HS NYSEDS",
+                      "path": "curriculum/High_9-12/Health/Health_HS_NYSEDS.md"
+                    }
+                  ]
+                },
+                {
+                  "id": "Mathematics",
+                  "name": "Mathematics",
+                  "lessons": [
+                    {
+                      "id": "Algebra1_NYSNextGen.md",
+                      "name": "Algebra1 NYSNextGen",
+                      "path": "curriculum/High_9-12/Mathematics/Algebra1_NYSNextGen.md"
+                    },
+                    {
+                      "id": "Algebra2_NYSNextGen.md",
+                      "name": "Algebra2 NYSNextGen",
+                      "path": "curriculum/High_9-12/Mathematics/Algebra2_NYSNextGen.md"
+                    },
+                    {
+                      "id": "Geometry_NYSNextGen.md",
+                      "name": "Geometry NYSNextGen",
+                      "path": "curriculum/High_9-12/Mathematics/Geometry_NYSNextGen.md"
+                    }
+                  ]
+                },
+                {
+                  "id": "PhysicalEducation",
+                  "name": "PhysicalEducation",
+                  "lessons": [
+                    {
+                      "id": "PE_Year1_NYSPE.md",
+                      "name": "PE Year1 NYSPE",
+                      "path": "curriculum/High_9-12/PhysicalEducation/PE_Year1_NYSPE.md"
+                    },
+                    {
+                      "id": "PE_Year2_NYSPE.md",
+                      "name": "PE Year2 NYSPE",
+                      "path": "curriculum/High_9-12/PhysicalEducation/PE_Year2_NYSPE.md"
+                    },
+                    {
+                      "id": "PE_Year3_NYSPE.md",
+                      "name": "PE Year3 NYSPE",
+                      "path": "curriculum/High_9-12/PhysicalEducation/PE_Year3_NYSPE.md"
+                    },
+                    {
+                      "id": "PE_Year4_NYSPE.md",
+                      "name": "PE Year4 NYSPE",
+                      "path": "curriculum/High_9-12/PhysicalEducation/PE_Year4_NYSPE.md"
+                    }
+                  ]
+                },
+                {
+                  "id": "Science",
+                  "name": "Science",
+                  "lessons": [
+                    {
+                      "id": "EarthScience_NYSSLS.md",
+                      "name": "EarthScience NYSSLS",
+                      "path": "curriculum/High_9-12/Science/EarthScience_NYSSLS.md"
+                    },
+                    {
+                      "id": "LivingEnvironment_Biology_NYSSLS.md",
+                      "name": "LivingEnvironment Biology NYSSLS",
+                      "path": "curriculum/High_9-12/Science/LivingEnvironment_Biology_NYSSLS.md"
+                    },
+                    {
+                      "id": "PhysicalScience_Chemistry_NYSSLS.md",
+                      "name": "PhysicalScience Chemistry NYSSLS",
+                      "path": "curriculum/High_9-12/Science/PhysicalScience_Chemistry_NYSSLS.md"
+                    }
+                  ]
+                },
+                {
+                  "id": "SocialStudies",
+                  "name": "SocialStudies",
+                  "lessons": [
+                    {
+                      "id": "Economics_NYSFramework.md",
+                      "name": "Economics NYSFramework",
+                      "path": "curriculum/High_9-12/SocialStudies/Economics_NYSFramework.md"
+                    },
+                    {
+                      "id": "GlobalHistory10_NYSFramework.md",
+                      "name": "GlobalHistory10 NYSFramework",
+                      "path": "curriculum/High_9-12/SocialStudies/GlobalHistory10_NYSFramework.md"
+                    },
+                    {
+                      "id": "GlobalHistory9_NYSFramework.md",
+                      "name": "GlobalHistory9 NYSFramework",
+                      "path": "curriculum/High_9-12/SocialStudies/GlobalHistory9_NYSFramework.md"
+                    },
+                    {
+                      "id": "ParticipationInGovernment_NYSFramework.md",
+                      "name": "ParticipationInGovernment NYSFramework",
+                      "path": "curriculum/High_9-12/SocialStudies/ParticipationInGovernment_NYSFramework.md"
+                    },
+                    {
+                      "id": "USHistory11_NYSFramework.md",
+                      "name": "USHistory11 NYSFramework",
+                      "path": "curriculum/High_9-12/SocialStudies/USHistory11_NYSFramework.md"
+                    }
+                  ]
+                },
+                {
+                  "id": "WorldLanguages",
+                  "name": "WorldLanguages",
+                  "lessons": [
+                    {
+                      "id": "Spanish1_NYSLOTE.md",
+                      "name": "Spanish1 NYSLOTE",
+                      "path": "curriculum/High_9-12/WorldLanguages/Spanish1_NYSLOTE.md"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "Middle_6-8",
+              "name": "Middle 6 8",
+              "subjects": [
+                {
+                  "id": "EnglishLanguageArts",
+                  "name": "EnglishLanguageArts",
+                  "lessons": [
+                    {
+                      "id": "Grade7_ELA_NYSNextGen.md",
+                      "name": "Grade7 ELA NYSNextGen",
+                      "path": "curriculum/Middle_6-8/EnglishLanguageArts/Grade7_ELA_NYSNextGen.md"
+                    }
+                  ]
+                },
+                {
+                  "id": "Mathematics",
+                  "name": "Mathematics",
+                  "lessons": [
+                    {
+                      "id": "Grade8_Math_NYSNextGen.md",
+                      "name": "Grade8 Math NYSNextGen",
+                      "path": "curriculum/Middle_6-8/Mathematics/Grade8_Math_NYSNextGen.md"
+                    }
+                  ]
+                },
+                {
+                  "id": "Science",
+                  "name": "Science",
+                  "lessons": [
+                    {
+                      "id": "Grade8_PhysicalScience_NYSSLS.md",
+                      "name": "Grade8 PhysicalScience NYSSLS",
+                      "path": "curriculum/Middle_6-8/Science/Grade8_PhysicalScience_NYSSLS.md"
+                    }
+                  ]
+                },
+                {
+                  "id": "SocialStudies",
+                  "name": "SocialStudies",
+                  "lessons": [
+                    {
+                      "id": "Grade8_USHistoryEarly_NYSFramework.md",
+                      "name": "Grade8 USHistoryEarly NYSFramework",
+                      "path": "curriculum/Middle_6-8/SocialStudies/Grade8_USHistoryEarly_NYSFramework.md"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        };
+
+        let curriculumData = null;
+
+        const gradeLevelsList = document.getElementById('grade-levels-list');
+        const subjectsList = document.getElementById('subjects-list');
+        const lessonsList = document.getElementById('lessons-list');
+        const lessonContentArea = document.getElementById('lesson-content-area');
+
+        const loadingIndicators = {
+            grades: document.getElementById('loading-grades'),
+            subjects: document.getElementById('loading-subjects'),
+            lessons: document.getElementById('loading-lessons'),
+            content: document.getElementById('loading-content'),
+        };
+
+        const errorDisplays = {
+            grades: document.getElementById('error-grades'),
+            subjects: document.getElementById('error-subjects'),
+            lessons: document.getElementById('error-lessons'),
+            content: document.getElementById('error-content'),
+        };
+
+        const lessonContentRendered = document.getElementById('lesson-content-rendered');
+
+        let selectedGradeData = null;
+        let selectedSubjectData = null;
+        // No need for currentSelectedLesson data storage as path comes from manifest item
+
+        function setLoading(type, isLoading) {
+            if (loadingIndicators[type]) loadingIndicators[type].style.display = isLoading ? 'inline-block' : 'none';
+            if (errorDisplays[type]) {
+                errorDisplays[type].textContent = '';
+                errorDisplays[type].style.display = 'none';
+            }
+        }
+
+        function setError(type, message) {
+            if (errorDisplays[type]) {
+                errorDisplays[type].textContent = message;
+                errorDisplays[type].style.display = 'block';
+            }
+            console.error(`Error (${type}): ${message}`);
+        }
+
+        function createButton(item, clickHandler) { // Removed type, item is now always an object from manifest
+            const button = document.createElement('button');
+            button.textContent = item.name; // name is already formatted in manifest
+            button.dataset.id = item.id;
+            button.onclick = () => {
+                const parentUl = button.closest('ul');
+                if (parentUl) {
+                    Array.from(parentUl.querySelectorAll('button.selected')).forEach(btn => btn.classList.remove('selected'));
+                }
+                button.classList.add('selected');
+                clickHandler(item); // Pass the whole item object
+            };
+            const li = document.createElement('li');
+            li.appendChild(button);
+            return li;
+        }
+
+        function displayItems(listElement, items, clickHandler, placeholderText) {
+            listElement.innerHTML = ''; // Clear previous items
+            if (items && items.length > 0) {
+                items.forEach(item => {
+                    listElement.appendChild(createButton(item, clickHandler));
+                });
+            } else {
+                listElement.innerHTML = `<li class="loading-placeholder">${placeholderText}</li>`;
+            }
+        }
+
+        async function loadLessonContent(lesson) { // lesson is an object from manifest
+            setLoading('content', true);
+            lessonContentArea.style.display = 'none'; // Hide plain text area
+            lessonContentRendered.style.display = 'none'; // Hide rendered area
+            lessonContentRendered.innerHTML = ''; // Clear previous rendered content
+
+            // Path in manifest is relative to repo root.
+            // browse_curriculum.html is in public/. So, need to adjust path.
+            // Example: manifest path "curriculum/Elementary_K-5/Arts/Grade_K-5_Arts_NYSArts.md"
+            // needs to be fetched as "../curriculum/Elementary_K-5/Arts/Grade_K-5_Arts_NYSArts.md"
+            // if browse_curriculum.html is in public/
+            // Or, if the manifest path itself is already correct for relative fetching from public/:
+            // e.g. path: "../curriculum/..." - current manifest has "curriculum/..."
+            // So, we prepend "../" to the path from manifest.
+            const relativePath = `../${lesson.path}`;
+
+            try {
+                const response = await fetch(relativePath);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status} ${response.statusText} for ${relativePath}`);
+                const markdownText = await response.text();
+                if (typeof marked !== 'undefined') {
+                    lessonContentRendered.innerHTML = marked.parse(markdownText);
+                    lessonContentRendered.style.display = 'block';
+                } else {
+                    lessonContentArea.textContent = markdownText; // Fallback to plain text
+                    lessonContentArea.style.display = 'block';
+                    setError('content', 'Marked.js library not loaded. Displaying raw Markdown.');
+                }
+            } catch (e) {
+                const errorMessage = e instanceof Error ? e.message : String(e);
+                let userMessage = `Failed to load lesson content: ${errorMessage}`;
+                if (curriculumData === fallbackCurriculumData && (window.location.protocol === "file:" || e instanceof TypeError)) {
+                    // TypeError can occur from fetch in file:/// context for cross-origin/local file restrictions
+                    userMessage = `Could not load lesson content. This might be due to viewing as a local file (file:///...). Try serving this page via an HTTP server. Path: ${lesson.path}`;
+                }
+                setError('content', userMessage);
+                lessonContentArea.textContent = 'Error loading content. See console for details or error message above.';
+                lessonContentArea.style.display = 'block';
+            } finally {
+                setLoading('content', false);
+            }
+        }
+
+        function displaySubjects(grade) { // grade is an object from manifest
+            selectedGradeData = grade;
+            selectedSubjectData = null;
+            displayItems(subjectsList, grade.subjects, displayLessons, 'Select a subject.');
+            lessonsList.innerHTML = '<li class="loading-placeholder">Select a subject first.</li>';
+            lessonContentArea.style.display = 'block'; // Show placeholder
+            lessonContentArea.textContent = 'Select a subject and then a lesson.';
+            lessonContentRendered.style.display = 'none';
+        }
+
+        function displayLessons(subject) { // subject is an object from manifest
+            selectedSubjectData = subject;
+            displayItems(lessonsList, subject.lessons, loadLessonContent, 'Select a lesson.');
+            lessonContentArea.style.display = 'block'; // Show placeholder
+            lessonContentArea.textContent = 'Select a lesson to view its content.';
+            lessonContentRendered.style.display = 'none';
+        }
+
+        async function initializeBrowser() {
+            setLoading('grades', true);
+            const statusMessageDiv = document.getElementById('status-message'); // Get status message div
+
+            try {
+                const response = await fetch(MANIFEST_PATH);
+                if (!response.ok) {
+                    // If fetch fails (e.g. 404, network error, or file:/// access restriction)
+                    throw new Error(`Fetch failed: ${response.status} ${response.statusText}. Using fallback data.`);
+                }
+                curriculumData = await response.json();
+                if (statusMessageDiv) statusMessageDiv.textContent = 'Displaying live curriculum data from manifest.json.';
+                if (!curriculumData || !curriculumData.gradeLevels || curriculumData.gradeLevels.length === 0) {
+                     // Fetched manifest is empty or invalid, try fallback
+                    throw new Error('Fetched manifest is empty or invalid. Using fallback data.');
+                }
+                console.log("Fetched curriculum_manifest.json successfully.");
+                displayItems(gradeLevelsList, curriculumData.gradeLevels, displaySubjects, 'No grade levels found in manifest.');
+
+            } catch (e) {
+                const errorMessage = e instanceof Error ? e.message : String(e);
+                console.warn(`Could not fetch ${MANIFEST_PATH}: ${errorMessage}. Attempting to use fallback data.`);
+                curriculumData = fallbackCurriculumData; // Use embedded fallback
+                if (statusMessageDiv) statusMessageDiv.innerHTML = `<strong>Displaying offline fallback data.</strong> Lesson content may not load if viewing as a local file (file:///...). Try serving this page via HTTP.`;
+
+                if (curriculumData && curriculumData.gradeLevels && curriculumData.gradeLevels.length > 0) {
+                    displayItems(gradeLevelsList, curriculumData.gradeLevels, displaySubjects, 'No grade levels found in fallback data.');
+                } else {
+                    setError('grades', 'Fallback curriculum data is also missing or invalid.');
+                    gradeLevelsList.innerHTML = '<li class="loading-placeholder">Error loading curriculum structure (fallback failed).</li>';
+                    if (statusMessageDiv) statusMessageDiv.innerHTML = `<strong>Error:</strong> Could not load curriculum data from manifest or fallback.`;
+                }
+            } finally {
+                setLoading('grades', false);
+            }
+        }
+
+        // Add a div for status messages in the HTML, e.g., inside the header or top of container
+        // For example, add this inside <header class="app-header">:
+        // <div id="status-message" style="font-size: 0.8em; color: #ffc107; text-align: center; padding-top: 5px;"></div>
+        // Or a more prominent one below the header. I'll add it just below the header.
+        const headerElement = document.querySelector('.app-header');
+        if (headerElement) {
+            const statusDiv = document.createElement('div');
+            statusDiv.id = 'status-message';
+            statusDiv.style.cssText = 'padding: 0.5rem 1rem; background-color: #fff3cd; color: #664d03; text-align: center; font-size: 0.9em; border-bottom: 1px solid #ffe69c;';
+            headerElement.parentNode.insertBefore(statusDiv, headerElement.nextSibling);
+            // Adjust container margin-top due to status message
+            const containerElement = document.querySelector('.container');
+            if (containerElement) containerElement.style.marginTop = (58 + 30) + 'px'; // 58 for header, ~30 for status
+        }
+
+
+        const manifestJsonDisplay = document.getElementById('manifest-json-display');
+        const toggleManifestBtn = document.getElementById('toggle-manifest-btn');
+        const lessonFilterInput = document.getElementById('lesson-filter');
+
+        if (toggleManifestBtn) {
+            toggleManifestBtn.onclick = () => {
+                if (manifestJsonDisplay.style.display === 'none') {
+                    if (curriculumData) {
+                        manifestJsonDisplay.textContent = JSON.stringify(curriculumData, null, 2);
+                        manifestJsonDisplay.style.display = 'block';
+                        toggleManifestBtn.textContent = 'Hide Manifest';
+                    } else {
+                        manifestJsonDisplay.textContent = 'Manifest not loaded yet.';
+                        manifestJsonDisplay.style.display = 'block';
+                    }
+                } else {
+                    manifestJsonDisplay.style.display = 'none';
+                    toggleManifestBtn.textContent = 'View Manifest';
+                }
+            };
+        }
+
+        if (lessonFilterInput) {
+            lessonFilterInput.oninput = (e) => {
+                const filterText = e.target.value.toLowerCase();
+                if (selectedSubjectData && selectedSubjectData.lessons) {
+                    const filteredLessons = selectedSubjectData.lessons.filter(lesson =>
+                        lesson.name.toLowerCase().includes(filterText)
+                    );
+                    displayItems(lessonsList, filteredLessons, loadLessonContent, 'No lessons match filter.');
+                }
+            };
+        }
+
+        function displayLessons(subject) { // subject is an object from manifest
+            selectedSubjectData = subject;
+            if (lessonFilterInput) lessonFilterInput.value = ''; // Clear filter on new subject
+            displayItems(lessonsList, subject.lessons, loadLessonContent, 'Select a lesson.');
+            lessonContentArea.style.display = 'block'; // Show placeholder
+            lessonContentArea.textContent = 'Select a lesson to view its content.';
+            lessonContentRendered.style.display = 'none';
+        }
+
+        // Initial load
+        initializeBrowser();
+
+    </script>
+</body>
+</html>

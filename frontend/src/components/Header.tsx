@@ -1,59 +1,65 @@
 import React from 'react';
-import { Target, BarChart2, BookOpen, BrainCircuit, Menu, X } from 'lucide-react'; // Added Menu and X for mobile
+import { NavLink } from 'react-router-dom';
+import { BookOpen, Target, BarChart2, BrainCircuit, Menu, X, BookMarked, TrendingUp, Info } from 'lucide-react';
 
-type NavViewId = 'dashboard' | 'progressCenter' | 'explorationZone';
-
+// DEV_NOTE: NavItem interface updated for react-router-dom NavLink
 interface NavItem {
-    id: NavViewId;
+    to: string; // Path for NavLink
     label: string;
     icon: React.ElementType; // Lucide icons are components
 }
 
-interface HeaderProps {
-    activeView: NavViewId | string; // Allow string for flexibility if other views are added dynamically
-    setActiveView: (viewId: NavViewId) => void;
-}
-
-export const Header: React.FC<HeaderProps> = ({ activeView, setActiveView }) => {
+// DEV_NOTE: HeaderProps removed as activeView/setActiveView are no longer needed.
+export const Header: React.FC = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
     const navItems: NavItem[] = [
-        { id: 'dashboard', label: 'Dashboard', icon: Target },
-        { id: 'progressCenter', label: 'Progress', icon: BarChart2 },
-        { id: 'explorationZone', label: 'Explore', icon: BrainCircuit },
+        { to: '/dashboard', label: 'Dashboard', icon: Target },
+        { to: '/learning', label: 'My Learning', icon: BookMarked },
+        { to: '/progress', label: 'My Progress', icon: TrendingUp }, // Or BarChart2
+        { to: '/explore', label: 'Explore', icon: BrainCircuit },
+        { to: '/resources', label: 'Resources', icon: Info }, // Or FileText
     ];
 
-    const handleNavClick = (viewId: NavViewId) => {
-        setActiveView(viewId);
-        setIsMobileMenuOpen(false); // Close mobile menu on navigation
+    const getNavLinkClass = ({ isActive }: { isActive: boolean }): string => {
+        return `flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-150 ease-in-out ${
+            isActive
+                ? 'bg-indigo-100 text-indigo-700'
+                : 'text-gray-500 hover:bg-gray-100 hover:text-gray-700'
+        }`;
     };
 
+    const getMobileNavLinkClass = ({ isActive }: { isActive: boolean }): string => {
+        return `flex items-center w-full px-3 py-2 rounded-md text-base font-medium transition-colors duration-150 ease-in-out ${
+            isActive
+                ? 'bg-indigo-100 text-indigo-700'
+                : 'text-gray-600 hover:bg-gray-100 hover:text-gray-800'
+        }`;
+    };
+
+
     return (
-        <header className="bg-white shadow-sm sticky top-0 z-50"> {/* Increased z-index */}
+        <header className="bg-white shadow-sm sticky top-0 z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo and Title */}
-                    <div className="flex items-center space-x-2">
-                        <BookOpen className="h-8 w-8 text-indigo-600" />
-                        <h1 className="text-xl font-bold text-gray-800">MathQuest</h1>
-                    </div>
+                    <NavLink to="/dashboard" className="flex items-center space-x-2 group">
+                        <BookOpen className="h-8 w-8 text-indigo-600 group-hover:text-indigo-700 transition-colors" />
+                        <h1 className="text-xl font-bold text-gray-800 group-hover:text-indigo-700 transition-colors">CoreForge Nexus</h1>
+                    </NavLink>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden md:flex space-x-1"> {/* Reduced space for tighter packing if needed */}
+                    <nav className="hidden md:flex space-x-1">
                         {navItems.map(item => (
-                            <button
-                                key={item.id}
-                                onClick={() => handleNavClick(item.id)}
-                                className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-150 ease-in-out ${
-                                    activeView === item.id
-                                        ? 'bg-indigo-100 text-indigo-700'
-                                        : 'text-gray-500 hover:bg-gray-100 hover:text-gray-700'
-                                }`}
-                                aria-current={activeView === item.id ? 'page' : undefined}
+                            <NavLink
+                                key={item.to}
+                                to={item.to}
+                                className={getNavLinkClass}
+                                onClick={() => isMobileMenuOpen && setIsMobileMenuOpen(false)} // Close mobile menu if open
                             >
-                                <item.icon className="h-5 w-5 mr-2 shrink-0" /> {/* Added shrink-0 */}
+                                <item.icon className="h-5 w-5 mr-2 shrink-0" />
                                 {item.label}
-                            </button>
+                            </NavLink>
                         ))}
                     </nav>
 
@@ -78,22 +84,18 @@ export const Header: React.FC<HeaderProps> = ({ activeView, setActiveView }) => 
 
             {/* Mobile Menu */}
             {isMobileMenuOpen && (
-                <div className="md:hidden absolute top-16 inset-x-0 z-40 bg-white shadow-lg" id="mobile-menu"> {/* Added absolute positioning and z-index */}
+                <div className="md:hidden absolute top-16 inset-x-0 z-40 bg-white shadow-lg" id="mobile-menu">
                     <nav className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                         {navItems.map(item => (
-                            <button
-                                key={item.id}
-                                onClick={() => handleNavClick(item.id)}
-                                className={`flex items-center w-full px-3 py-2 rounded-md text-base font-medium transition-colors duration-150 ease-in-out ${
-                                    activeView === item.id
-                                        ? 'bg-indigo-100 text-indigo-700'
-                                        : 'text-gray-600 hover:bg-gray-100 hover:text-gray-800'
-                                }`}
-                                aria-current={activeView === item.id ? 'page' : undefined}
+                            <NavLink
+                                key={item.to}
+                                to={item.to}
+                                className={getMobileNavLinkClass}
+                                onClick={() => setIsMobileMenuOpen(false)} // Close mobile menu on navigation
                             >
                                 <item.icon className="h-6 w-6 mr-3 shrink-0" />
                                 {item.label}
-                            </button>
+                            </NavLink>
                         ))}
                     </nav>
                 </div>

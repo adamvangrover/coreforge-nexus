@@ -14,9 +14,10 @@
 
 2.  **`public/browse_curriculum.html` (Standalone Curriculum Browser):**
     *   A lightweight HTML page that allows you to browse the curriculum structure (grade levels, subjects, lessons) and view lesson content (Markdown rendered to HTML).
-    *   **Standalone:** Uses a `curriculum_manifest.json` and client-side JavaScript to fetch and display content directly from the `curriculum/` directory. It does **not** require the backend API to be running for browsing.
+    *   **Standalone & Offline Capability:** Uses `public/curriculum_manifest.json` (fetched if available) or embedded fallback data to display the curriculum structure. This allows basic structural browsing even when opened as a local file (`file:///...`) or if the manifest fails to load. Full lesson content viewing in true offline/`file:///` mode might be limited by browser security policies for fetching local `.md` files, but the structure remains accessible.
     *   **How to view:** Open `public/browse_curriculum.html` directly in your browser or view on GitHub Pages: [https://adamvangrover.github.io/coreforge-nexus/public/browse_curriculum.html](https://adamvangrover.github.io/coreforge-nexus/public/browse_curriculum.html)
-    *   The `public/curriculum_manifest.json` file is crucial for this browser. See `DEV_SUGGESTIONS.md` for notes on keeping it updated.
+    *   The `public/curriculum_manifest.json` file is primary for live data; an embedded version provides fallback. See `DEV_SUGGESTIONS.md` for notes on keeping these updated.
+
 
 3.  **Full React/FastAPI Application (For Active Development & Full Features):**
     *   The main, feature-rich platform with a React frontend and FastAPI backend.
@@ -25,9 +26,11 @@
 
 ## Vision & Mission (Detailed)
 
+
 **CoreForge Nexus** (formerly conceptualized as CoreLoop, FoundryEdu, EduNexus, LMS-Core-Kit) is an ambitious project to build a comprehensive, K-12 accredited learning platform. Our vision is to provide an engaging and effective educational experience for students, ultimately supporting them through their K-12 journey and beyond, including GED preparation, US citizenship test readiness, and ESL (English as a Second Language) proficiency.
 
 ## Vision & Mission
+
 
 *   **Vision:** To be a leading online learning platform that empowers students of all ages and backgrounds with accessible, high-quality education.
 *   **Mission:** To develop a flexible, interactive, and comprehensive curriculum delivery system that adapts to individual learning needs and prepares students for future success.
@@ -88,7 +91,7 @@ This project uses Node.js for the frontend (React) and Python for the backend (F
     *   See `DEV_SUGGESTIONS.md` for more notes on this script and potential future automation.
 *   **Dependencies & Environment (Known Issue):**
     *   There have been intermittent issues with `npm install` and `pip install` failing in some automated agent environments. If you encounter this, manual dependency installation or environment troubleshooting might be necessary. The `package.json` and `requirements.txt` files define the needed dependencies.
-=======
+
 *   **Curriculum Manifest:** `public/curriculum_manifest.json` is key for the standalone HTML browsers. It should be regenerated if the `curriculum/` directory changes (see `DEV_SUGGESTIONS.md` for automation ideas).
 *   **Dependencies & Environment (Known Issue):**
     *   There have been intermittent issues with `npm install` and `pip install` failing in some automated agent environments. If you encounter this, manual dependency installation or environment troubleshooting might be necessary. The `package.json` and `requirements.txt` files define the needed dependencies.

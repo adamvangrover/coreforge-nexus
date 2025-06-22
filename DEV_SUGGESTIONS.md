@@ -91,11 +91,13 @@ This document outlines potential next steps and areas for future development to 
         *   Add options for verbosity or quiet mode.
     *   **Process:** This script should be run whenever curriculum files in `curriculum/` are added, removed, or reorganized to keep the manifest in sync.
     *   **Automation Idea:** Consider adding this script to a pre-commit hook or as part of a CI/CD pipeline step to ensure the manifest is always up-to-date with curriculum changes.
-
 2.  **Enhancing Standalone Browsers (`index.html`, `public/browse_curriculum.html`):**
-    *   **Search Functionality:** Add client-side search to `public/browse_curriculum.html` to filter lessons based on keywords (would search the loaded `curriculum_manifest.json`).
-    *   **Improved Styling:** While basic styling is in place, further UI/UX refinements can always be made.
-    *   **Error Handling:** More robust error handling for fetch operations or if the manifest is malformed.
+    *   **Search Functionality:** Add client-side search to `public/browse_curriculum.html` to filter lessons based on keywords (would search the loaded `curriculum_manifest.json`). Implemented basic lesson name filter; could be expanded.
+    *   **Improved Styling:** Styling has been enhanced, but continuous UI/UX refinements are always possible.
+    *   **Error Handling:** Basic error handling for fetch/fallback is in place; can be made more granular.
+    *   **Embedded Fallback Data:** The `public/browse_curriculum.html` now contains embedded fallback data for the curriculum structure. This makes the structural browsing work even from `file:///` or if the manifest fetch fails.
+        *   **Suggestion:** The `scripts/generate_manifest.py` could be enhanced to also update this embedded data within the HTML file, or a separate small script/manual process is needed to keep it reasonably synchronized with `public/curriculum_manifest.json`. This is important for the true offline usability of the structure.
+
 3.  **LLM Interaction Points with Static Assets:**
     *   **Manifest as Knowledge Base:** An LLM could use `curriculum_manifest.json` as a structured input to understand the available curriculum. It could:
         *   Answer questions like "What math topics are available for Elementary K-5?".

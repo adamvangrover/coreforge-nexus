@@ -97,6 +97,7 @@ This document outlines potential next steps and areas for future development to 
     *   **Error Handling:** Basic error handling for fetch/fallback is in place; can be made more granular.
     *   **Embedded Fallback Data:** The `public/browse_curriculum.html` now contains embedded fallback data for the curriculum structure. This makes the structural browsing work even from `file:///` or if the manifest fetch fails.
         *   **Suggestion:** The `scripts/generate_manifest.py` could be enhanced to also update this embedded data within the HTML file, or a separate small script/manual process is needed to keep it reasonably synchronized with `public/curriculum_manifest.json`. This is important for the true offline usability of the structure.
+
 3.  **LLM Interaction Points with Static Assets:**
     *   **Manifest as Knowledge Base:** An LLM could use `curriculum_manifest.json` as a structured input to understand the available curriculum. It could:
         *   Answer questions like "What math topics are available for Elementary K-5?".
@@ -107,5 +108,6 @@ This document outlines potential next steps and areas for future development to 
     *   **Generating New Content/Manifest Entries:** If an LLM helps generate new Markdown lesson content, it could also be prompted to generate the corresponding entry for `curriculum_manifest.json`.
 4.  **Consideration for Large Curriculum:**
     *   If the curriculum grows very large, `curriculum_manifest.json` could become very big. For client-side performance, consider splitting the manifest (e.g., one manifest per grade level) or implementing more advanced data loading strategies if `public/browse_curriculum.html` becomes slow. For now, it's likely fine.
+
 
 This list provides a solid roadmap for iterative development. Prioritization will depend on project goals and resources.

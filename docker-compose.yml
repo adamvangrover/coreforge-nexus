@@ -11,20 +11,21 @@ services:
     networks:
       - mathquest-net
     depends_on:
-      backend-agent:
+      backend: # Updated service name
         condition: service_healthy
 
-  backend-agent:
+  backend: # Renamed service from backend-agent
     build:
       context: ./backend
       dockerfile: Dockerfile
     ports:
-      - "5001:5001"
-    container_name: mathquest-agent
+      - "5001:5001" # Host port:Container port (Uvicorn listens on 5001 inside)
+    container_name: mathquest-backend # Updated container name
     networks:
       - mathquest-net
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:5001/api/health"]
+      # Uvicorn runs on port 5001 inside the container. The health endpoint is /health.
+      test: ["CMD", "curl", "-f", "http://localhost:5001/health"]
       interval: 10s
       timeout: 5s
       retries: 5

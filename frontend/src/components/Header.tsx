@@ -1,59 +1,69 @@
 import React from 'react';
-import { Target, BarChart2, BookOpen, BrainCircuit, Menu, X } from 'lucide-react'; // Added Menu and X for mobile
+import { NavLink } from 'react-router-dom';
+import { BookOpen, LayoutDashboard, GraduationCap, BarChart3, Compass, Library, Menu, X, ListTree, List } from 'lucide-react';
+// DEV_NOTES: Renamed some icons for clarity (BarChart2 -> BarChart3, Target -> LayoutDashboard, BrainCircuit -> Compass, etc.)
+// Also added GraduationCap for Learning, Library for Resources.
+// Added ListTree and List for new curriculum views.
 
-type NavViewId = 'dashboard' | 'progressCenter' | 'explorationZone';
-
-interface NavItem {
-    id: NavViewId;
+interface NavItemConfig {
+    to: string;
     label: string;
-    icon: React.ElementType; // Lucide icons are components
+    icon: React.ElementType;
 }
 
-interface HeaderProps {
-    activeView: NavViewId | string; // Allow string for flexibility if other views are added dynamically
-    setActiveView: (viewId: NavViewId) => void;
-}
-
-export const Header: React.FC<HeaderProps> = ({ activeView, setActiveView }) => {
+// No props needed for Header anymore as active state is handled by NavLink
+export const Header: React.FC = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
-    const navItems: NavItem[] = [
-        { id: 'dashboard', label: 'Dashboard', icon: Target },
-        { id: 'progressCenter', label: 'Progress', icon: BarChart2 },
-        { id: 'explorationZone', label: 'Explore', icon: BrainCircuit },
+    const navItems: NavItemConfig[] = [
+        { to: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+        { to: '/learning', label: 'Learning', icon: GraduationCap },
+        { to: '/curriculum-tree', label: 'Tree View', icon: ListTree },
+        { to: '/curriculum-list', label: 'List View', icon: List },
+        { to: '/progress', label: 'Progress', icon: BarChart3 },
+        { to: '/explore', label: 'Explore', icon: Compass },
+        { to: '/resources', label: 'Resources', icon: Library },
     ];
 
-    const handleNavClick = (viewId: NavViewId) => {
-        setActiveView(viewId);
-        setIsMobileMenuOpen(false); // Close mobile menu on navigation
+    const getNavLinkClass = ({ isActive }: { isActive: boolean }): string => {
+        return `flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-150 ease-in-out ${
+            isActive
+                ? 'bg-indigo-100 text-indigo-700'
+                : 'text-gray-500 hover:bg-gray-100 hover:text-gray-700'
+        }`;
     };
 
+    const getMobileNavLinkClass = ({ isActive }: { isActive: boolean }): string => {
+        return `flex items-center w-full px-3 py-2 rounded-md text-base font-medium transition-colors duration-150 ease-in-out ${
+            isActive
+                ? 'bg-indigo-100 text-indigo-700'
+                : 'text-gray-600 hover:bg-gray-100 hover:text-gray-800'
+        }`;
+    };
+
+
     return (
-        <header className="bg-white shadow-sm sticky top-0 z-50"> {/* Increased z-index */}
+        <header className="bg-white shadow-sm sticky top-0 z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
-                    {/* Logo and Title */}
-                    <div className="flex items-center space-x-2">
+                    {/* Logo and Title - Link to Dashboard */}
+                    <NavLink to="/dashboard" className="flex items-center space-x-2" onClick={() => setIsMobileMenuOpen(false)}>
                         <BookOpen className="h-8 w-8 text-indigo-600" />
+                        {/* DEV_NOTES: Project title "MathQuest" is hardcoded. Consider making this configurable or dynamic if platform name changes. */}
                         <h1 className="text-xl font-bold text-gray-800">MathQuest</h1>
-                    </div>
+                    </NavLink>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden md:flex space-x-1"> {/* Reduced space for tighter packing if needed */}
+                    <nav className="hidden md:flex space-x-1">
                         {navItems.map(item => (
-                            <button
-                                key={item.id}
-                                onClick={() => handleNavClick(item.id)}
-                                className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-150 ease-in-out ${
-                                    activeView === item.id
-                                        ? 'bg-indigo-100 text-indigo-700'
-                                        : 'text-gray-500 hover:bg-gray-100 hover:text-gray-700'
-                                }`}
-                                aria-current={activeView === item.id ? 'page' : undefined}
+                            <NavLink
+                                key={item.to}
+                                to={item.to}
+                                className={getNavLinkClass}
                             >
-                                <item.icon className="h-5 w-5 mr-2 shrink-0" /> {/* Added shrink-0 */}
+                                <item.icon className="h-5 w-5 mr-2 shrink-0" />
                                 {item.label}
-                            </button>
+                            </NavLink>
                         ))}
                     </nav>
 
@@ -78,22 +88,18 @@ export const Header: React.FC<HeaderProps> = ({ activeView, setActiveView }) => 
 
             {/* Mobile Menu */}
             {isMobileMenuOpen && (
-                <div className="md:hidden absolute top-16 inset-x-0 z-40 bg-white shadow-lg" id="mobile-menu"> {/* Added absolute positioning and z-index */}
+                <div className="md:hidden absolute top-16 inset-x-0 z-40 bg-white shadow-lg" id="mobile-menu">
                     <nav className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                         {navItems.map(item => (
-                            <button
-                                key={item.id}
-                                onClick={() => handleNavClick(item.id)}
-                                className={`flex items-center w-full px-3 py-2 rounded-md text-base font-medium transition-colors duration-150 ease-in-out ${
-                                    activeView === item.id
-                                        ? 'bg-indigo-100 text-indigo-700'
-                                        : 'text-gray-600 hover:bg-gray-100 hover:text-gray-800'
-                                }`}
-                                aria-current={activeView === item.id ? 'page' : undefined}
+                            <NavLink
+                                key={item.to}
+                                to={item.to}
+                                className={getMobileNavLinkClass}
+                                onClick={() => setIsMobileMenuOpen(false)} // Close menu on link click
                             >
                                 <item.icon className="h-6 w-6 mr-3 shrink-0" />
                                 {item.label}
-                            </button>
+                            </NavLink>
                         ))}
                     </nav>
                 </div>

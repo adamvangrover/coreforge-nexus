@@ -1,4 +1,9 @@
-Flask
+fastapi
+uvicorn[standard]
+python-multipart
+fastapi-cors
 sympy
-flask-cors
 gunicorn
+pytest # For running tests
+pytest-asyncio # For testing async FastAPI code if needed directly
+httpx # For TestClient in FastAPI

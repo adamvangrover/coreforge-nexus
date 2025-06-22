@@ -4,22 +4,20 @@ import { useApp } from '../contexts/AppContext';
 import { Card } from '../components/Card';
 import { ProgressRing } from '../components/ProgressRing';
 import { Topic, Achievement } from '../types';
+import { useNavigate } from 'react-router-dom';
 
-type ActiveView = 'dashboard' | 'learningZone' | 'progressCenter' | 'explorationZone';
-
-interface DashboardProps {
-    navigateTo: (view: ActiveView, topicId?: string) => void;
-}
+// DEV_NOTE: ActiveView prop is removed as navigation is handled by react-router-dom
 
 // Helper function to safely get a Lucide icon component by name
 const getIconComponent = (iconName: string): React.ElementType => {
     const IconComponent = (LucideIcons as any)[iconName];
+    // DEV_NOTE: Ensure LucideIcons are available or provide a more robust default.
     return IconComponent || LucideIcons.HelpCircle; // Default icon if not found
 };
 
-
-export const Dashboard: React.FC<DashboardProps> = ({ navigateTo }) => {
+export const DashboardView: React.FC = () => {
     const { user, topics } = useApp();
+    const navigate = useNavigate();
 
     if (!user) {
         return (
@@ -94,7 +92,8 @@ export const Dashboard: React.FC<DashboardProps> = ({ navigateTo }) => {
                                             <ProgressRing progress={user.progress[topic.id] || 0} size={60} strokeWidth={5} />
                                         </div>
                                         <button
-                                            onClick={() => navigateTo('learningZone', topic.id)}
+                                            // DEV_NOTE: Navigation to specific topic will be handled inside LearningView or via query/path params.
+                                            onClick={() => navigate('/learning')}
                                             className="w-full sm:w-auto mt-2 sm:mt-0 bg-indigo-600 text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-indigo-700 transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
                                             { (user.progress[topic.id] || 0) > 0 ? 'Continue' : 'Start' }
                                         </button>
@@ -112,10 +111,11 @@ export const Dashboard: React.FC<DashboardProps> = ({ navigateTo }) => {
                                     <div
                                         key={topic.id}
                                         className="border border-gray-200 p-4 rounded-lg hover:shadow-md transition-shadow cursor-pointer bg-white hover:border-indigo-300"
-                                        onClick={() => navigateTo('learningZone', topic.id)}
+                                        // DEV_NOTE: Navigation to specific topic will be handled inside LearningView or via query/path params.
+                                        onClick={() => navigate('/learning')}
                                         role="button"
                                         tabIndex={0}
-                                        onKeyPress={(e) => e.key === 'Enter' && navigateTo('learningZone', topic.id)}
+                                        onKeyPress={(e) => e.key === 'Enter' && navigate('/learning')}
                                     >
                                         <h3 className="font-semibold text-gray-800 text-md sm:text-lg">{topic.name}</h3>
                                         <p className="text-sm text-gray-500 mt-1 line-clamp-3">{topic.description}</p>
@@ -129,7 +129,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ navigateTo }) => {
                         <Card title="Explore Topics" icon={LucideIcons.Search}>
                             <p className="text-gray-600">It looks like you've mastered all available topics or there are no recommendations right now! Why not explore all topics in the Progress Center?</p>
                             <button
-                                onClick={() => navigateTo('progressCenter')}
+                                onClick={() => navigate('/progress')}
                                 className="mt-4 bg-green-600 text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-green-700 transition-colors">
                                 Go to Progress Center
                             </button>

@@ -1,0 +1,134 @@
+{
+  "llm_prompts_for_expansion": {
+    "unit_1_my_voice": [
+      "Generate lyrics for 3 simple echo songs for kindergarteners, where the teacher sings a short phrase and students echo it back. Focus on simple melodic patterns and relatable themes (e.g., animals, weather, greetings).",
+      "Create a list of 5 vocal exploration activities for kindergarteners to discover different qualities of their voices (e.g., siren sounds, animal sounds, buzzing like a bee, popping sounds) without straining.",
+      "Develop a short call-and-response chant that helps kindergarteners practice matching pitch with two distinct pitches (e.g., Teacher sings 'Hel-lo' on Sol-Mi, students echo)."
+    ],
+    "unit_2_feeling_the_beat": [
+      "Design a 'Beat Buddies' activity where students pair up, one student claps a steady beat on their partner's shoulders or hands, then they switch. Use different tempos of music.",
+      "Generate a list of 10 diverse pieces of music (short excerpts) that clearly demonstrate fast and slow tempos, suitable for kindergarten movement activities.",
+      "Create simple iconic notation cards (e.g., hearts for steady beat, running stick figures for fast, walking stick figures for slow) that the teacher can show while students move or play instruments."
+    ],
+    "unit_3_dynamics_pitch": [
+      "Develop a story that incorporates dynamics: a character tiptoes quietly (soft music/sounds), then stomps loudly (loud music/sounds). Students can act it out and provide sound effects.",
+      "Generate instructions for a 'High/Low Detective' game where the teacher plays or sings high and low notes, and students point up for high sounds and down for low sounds.",
+      "Create a visual aid concept (e.g., a ladder or a slide) to help kindergarteners understand melodic contour (music going up, down, or staying the same)."
+    ],
+    "unit_4_making_music_together": [
+      "Design a simple rhythm composition activity using picture cards representing different classroom instruments (e.g., drum picture, shaker picture, sticks picture). Students arrange the cards to create a short rhythmic piece for the class to play.",
+      "Generate a list of 5 well-known kindergarten songs (e.g., 'Twinkle Twinkle,' 'Row Your Boat') and suggest simple percussion instrument accompaniments for each (e.g., rhythm sticks on the beat, shakers for a soft sound).",
+      "Create a 'Instrument Care' poster concept with simple pictures showing how to hold and put away common classroom instruments."
+    ],
+    "unit_5_music_tells_story_makes_feel": [
+      "Select 3 contrasting pieces of instrumental music (e.g., one happy/bouncy, one calm/slow, one exciting/fast) and generate 3-4 open-ended questions for each to ask kindergarteners about how the music makes them feel or what it makes them think of.",
+      "Develop a movement activity where students use scarves or ribbons to 'paint' in the air, responding to the mood and flow of different musical selections.",
+      "Create a simple 'Music and Feelings' matching worksheet where students draw a line from a feeling face (happy, sad, sleepy, excited) to a type of music described simply (e.g., 'fast and jumpy music,' 'slow and quiet music')."
+    ],
+    "unit_6_creating_our_own_music": [
+      "Design a 'Sound Story' activity where the class creates a simple story, and students choose classroom instruments to represent different characters or actions, improvising sounds at the appropriate times.",
+      "Generate a template for iconic notation where students can draw pictures (e.g., short lines for short sounds, long lines for long sounds, big dots for loud, small dots for soft) to represent a simple rhythm they create.",
+      "Create a guided improvisation activity for barred instruments (xylophones/metallophones): Teacher sets a simple beat, students take turns playing a few notes (from a limited selection, e.g., pentatonic scale) to the beat."
+    ]
+  },
+  "project_and_activity_plans": {
+    "unit_1_my_voice": [
+      {
+        "title": "Voice Exploration Puppets",
+        "description": "Use puppets to model different voices (high, low, soft, loud, singing, speaking). Students can then use their own voices to make the puppet 'talk' or 'sing' in different ways.",
+        "materials": ["Puppets"],
+        "learning_focus": ["Vocal exploration", "Pitch matching (simple)", "Auditory discrimination"]
+      }
+    ],
+    "unit_2_feeling_the_beat": [
+      {
+        "title": "Pass the Beat Ball",
+        "description": "Students sit in a circle. While music with a clear steady beat plays, they pass a ball (or beanbag) around the circle, trying to pass it on each beat.",
+        "materials": ["Ball or beanbag", "Music player", "Music with steady beat"],
+        "learning_focus": ["Steady beat internalization", "Coordination", "Group participation"]
+      }
+    ],
+    "unit_3_dynamics_pitch": [
+      {
+        "title": "Body Scale Highs and Lows",
+        "description": "Students use their bodies to show high and low pitches. For high sounds, they reach up tall; for low sounds, they crouch down low. Teacher can sing or play notes/patterns.",
+        "materials": ["None, or instrument for teacher"],
+        "learning_focus": ["Pitch recognition (high/low)", "Kinesthetic learning", "Melodic contour (simple)"]
+      }
+    ],
+    "unit_4_making_music_together": [
+      {
+        "title": "Rhythm Stick Echoes",
+        "description": "Teacher claps or plays a simple rhythmic pattern on rhythm sticks. Students echo the pattern on their own rhythm sticks.",
+        "materials": ["Rhythm sticks for teacher and students"],
+        "learning_focus": ["Rhythmic imitation", "Instrument technique (basic)", "Listening skills"]
+      }
+    ],
+    "unit_5_music_tells_story_makes_feel": [
+      {
+        "title": "Drawing to Music",
+        "description": "Play different selections of instrumental music. Students draw freely on paper, responding to the mood, tempo, and character of the music.",
+        "materials": ["Paper", "Crayons or markers", "Music player", "Diverse music selections"],
+        "learning_focus": ["Emotional response to music", "Creative expression", "Connecting music and visual art"]
+      }
+    ],
+    "unit_6_creating_our_own_music": [
+      {
+        "title": "Name Rhythms",
+        "description": "Students say their names and clap the rhythm of the syllables (e.g., 'Je-nni-fer' = clap-clap-clap). They can then play their name rhythms on percussion instruments.",
+        "materials": ["Classroom percussion instruments (optional)"],
+        "learning_focus": ["Rhythmic creation", "Syllable awareness", "Personal connection to rhythm"]
+      }
+    ]
+  },
+  "framework_learning_management_system_integration": {
+    "general_notes": "LMS for Kindergarten Music would primarily be a resource hub for teachers and parents, or for whole-class interactive elements.",
+    "content_modules": "Units as modules. Can include links to sing-along song videos with lyrics, recordings of listening examples, or virtual instrument exploration tools (e.g., Chrome Music Lab, used as a whole class).",
+    "assessment_tools": "Not for formal quizzing. Teachers might keep anecdotal records of participation or link to a digital portfolio where videos of class performances could be shared with parents (with appropriate permissions).",
+    "parent_resources": "Share song lyrics, names of musical pieces explored in class, and simple ideas for musical play at home (e.g., 'Make a kitchen band with pots and spoons,' 'Sing your favorite songs together')."
+  },
+  "further_dev_notes": {
+    "tech_integration": "Use interactive whiteboard apps that allow for drawing simple iconic notation or dragging and dropping instrument pictures to create visual scores. Ensure any online music resources are ad-free and child-safe.",
+    "multicultural_music": "Intentionally include songs, listening examples, and information about instruments from diverse cultures around the world.",
+    "live_music_exposure": "If possible, arrange for older students or local musicians to perform for the kindergarteners, or attend a child-friendly concert."
+  },
+  "student_notes": {
+    "general_tips": [
+      "Music is for everyone! Have fun singing, playing, and moving.",
+      "Listen with your ears and your heart.",
+      "Your voice is your very own special instrument.",
+      "Try making up your own songs and rhythms!"
+    ],
+    "instrument_care_reminders": [
+      "Always use instruments gently.",
+      "Listen to your teacher about how to hold and play each instrument.",
+      "Help put instruments away carefully after we use them."
+    ]
+  },
+  "teacher_notes": {
+    "creating_musical_environment": [
+      "Establish a classroom atmosphere where experimentation and participation are encouraged, and mistakes are seen as learning opportunities.",
+      "Use visuals like posters showing musical concepts (beat, rhythm, dynamics).",
+      "Have instruments accessible (but with clear guidelines for use)."
+    ],
+    "movement_in_music": [
+      "Incorporate movement in almost every lesson. Movement helps internalize musical concepts like beat, rhythm, phrasing, and expression.",
+      "Use both structured movements (e.g., folk dances) and free explorative movement."
+    ],
+    "managing_instruments": [
+      "Establish clear routines for distributing and collecting instruments to minimize chaos and ensure safety.",
+      "Model correct playing techniques and care for each instrument.",
+      "Start with body percussion before moving to unpitched, then pitched instruments."
+    ],
+    "song_selection": [
+      "Choose songs with appropriate vocal range for young children.",
+      "Select songs with repetition, clear melodies, and engaging lyrics or stories.",
+      "Include a variety of folk songs, nursery rhymes, and songs from different cultures."
+    ],
+    "assessment_philosophy": [
+      "Focus on participation, effort, and growth rather than perfect execution.",
+      "Use observation as the primary assessment tool.",
+      "Celebrate all students' musical contributions."
+    ]
+  }
+}

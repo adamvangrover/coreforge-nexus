@@ -1,0 +1,145 @@
+{
+  "llm_prompts_for_expansion": {
+    "unit_1_senses_observing_objects": [
+      "Generate instructions for 5 'Sensory Stations' for kindergarteners, each focusing on one sense (e.g., 'Mystery Sound Cans' for hearing, 'Texture Touch Bags' for touch, 'Scent Jars' for smell - using safe, common items).",
+      "Create a list of 10 descriptive words (adjectives) related to object properties (e.g., smooth, bumpy, shiny, dull, big, small, heavy, light, soft, hard) that kindergarteners can learn and use.",
+      "Design a simple 'I Spy With My Little Eye' game script that focuses on describing objects by their properties (color, shape, size) for others to guess."
+    ],
+    "unit_2_pushes_pulls": [
+      "Develop a plan for a 'Ramp Exploration' center where kindergarteners can experiment with different ramp heights and surfaces (e.g., smooth cardboard, bumpy fabric) to see how they affect the motion of toy cars.",
+      "Generate 5 scenarios where kindergarteners can identify whether a push or a pull is being used (e.g., opening a door - pull; closing a drawer - push; kicking a ball - push).",
+      "Create a simple design challenge: 'How can you move a cotton ball across the table without touching it with your hands?' (Encourage ideas like blowing - push of air, fanning - push of air)."
+    ],
+    "unit_3_sunshine_warmth": [
+      "Design an experiment: Place two identical containers of water (or ice cubes) in the classroom, one in direct sunlight (by a window) and one in a shady spot. Have students observe and compare the temperature (by touch, or teacher uses thermometer) or melting rate over time.",
+      "Generate ideas for a 'Shade Structure Challenge' where students use limited materials (e.g., construction paper, craft sticks, tape, small cups) to design and build a structure that can provide shade for a small toy animal.",
+      "Create a short, simple song or rhyme about the sun giving us light and warmth."
+    ],
+    "unit_4_living_things_plants_animals": [
+      "Develop a plan for planting seeds (e.g., beans in clear cups with wet paper towels) in the classroom so students can observe plant growth and identify needs (water, light). Include an observation journal template (drawings).",
+      "Generate a list of 5 common animals and 5 common plants, and for each, list their basic needs (food/light, water, air, shelter/space) in simple terms for kindergarteners.",
+      "Create a 'Habitat Match' game: Picture cards of different animals (e.g., fish, bird, squirrel, worm) and picture cards of different habitats (e.g., pond, tree, forest floor, underground). Students match the animal to its home."
+    ],
+    "unit_5_watching_the_weather": [
+      "Design a daily 'Weather Watcher' routine: A student helper observes the weather outside (sunny, cloudy, rainy, windy, etc.), reports to the class, and helps update a class weather chart with pictures or symbols.",
+      "Generate a list of 5 questions to ask kindergarteners about how different types of weather affect what they can do or what they wear (e.g., 'What do you wear on a rainy day?', 'Can we play outside if it's very windy? Why or why not?').",
+      "Create a simple craft activity: 'My Weather Wheel' where students can decorate a paper plate wheel with different weather conditions and use a brad to attach an arrow to point to the current weather."
+    ],
+    "unit_6_caring_for_our_earth": [
+      "Develop a 'Litter Clean-Up' plan for the classroom or school playground (with supervision and gloves), followed by a discussion about why it's important to keep our environment clean.",
+      "Generate a list of 3-4 simple, actionable things kindergarteners can do at home or school to help the Earth (e.g., turn off lights when leaving a room, recycle paper, don't waste water when washing hands).",
+      "Create a story starter about an animal whose home is affected by human actions (e.g., litter in a park). Ask students to think of solutions or ways to help the animal."
+    ]
+  },
+  "project_and_activity_plans": {
+    "unit_1_senses_observing_objects": [
+      {
+        "title": "Object Sorting Challenge",
+        "description": "Provide a collection of various small, safe objects (buttons, shells, rocks, fabric scraps, small toys). Challenge students to sort them into groups based on different properties (e.g., 'Find all the red things,' 'Find all the soft things,' 'Group things by shape').",
+        "materials": ["Collection of diverse small objects", "Sorting trays or hoops (optional)"],
+        "learning_focus": ["Observation skills", "Classification", "Descriptive vocabulary"]
+      }
+    ],
+    "unit_2_pushes_pulls": [
+      {
+        "title": "Toy Car Races",
+        "description": "Students experiment with pushing toy cars with different strengths (gentle push, hard push) to see how far they go. They can also try pulling cars with a string.",
+        "materials": ["Toy cars", "Open floor space or long table", "Optional: string"],
+        "learning_focus": ["Understanding push/pull", "Effect of force strength", "Observation"]
+      }
+    ],
+    "unit_3_sunshine_warmth": [
+      {
+        "title": "Melting Crayons (Teacher Demo/Supervised)",
+        "description": "Teacher demonstrates how sunlight (or a lamp as a model if no direct sun) can warm and melt crayon shavings on dark paper vs. light paper, or under different materials (clear plastic vs. foil).",
+        "materials": ["Crayon shavings", "Dark and light paper", "Aluminum foil", "Clear plastic wrap", "Sunny window or lamp"],
+        "learning_focus": ["Sunlight as heat source", "Absorption of heat", "Observation"]
+      }
+    ],
+    "unit_4_living_things_plants_animals": [
+      {
+        "title": "Class Pet or Plant Care",
+        "description": "If feasible, have a simple class pet (e.g., fish, snail) or classroom plants. Students take turns helping with care (feeding, watering) and observe their needs and growth.",
+        "materials": ["Class pet/plant and supplies"],
+        "learning_focus": ["Needs of living things", "Responsibility", "Observation over time"]
+      },
+      {
+        "title": "Nature Walk Discoveries",
+        "description": "Take students on a nature walk around the school grounds to observe plants and animals (insects, birds). Discuss what they see and how these living things meet their needs in that environment.",
+        "materials": ["Magnifying glasses (optional)", "Collection bags (for non-living items like leaves, pebbles)"],
+        "learning_focus": ["Observation of local flora/fauna", "Habitat awareness", "Needs of living things"]
+      }
+    ],
+    "unit_5_watching_the_weather": [
+      {
+        "title": "Windy Day Fun",
+        "description": "On a windy day, take students outside with scarves, streamers, or pinwheels to observe and experience the effects of wind. Discuss how wind can move things.",
+        "materials": ["Scarves, streamers, pinwheels"],
+        "learning_focus": ["Observing wind", "Effects of wind", "Sensory experience"]
+      }
+    ],
+    "unit_6_caring_for_our_earth": [
+      {
+        "title": "Recycled Art Creations",
+        "description": "Collect clean recyclables (cardboard tubes, plastic bottles, paper scraps, lids). Students use these materials to create new objects or art, discussing how reusing items helps the Earth.",
+        "materials": ["Clean recyclables", "Tape, glue, scissors (teacher-assisted)", "Markers/paint"],
+        "learning_focus": ["Recycling/reusing", "Creativity", "Environmental awareness"]
+      }
+    ]
+  },
+  "framework_learning_management_system_integration": {
+    "general_notes": "LMS for Kindergarten Science would mainly be a resource for teachers and for sharing information/activities with parents, or for whole-class interactive displays.",
+    "content_modules": "Units as modules. Can include links to short, age-appropriate science videos (e.g., Mystery Doug snippets, PBS Kids science shows), virtual tours of habitats (e.g., zoo cams, aquarium cams), or interactive simulations (e.g., building simple machines - teacher-led on IWB).",
+    "observation_sharing": "Teachers could upload photos or videos of class experiments or nature walk discoveries to share with parents (with permissions).",
+    "parent_resources": "Share simple science experiment ideas to try at home, vocabulary lists for units, and links to educational science websites or apps for kids."
+  },
+  "further_dev_notes": {
+    "tech_integration": "Use a document camera to show small objects or details of an experiment to the whole class. Interactive whiteboard for sorting activities (e.g., living vs. non-living things) or labeling diagrams.",
+    "inquiry_prompts": "Start units with engaging questions or phenomena to spark curiosity (e.g., 'What happens if we leave an ice cube in the sun? Let's find out!').",
+    "science_center": "Set up a science exploration center in the classroom with changing materials related to the current unit (e.g., magnifying glasses and natural objects, ramps and cars, items to sort)."
+  },
+  "student_notes": {
+    "general_tips": [
+      "Science is all about asking questions and exploring!",
+      "Use your eyes, ears, nose, and hands to learn about the world.",
+      "It's fun to guess what will happen in an experiment (make a hypothesis!).",
+      "Tell a grown-up about the cool things you discover."
+    ],
+    "safety_in_science": [
+      "Always listen to your teacher's directions.",
+      "Don't put things in your mouth unless your teacher says it's okay (like during a food taste test).",
+      "Handle living things gently.",
+      "Wash your hands after doing experiments."
+    ]
+  },
+  "teacher_notes": {
+    "fostering_curiosity": [
+      "Encourage student questions and treat them all as valuable.",
+      "Model curiosity and enthusiasm for science.",
+      "Provide ample opportunities for hands-on exploration and play-based learning."
+    ],
+    "managing_materials": [
+      "Organize materials for easy access and distribution.",
+      "Teach routines for using and cleaning up science tools and materials.",
+      "Have 'messy mats' or trays available for certain experiments."
+    ],
+    "documenting_learning": [
+      "Use science journals for students to draw their observations, even if they can't write much yet.",
+      "Take photos or videos of students engaged in investigations.",
+      "Create class charts or graphs to record data from experiments."
+    ],
+    "connecting_to_prior_knowledge": [
+      "Start lessons by asking students what they already know or think about a topic.",
+      "Use familiar objects and experiences to introduce new science concepts."
+    ],
+    "ngss_practices_simplified_for_k": [
+      "Asking questions: 'I wonder why...?'",
+      "Developing and using models: Drawing pictures or building with blocks to show ideas.",
+      "Planning and carrying out investigations: Trying things out to see what happens.",
+      "Analyzing and interpreting data: Talking about what we saw or found.",
+      "Constructing explanations: Telling why we think something happened.",
+      "Engaging in argument from evidence: Sharing our ideas and explaining why we think them, using what we observed.",
+      "Obtaining, evaluating, and communicating information: Listening to stories, looking at pictures, talking about what we learned."
+    ]
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "llm_prompts_for_expansion": {
+    "unit_1_lines_shapes": [
+      "Generate 5 simple, step-by-step drawing activities for kindergarteners focusing on combining basic lines (straight, curvy, zigzag) and shapes (circle, square, triangle) to create recognizable objects (e.g., house, sun, flower, fish, car).",
+      "Create a short, engaging story (150-200 words) for kindergarteners that introduces different types of lines and shapes as characters on an adventure.",
+      "Develop a list of 10 open-ended questions to ask kindergarten students to encourage them to talk about the lines and shapes they see in famous artworks (provide 3 diverse, age-appropriate artwork examples with brief descriptions)."
+    ],
+    "unit_2_colors": [
+      "Design a hands-on experiment for kindergarteners to explore primary color mixing to create secondary colors. Include material list, step-by-step instructions, and safety precautions.",
+      "Generate a list of 10 'color hunt' ideas where kindergarten students can find objects of specific colors (primary and secondary) in the classroom or school environment.",
+      "Create 5 short descriptive paragraphs (3-4 sentences each) that evoke different moods or feelings using only color words, suitable for reading to kindergarteners (e.g., 'The sunny yellow made me feel happy and warm. Bright blue like a summer sky.')."
+    ],
+    "unit_3_textures": [
+      "Develop a 'Texture Box' activity plan for kindergarteners. List 10-15 safe, varied textured materials for students to feel without looking, and then describe. Include discussion prompts.",
+      "Generate ideas for 5 collage projects for kindergarteners that emphasize using different textured materials (e.g., yarn, sandpaper, fabric, cotton balls, corrugated cardboard).",
+      "Write a simple song or chant (4-6 lines) about textures that kindergarteners can learn and sing."
+    ],
+    "unit_4_sculpture": [
+      "Outline 3 simple sculpture projects for kindergarteners using different materials: 1) playdough/modeling clay, 2) recycled materials (e.g., boxes, tubes, lids), 3) natural materials (e.g., twigs, pebbles, leaves). Focus on basic construction and joining techniques.",
+      "Create a list of 10 action verbs related to making sculptures (e.g., squeeze, roll, stack, connect, balance, twist) that can be used to build vocabulary.",
+      "Develop a set of 5 visual cue cards that show different ways to join or attach common sculpting materials (e.g., tape for boxes, pressing clay pieces together)."
+    ],
+    "unit_5_storytelling": [
+      "Generate 5 prompts for kindergarteners to create art that tells a story (e.g., 'Draw a picture of your favorite animal on an adventure,' 'Make a picture about a time you felt happy,' 'What would it look like if your toys came alive?').",
+      "Create a template for a 'My Art Story' worksheet where kindergarten students can draw a picture and then dictate a short sentence or two about their artwork for the teacher to write down.",
+      "Develop a list of 5-7 open-ended questions to facilitate a group discussion about a piece of narrative art (provide an age-appropriate example of narrative art)."
+    ]
+  },
+  "project_and_activity_plans": {
+    "unit_1_lines_shapes": [
+      {
+        "title": "Shape Monster Mash",
+        "description": "Students cut out various pre-drawn or self-drawn shapes and glue them together to create unique 'shape monsters.' They then name their monsters and describe the shapes used.",
+        "materials": ["Construction paper in various colors", "Safety scissors", "Glue sticks", "Markers or crayons"],
+        "learning_focus": ["Shape recognition", "Fine motor skills (cutting, gluing)", "Creativity"]
+      },
+      {
+        "title": "Line Dance",
+        "description": "Play different types of music and have students 'draw' different lines in the air with their bodies or with streamers, corresponding to the music's tempo and mood (e.g., slow, smooth music for wavy lines; fast, upbeat music for zigzag lines).",
+        "materials": ["Music player", "Various music selections", "Optional: crepe paper streamers"],
+        "learning_focus": ["Line recognition", "Gross motor skills", "Connecting movement to artistic elements"]
+      }
+    ],
+    "unit_2_colors": [
+      {
+        "title": "Color Mixing Lab",
+        "description": "In small groups, students use droppers to mix primary colored water or paint in clear cups or ice cube trays to discover secondary colors. Record findings on a simple chart.",
+        "materials": ["Red, yellow, blue tempera paint or food coloring", "Water", "Clear plastic cups or ice cube trays", "Droppers", "Chart paper or worksheet"],
+        "learning_focus": ["Primary and secondary colors", "Scientific observation", "Fine motor skills"]
+      },
+      {
+        "title": "Mood Painting",
+        "description": "After discussing how colors can make us feel, students choose colors to paint a picture that shows a particular feeling (e.g., happy, sad, calm, excited).",
+        "materials": ["Tempera paint", "Brushes", "Paper"],
+        "learning_focus": ["Color and emotion", "Self-expression", "Painting techniques"]
+      }
+    ],
+    "unit_3_textures": [
+      {
+        "title": "Texture Rubbing Collage",
+        "description": "Students go on a texture hunt, placing paper over various textured surfaces (e.g., leaves, tree bark, brick wall, fabric) and rubbing with the side of a crayon. They then cut out their rubbings and create a collage.",
+        "materials": ["Thin paper (e.g., copy paper)", "Crayons (peeled)", "Safety scissors", "Glue sticks", "Backing paper for collage"],
+        "learning_focus": ["Texture exploration", "Rubbing technique", "Collage skills"]
+      }
+    ],
+    "unit_4_sculpture": [
+      {
+        "title": "Playdough Creations",
+        "description": "Free exploration with playdough. Provide tools like plastic knives, rollers, and cookie cutters. Encourage students to roll, pinch, flatten, and build.",
+        "materials": ["Playdough in various colors", "Plastic tools"],
+        "learning_focus": ["3D form exploration", "Fine motor skill development", "Creativity"]
+      }
+    ],
+    "unit_5_storytelling": [
+      {
+        "title": "My Favorite Day Puppet Show",
+        "description": "Students draw a picture of their favorite day on a paper bag or cardstock, then turn it into a simple puppet. They can then use their puppets to tell the story of their favorite day.",
+        "materials": ["Paper bags or cardstock", "Crayons/markers", "Scissors", "Glue/tape", "Optional: craft sticks, yarn, fabric scraps"],
+        "learning_focus": ["Narrative art", "Self-expression", "Oral language development"]
+      }
+    ]
+  },
+  "framework_learning_management_system_integration": {
+    "general_notes": "For Kindergarten Art, LMS integration should be minimal and teacher-led. Focus on visual elements and simple navigation if used directly by students.",
+    "content_modules": "Each unit can be a module. Lessons within modules could be simple pages with image galleries of student work, short video demonstrations by the teacher, or links to curated age-appropriate art games/videos.",
+    "assessment_submission": "Primarily through teacher observation. Teachers could upload photos of student artwork to a digital portfolio section for each student. Simple 'drag and drop' activities for matching shapes or colors could be created if the LMS supports it.",
+    "communication": "Teacher announcements for parents about upcoming projects or art material needs. A gallery space for showcasing class projects."
+  },
+  "further_dev_notes": {
+    "tech_integration": "Consider simple, safe, ad-free art apps for tablets if available (e.g., drawing, coloring). Ensure any external links are heavily vetted for age-appropriateness and privacy.",
+    "accessibility_tools": "Explore options for text-to-speech for any written instructions if students access independently. Ensure high contrast visuals.",
+    "future_modules": "Could add units on 'Art Around Us' (community art, environmental art) or 'Famous Artists' (simplified for K-level, focusing on one or two distinctive artists like Eric Carle or Lois Ehlert)."
+  },
+  "student_notes": {
+    "general_tips": [
+      "Art is about having fun and trying new things!",
+      "It's okay to make mistakes – that's how we learn!",
+      "Use your imagination and be creative.",
+      "Always listen to your teacher about how to use art tools safely."
+    ],
+    "material_care": [
+      "Put caps back on markers and glue sticks.",
+      "Help clean up your art space.",
+      "Wash your hands after using paint or clay."
+    ]
+  },
+  "teacher_notes": {
+    "classroom_setup": [
+      "Organize art supplies in clearly labeled, accessible bins.",
+      "Protect tables with newspaper or plastic tablecloths.",
+      "Have a designated drying rack for paintings.",
+      "Ensure good lighting and ventilation."
+    ],
+    "differentiation_strategies": [
+      "Provide choices in materials and themes whenever possible.",
+      "Offer pre-cut shapes or stencils for students struggling with fine motor skills.",
+      "Pair students for collaborative projects.",
+      "Use visual aids and demonstrations extensively.",
+      "Focus on effort and participation rather than perfect outcomes."
+    ],
+    "safety_reminders": [
+      "Review safety rules for scissors, glue, and other tools regularly.",
+      "Ensure all materials are non-toxic and age-appropriate.",
+      "Supervise closely during activities involving small parts or potentially messy materials."
+    ],
+    "encouraging_creativity": [
+      "Ask open-ended questions like 'What if you tried...?' or 'Tell me about your picture.'",
+      "Praise experimentation and unique ideas.",
+      "Display all students' artwork proudly.",
+      "Avoid comparing students' work."
+    ]
+  }
+}

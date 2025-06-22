@@ -1,0 +1,136 @@
+{
+  "llm_prompts_for_expansion": {
+    "unit_1_locomotor_spatial_awareness": [
+      "Generate instructions for 3 different 'tag' games suitable for kindergarteners that emphasize different locomotor skills (e.g., 'Hop Tag,' 'Gallop Away,' 'Zigzag Escape') and reinforce spatial awareness (avoiding collisions).",
+      "Create a list of 5 verbal cues a teacher can use to help kindergarteners understand personal space (e.g., 'Bubble space,' 'Airplane arms,' 'Don't touch your neighbor').",
+      "Design a 'Follow the Leader' activity where the leader chooses different locomotor skills and pathways (straight, curved, zigzag) for the class to follow."
+    ],
+    "unit_2_balancing_body_control": [
+      "Develop a 'Statue Maker' game: When music stops, students freeze in a balanced shape (e.g., on one foot, a wide shape, a twisted shape). Teacher can call out specific types of balances.",
+      "Generate a list of 10 animal walks that promote balance and body control (e.g., bear walk, crab walk, frog jump, flamingo stand, snake slither).",
+      "Create a simple obstacle course layout using common PE equipment (cones to weave, low beam to walk, hoop to step in/out) that challenges balance and body awareness."
+    ],
+    "unit_3_manipulative_skills": [
+      "Design 3 different target games for underhand throwing with beanbags or soft balls, suitable for kindergarteners (e.g., throwing into hoops of different sizes/distances, knocking down lightweight pins).",
+      "Generate a list of 5 partner activities for practicing catching a large, soft ball, focusing on ready hands ('big basket') and watching the ball.",
+      "Create a 'Keep It Up' activity using lightweight scarves or balloons where students try to keep the object in the air using gentle taps (introduces striking concept)."
+    ],
+    "unit_4_fun_fitness": [
+      "Develop a short, energetic warm-up routine (2-3 minutes) for kindergarteners set to upbeat music, including simple movements like arm circles, jumping jacks (modified), and marching in place.",
+      "Generate a list of 5 simple questions to ask kindergarteners after a very active game to help them connect activity to how their body feels (e.g., 'Is your heart beating fast or slow?', 'Are you breathing harder?', 'Do you feel warm?').",
+      "Create a 'Healthy Heart' poster concept with simple pictures showing activities that are good for the heart (e.g., running, jumping, dancing, playing)."
+    ],
+    "unit_5_cooperation_safety": [
+      "Design a cooperative game where students work together to achieve a common goal, emphasizing sharing and teamwork (e.g., 'Group Juggle' - try to keep multiple soft balls or scarves in the air as a group; 'Clean Up Your Backyard' - teams try to get all beanbags onto the other team's side).",
+      "Generate a list of 5 simple, positive rules for PE class that kindergarteners can understand and remember (e.g., 'Listen to the teacher,' 'Play safely,' 'Share equipment,' 'Try your best,' 'Be a kind friend').",
+      "Create role-playing scenarios for kindergarteners to practice resolving simple conflicts during play (e.g., two students want the same ball - how can they solve it?)."
+    ],
+    "unit_6_rhythms_movement_exploration": [
+      "Develop a 'Musical Moves' activity: Play different styles/tempos of music and encourage students to move their bodies in ways that match the music (e.g., float like a feather to slow music, march like a soldier to rhythmic music).",
+      "Generate instructions for a simple folk dance or movement sequence (e.g., a circle dance with simple steps like walk, clap, stamp) suitable for kindergarteners.",
+      "Create a list of 5 prompts for exploring movement with scarves (e.g., 'Make your scarf fly high/low,' 'Make your scarf dance fast/slow,' 'Can your scarf hide you?')."
+    ]
+  },
+  "project_and_activity_plans": {
+    "unit_1_locomotor_spatial_awareness": [
+      {
+        "title": "Traffic Lights",
+        "description": "Teacher calls out colors: 'Green light!' (students move using a chosen locomotor skill), 'Yellow light!' (slow down/walk), 'Red light!' (freeze). Reinforces listening and changing movement.",
+        "materials": ["Optional: Red, yellow, green visuals"],
+        "learning_focus": ["Locomotor skills", "Listening", "Self-control", "Spatial awareness"]
+      }
+    ],
+    "unit_2_balancing_body_control": [
+      {
+        "title": "Balance Beam Adventures",
+        "description": "Use low balance beams or lines on the floor. Students practice walking forwards, backwards (with support), sideways, and trying different balances (e.g., dip, turn).",
+        "materials": ["Low balance beams or floor tape lines"],
+        "learning_focus": ["Dynamic balance", "Body control", "Coordination"]
+      }
+    ],
+    "unit_3_manipulative_skills": [
+      {
+        "title": "Beanbag Golf",
+        "description": "Set up hoops or targets at varying distances. Students try to toss beanbags underhand to land in the targets, counting how many tosses it takes.",
+        "materials": ["Beanbags", "Hoops or other targets (buckets, cones)"],
+        "learning_focus": ["Underhand throw accuracy", "Distance judgment (early)", "Self-challenge"]
+      }
+    ],
+    "unit_4_fun_fitness": [
+      {
+        "title": "Fitness Scavenger Hunt",
+        "description": "Hide picture cards of simple exercises (e.g., 5 jumping jacks, 3 hops, touch toes) around the gym. Students find a card, do the exercise, then find another.",
+        "materials": ["Picture cards of exercises"],
+        "learning_focus": ["Variety of movements", "Endurance (short bursts)", "Following visual instructions"]
+      }
+    ],
+    "unit_5_cooperation_safety": [
+      {
+        "title": "Parachute Play",
+        "description": "Use a small parachute. Activities like making waves, mushroom, walking around together holding the edge, bouncing soft balls on top. Emphasizes teamwork.",
+        "materials": ["Small parachute", "Soft balls (optional)"],
+        "learning_focus": ["Cooperation", "Teamwork", "Following directions", "Rhythmic movement"]
+      }
+    ],
+    "unit_6_rhythms_movement_exploration": [
+      {
+        "title": "Creative Dance with Props",
+        "description": "Give each student a prop (scarf, ribbon stick, beanbag). Play different types of music and encourage them to explore moving the prop and their body in creative ways.",
+        "materials": ["Scarves, ribbon sticks, or beanbags", "Diverse music selections"],
+        "learning_focus": ["Creative expression", "Rhythmic awareness", "Body awareness", "Use of props"]
+      }
+    ]
+  },
+  "framework_learning_management_system_integration": {
+    "general_notes": "LMS for Kindergarten PE is unlikely to be used directly by students. It can serve as a communication tool for parents and a resource for teachers.",
+    "content_modules": "Units as modules. Teachers could upload short video clips demonstrating specific skills (for their own reference or for absent students' parents). Links to kid-friendly fitness videos (e.g., GoNoodle) for classroom brain breaks or home activity ideas.",
+    "parent_communication": "Share PE schedules, unit focuses, and ideas for family physical activity at home (e.g., 'This week we are learning to gallop! Try galloping in your backyard.'). Post class rules for safety and cooperation.",
+    "assessment_records": "Teachers might use the LMS to privately record observational notes or checklist data on student skill development."
+  },
+  "further_dev_notes": {
+    "tech_integration": "Use music streaming for varied tempos and styles. Projector for showing short, inspiring clips of kids being active or demonstrating a skill (use sparingly to maximize movement time).",
+    "inclusive_practices": "Ensure activities can be modified for all abilities. Focus on individual progress and effort. Provide positive and specific feedback.",
+    "equipment_management": "Teach students routines for safely getting out and putting away equipment. Have designated spots for everything.",
+    "outdoor_activities": "Utilize outdoor spaces whenever possible for more varied movement experiences."
+  },
+  "student_notes": {
+    "general_tips": [
+      "Moving your body is fun and makes you feel good!",
+      "Listen to your teacher so everyone stays safe.",
+      "Try new games and movements – it's okay if it's tricky at first!",
+      "Playing together is more fun when we share and take turns."
+    ],
+    "safety_first_rules": [
+      "Look where you are going so you don't bump into anyone.",
+      "Use equipment the way your teacher shows you.",
+      "If someone falls, tell the teacher.",
+      "Stop when the teacher says 'Freeze!' or blows the whistle."
+    ]
+  },
+  "teacher_notes": {
+    "maximizing_activity_time": [
+      "Minimize transition times between activities.",
+      "Ensure equipment is ready beforehand.",
+      "Use small-sided games or stations to keep more students active simultaneously."
+    ],
+    "positive_learning_environment": [
+      "Focus on effort, participation, and improvement rather than just skill mastery.",
+      "Encourage students and celebrate successes, no matter how small.",
+      "Create a non-competitive atmosphere for skill development."
+    ],
+    "skill_cues_and_feedback": [
+      "Use short, memorable verbal cues for skills (e.g., 'Step and throw,' 'Eyes on the ball').",
+      "Provide immediate, positive, and specific feedback.",
+      "Demonstrate skills correctly and often."
+    ],
+    "game_modification": [
+      "Modify rules, equipment, or space to suit kindergarteners' developmental level and ensure success.",
+      "Introduce new games slowly, explaining rules clearly and demonstrating.",
+      "Emphasize fun and participation over winning."
+    ],
+    "integrating_health_concepts": [
+      "Briefly discuss why certain activities are good for the body (e.g., 'Running makes our heart strong!').",
+      "Connect PE to healthy habits like drinking water and getting enough rest."
+    ]
+  }
+}

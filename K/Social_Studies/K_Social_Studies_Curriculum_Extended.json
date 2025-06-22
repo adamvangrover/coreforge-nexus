@@ -1,0 +1,134 @@
+{
+  "llm_prompts_for_expansion": {
+    "unit_1_all_about_me": [
+      "Generate a template for an 'All About Me' poster that kindergarteners can complete with drawings and simple words (with teacher help) including sections for: My Name, My Age, My Favorite Color, My Favorite Food, Something I Like to Do, I Am Special Because...",
+      "Create a list of 5 simple feeling words (e.g., happy, sad, angry, scared, surprised) with corresponding simple facial expression icons that can be used for a 'How Are You Feeling Today?' check-in.",
+      "Develop a short song or chant about personal responsibilities (e.g., 'I put my toys away, yes I do! I listen to my teacher, it's true!')."
+    ],
+    "unit_2_my_family_home": [
+      "Design a 'Family Portrait' drawing activity. After drawing, students can dictate a sentence about their family (e.g., 'This is my mom. We like to read.').",
+      "Generate a list of 5 discussion prompts about different family structures and traditions to foster understanding and respect for diversity (e.g., 'Some families have many people, some have few. All families are special.' 'What is a special food your family likes to eat?').",
+      "Create instructions for a simple 'My Home' craft using construction paper shapes to build a house, where students can add details like windows, doors, and family members."
+    ],
+    "unit_3_my_school_community": [
+      "Develop a 'School Tour' plan where the class visits key locations (office, library, nurse's office, playground) and meets school helpers. Include simple questions students can ask each helper (with teacher support).",
+      "Generate a list of 5 common school rules (e.g., 'Use walking feet,' 'Share the toys,' 'Listen when others talk,' 'Be kind') and create simple picture icons to represent each rule for a classroom poster.",
+      "Create a scenario for a role-playing activity about sharing: Two students want the same toy. How can they solve this problem fairly?"
+    ],
+    "unit_4_my_neighborhood_community_helpers": [
+      "Design a 'Community Helper Charades' game: Students act out the job of a community helper (firefighter, doctor, mail carrier, etc.) for others to guess.",
+      "Generate a list of 10 common places in a community (e.g., grocery store, park, library, post office, bakery, fire station, police station, hospital, school, bank) and create simple picture cards for each.",
+      "Create a 'Thank You Note' template that kindergarteners can decorate and dictate a message to a community helper (e.g., local firefighters after a visit)."
+    ],
+    "unit_5_where_we_live_geography_maps": [
+      "Develop an activity where students build a 3D map of their classroom using blocks and small toys to represent furniture and key areas.",
+      "Generate instructions for creating a simple 'Me on the Map' booklet: Page 1 - Me, Page 2 - My Home, Page 3 - My Street (simple drawing), Page 4 - My Town/City, Page 5 - My State (outline), Page 6 - My Country (flag/outline).",
+      "Create a simple song about land and water on Earth, perhaps using actions for 'land' (stomp feet) and 'water' (wavy hands)."
+    ],
+    "unit_6_long_ago_today_history": [
+      "Design a 'Then and Now' picture sort activity: Provide pairs of pictures showing objects or activities from the past and present (e.g., horse and buggy vs. car; old-fashioned telephone vs. smartphone; washboard vs. washing machine). Students sort them into 'Long Ago' and 'Today' categories.",
+      "Generate a list of 5 interview questions kindergarteners could ask a grandparent or older adult (with family help) about what life was like when they were young.",
+      "Create a simple timeline craft: Students draw pictures of themselves as a baby, a toddler, and now, arranging them in order on a strip of paper to show personal change over time."
+    ]
+  },
+  "project_and_activity_plans": {
+    "unit_1_all_about_me": [
+      {
+        "title": "My Feelings Collage",
+        "description": "Students look through magazines for pictures of faces showing different emotions, cut them out (with help), and create a collage. Discuss the different feelings shown.",
+        "materials": ["Magazines", "Safety scissors", "Glue", "Paper"],
+        "learning_focus": ["Identifying feelings", "Emotional vocabulary", "Fine motor skills"]
+      }
+    ],
+    "unit_2_my_family_home": [
+      {
+        "title": "Our Family Traditions Quilt",
+        "description": "Each student decorates a paper square representing a family tradition or something special their family does. The squares are then joined together to make a class 'quilt.'",
+        "materials": ["Paper squares", "Crayons, markers, collage materials"],
+        "learning_focus": ["Family diversity", "Cultural sharing", "Collaboration"]
+      }
+    ],
+    "unit_3_my_school_community": [
+      {
+        "title": "School Helper Puppets",
+        "description": "Students make simple paper bag or stick puppets of different school helpers (teacher, principal, librarian, custodian). They can then use the puppets to talk about what each helper does.",
+        "materials": ["Paper bags or craft sticks", "Construction paper", "Crayons/markers", "Yarn, fabric scraps", "Glue"],
+        "learning_focus": ["School roles", "Community awareness", "Oral language"]
+      }
+    ],
+    "unit_4_my_neighborhood_community_helpers": [
+      {
+        "title": "Building Our Neighborhood",
+        "description": "Using large cardboard boxes (donated from appliance stores, etc.) or blocks, students work together to build a model of a neighborhood, including houses, stores, a park, etc. They can then use toy figures to role-play community life.",
+        "materials": ["Large cardboard boxes or blocks", "Markers", "Toy figures and vehicles"],
+        "learning_focus": ["Community places", "Cooperative play", "Spatial reasoning", "Creativity"]
+      }
+    ],
+    "unit_5_where_we_live_geography_maps": [
+      {
+        "title": "Classroom Treasure Hunt with Map",
+        "description": "Teacher creates a very simple picture map of the classroom with an 'X' marking a hidden 'treasure' (e.g., stickers, a special book). Students use the map to find it.",
+        "materials": ["Simple classroom map", "Hidden 'treasure'"],
+        "learning_focus": ["Map reading (basic)", "Spatial awareness", "Following directions"]
+      }
+    ],
+    "unit_6_long_ago_today_history": [
+      {
+        "title": "Old-Fashioned Games Day",
+        "description": "Teach and play some simple games that children played long ago (e.g., hopscotch, marbles, ring toss, Simon Says - if not already common). Compare with modern games.",
+        "materials": ["Chalk, marbles, rings, etc., as needed for games"],
+        "learning_focus": ["Comparing past and present", "Cultural heritage (games)", "Gross motor skills"]
+      }
+    ]
+  },
+  "framework_learning_management_system_integration": {
+    "general_notes": "LMS for Kindergarten Social Studies would primarily be a resource for teachers to organize materials and for parents to see what children are learning.",
+    "content_modules": "Units as modules. Can include links to virtual tours of community places (e.g., fire station, library website for kids), videos of diverse family celebrations (age-appropriate), or read-alouds of relevant books.",
+    "project_showcase": "Teachers could upload photos of class projects (e.g., the neighborhood model, family tradition quilt) to share with parents (with permissions).",
+    "parent_resources": "Share discussion starters for families related to unit themes (e.g., 'Talk about the different jobs people in your family do,' 'Look at old family photos and talk about how things have changed'). Provide lists of recommended books."
+  },
+  "further_dev_notes": {
+    "tech_integration": "Use Google Earth (teacher-guided) to show students their school, neighborhood, and town from above. Interactive whiteboard for labeling maps or sorting pictures (e.g., community helpers and their tools).",
+    "guest_speakers_community_involvement": "Invite parents to share about their jobs or cultural traditions. Arrange visits from community helpers (police officer, firefighter, librarian).",
+    "current_events_simplified": "Briefly discuss age-appropriate current events if they relate to community or helping others (e.g., a local food drive)."
+  },
+  "student_notes": {
+    "general_tips": [
+      "You are an important part of your family, school, and community!",
+      "Learning about others helps us be good friends.",
+      "Ask questions to learn more about the world around you.",
+      "Rules help everyone stay safe and be fair."
+    ],
+    "being_a_good_citizen_means": [
+      "Following rules.",
+      "Being kind to others.",
+      "Sharing and taking turns.",
+      "Helping to keep our classroom and school clean."
+    ]
+  },
+  "teacher_notes": {
+    "creating_inclusive_classroom": [
+      "Ensure books, visuals, and discussions represent diverse families, cultures, and abilities.",
+      "Foster an environment of respect and curiosity about differences.",
+      "Address stereotypes or misconceptions gently and factually."
+    ],
+    "connecting_to_students_lives": [
+      "Relate social studies concepts directly to students' own experiences and families.",
+      "Use students' names and personal stories (with permission) in examples.",
+      "Make learning relevant and meaningful to their world."
+    ],
+    "handling_sensitive_topics": [
+      "When discussing topics like rules or authority, focus on positive aspects (safety, fairness, help).",
+      "For historical topics or holidays, provide simple, age-appropriate explanations, avoiding complex or potentially upsetting details.",
+      "Be aware of individual student backgrounds and sensitivities."
+    ],
+    "integrating_play": [
+      "Incorporate dramatic play centers (e.g., 'house corner,' 'community helper office') where students can explore social roles and concepts.",
+      "Use games and hands-on activities to make learning active and engaging."
+    ],
+    "civic_engagement_early_on": [
+      "Involve students in making simple classroom decisions or rules (e.g., voting on a class name, deciding how to share a popular toy).",
+      "Discuss ways even young children can be helpful and responsible members of their community (e.g., picking up litter with a grown-up, being kind to neighbors)."
+    ]
+  }
+}

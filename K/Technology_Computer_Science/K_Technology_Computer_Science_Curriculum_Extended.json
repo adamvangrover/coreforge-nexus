@@ -1,0 +1,134 @@
+{
+  "llm_prompts_for_expansion": {
+    "unit_1_what_is_technology": [
+      "Generate a list of 10 questions to facilitate a kindergarten class discussion about different technology tools they see at home and school, and how those tools help people (e.g., 'How does a grown-up use a phone?', 'How does the microwave help us?').",
+      "Create a simple 'Tech or Not Tech?' picture sorting activity. Provide pictures of various items (e.g., computer, book, tablet, pencil, TV, bicycle, programmable toy, ball). Students sort them into 'Technology' and 'Not Technology' piles.",
+      "Develop lyrics for a short, catchy song about taking care of technology (e.g., 'Gentle hands, gentle hands, when we use our tech...')."
+    ],
+    "unit_2_basic_device_skills": [
+      "Design a 'Mouse Practice' game idea for kindergarteners using a simple drawing program: Teacher asks students to click on specific colors, drag shapes to certain spots, or draw simple lines.",
+      "Generate a printable 'Keyboard Treasure Hunt' worksheet where kindergarteners find and circle the letters in their first name on a picture of a keyboard.",
+      "Create a visual guide (step-by-step pictures) showing how to turn on a tablet, find a specific app icon (e.g., a familiar learning game), and open it."
+    ],
+    "unit_3_following_directions_algorithms": [
+      "Develop 3 different 'Unplugged Algorithm' activities for kindergarteners: 1) Following instructions to draw a simple picture (e.g., 'Draw a big circle. Draw two small circles inside for eyes...'). 2) 'Robot Teacher' - one student gives simple movement commands to another student acting as a robot. 3) Sequencing picture cards to show the steps for a daily routine (e.g., getting ready for school).",
+      "Generate a set of 5 simple maze challenges for a programmable floor robot (like Bee-Bot). Each maze should require 3-4 sequential commands (forward, turn left, turn right) to solve.",
+      "Create a story about a character who needs to follow a sequence of steps (an algorithm) to achieve a goal (e.g., baking a simple cake, finding a hidden toy using a map with directions)."
+    ],
+    "unit_4_solving_puzzles_programming_concepts": [
+      "Design a 'Debug the Robot' activity: Program a floor robot with one incorrect command in a sequence (e.g., it turns left instead of right). Students observe, identify the 'bug,' and suggest how to fix it.",
+      "Generate a list of 5 simple challenges for a block-based coding app (like ScratchJr or Kodable) suitable for kindergarteners (e.g., 'Make the character walk to the tree,' 'Make the cat jump over the fence,' 'Make the car drive around the block').",
+      "Create a visual analogy to explain 'sequence' in programming (e.g., like beads on a string, one after another) and 'loop' (like singing 'Row, Row, Row Your Boat' three times)."
+    ],
+    "unit_5_being_safe_kind_online": [
+      "Develop 3 short role-playing scenarios for kindergarteners about online safety: 1) A pop-up appears while playing a game – what should you do? 2) Someone online asks for your name – what should you do? 3) You see something online that makes you feel scared – what should you do?",
+      "Generate a simple 'Online Safety Rules' poster concept for the classroom with 2-3 key rules and accompanying pictures (e.g., 'Ask a Grown-Up,' 'Keep Your Information Private,' 'Tell a Grown-Up if You're Worried').",
+      "Create a discussion prompt: 'If we are playing a game together online (e.g., a class game on IWB), how can we be kind to our friends?'"
+    ],
+    "unit_6_tech_for_creating_sharing": [
+      "Design a project where students use a simple digital drawing tool to illustrate their favorite part of a story read in class. They can then share their drawings with a partner.",
+      "Generate a plan for creating a class pictograph about favorite animals: Students choose a digital picture of their favorite animal, and the teacher helps them arrange these into a graph on the interactive whiteboard. Discuss which animal is most/least popular.",
+      "Create a 'Digital Storytelling' activity: Students take turns adding a sentence (dictated to the teacher who types it) to a collaborative class story, and then use a drawing app to illustrate their sentence. Combine into a class e-book or slideshow."
+    ]
+  },
+  "project_and_activity_plans": {
+    "unit_1_what_is_technology": [
+      {
+        "title": "Technology Show and Tell (Pictures or Drawings)",
+        "description": "Students bring a picture (or draw one) of a piece of technology they use at home. They share what it is and how it helps their family.",
+        "materials": ["Student pictures/drawings"],
+        "learning_focus": ["Identifying technology", "Understanding purpose of tech", "Oral communication"]
+      }
+    ],
+    "unit_2_basic_device_skills": [
+      {
+        "title": "App Exploration Station",
+        "description": "Set up tablets or computers with a few carefully selected, age-appropriate educational apps. Students rotate through, practicing opening apps, basic navigation, and closing apps (with support).",
+        "materials": ["Tablets/computers", "Pre-loaded educational apps"],
+        "learning_focus": ["Device navigation", "App interaction", "Following directions"]
+      }
+    ],
+    "unit_3_following_directions_algorithms": [
+      {
+        "title": "Human Robot Obstacle Course",
+        "description": "Set up a simple obstacle course in the classroom (e.g., walk around a cone, step over a beanbag, crawl under a table). One student ('programmer') gives verbal step-by-step directions to another student ('robot') to navigate the course.",
+        "materials": ["Cones, beanbags, table, etc. for obstacle course"],
+        "learning_focus": ["Algorithmic thinking (sequencing)", "Clear communication", "Problem-solving"]
+      }
+    ],
+    "unit_4_solving_puzzles_programming_concepts": [
+      {
+        "title": "Code-a-Pillar™ or Similar Toy Exploration",
+        "description": "Use a toy like Code-a-Pillar™ where students connect segments representing different commands (forward, turn) to make the toy move. They can experiment with different sequences.",
+        "materials": ["Segmented programmable toy like Code-a-Pillar™"],
+        "learning_focus": ["Sequencing", "Cause and effect", "Debugging (trial and error)"]
+      }
+    ],
+    "unit_5_being_safe_kind_online": [
+      {
+        "title": "Trusted Adult Flower",
+        "description": "Students create a 'flower' craft. On the petals, they draw or write (with help) the names/pictures of trusted adults they can go to if they need help with something online or offline.",
+        "materials": ["Paper plates or circles for flower center", "Paper strips for petals", "Crayons/markers", "Glue"],
+        "learning_focus": ["Identifying trusted adults", "Online safety reinforcement"]
+      }
+    ],
+    "unit_6_tech_for_creating_sharing": [
+      {
+        "title": "Digital Self-Portraits",
+        "description": "Students use a simple drawing app on a tablet or computer to create a self-portrait. They can explore different colors, tools, and save their work (with help).",
+        "materials": ["Tablets/computers with drawing app"],
+        "learning_focus": ["Digital art creation", "Tool exploration", "Self-expression"]
+      }
+    ]
+  },
+  "framework_learning_management_system_integration": {
+    "general_notes": "LMS for Kindergarten CS/Tech would be primarily for teacher organization and parent communication, not direct student use for assignments.",
+    "content_modules": "Units as modules. Could contain links to approved educational apps or websites, short videos explaining tech concepts (e.g., how a mouse works), or unplugged activity instructions for teachers/parents.",
+    "digital_portfolio_links": "If students create digital work (drawings, simple coded projects), links or screenshots could be added to a digital portfolio system, potentially accessible to parents via LMS.",
+    "parent_resources": "Share lists of recommended age-appropriate apps and websites, tips for managing screen time, and information about online safety for young children."
+  },
+  "further_dev_notes": {
+    "tech_integration": "Use interactive whiteboard for whole-class coding activities or demonstrating software. Ensure all apps and websites are thoroughly vetted for age-appropriateness, ad-content, and privacy.",
+    "unplugged_first_approach": "Introduce many computational thinking concepts (algorithms, sequencing, debugging) through unplugged activities before moving to devices to build foundational understanding.",
+    "balance_screen_time": "Be mindful of recommended screen time limits for kindergarteners. Tech activities should be purposeful, interactive, and balanced with plenty of off-screen learning."
+  },
+  "student_notes": {
+    "general_tips": [
+      "Technology can help us learn and play in new ways!",
+      "Ask a grown-up if you need help with a computer or tablet.",
+      "It's like giving instructions to a robot – tell it one step at a time.",
+      "Be gentle with our tech tools so they keep working."
+    ],
+    "online_safety_reminders": [
+      "Always ask a grown-up before you click on something new online.",
+      "Keep your name, address, and phone number a secret online.",
+      "If anything online makes you feel worried or yucky, tell a grown-up right away."
+    ]
+  },
+  "teacher_notes": {
+    "role_of_play": [
+      "Emphasize exploration and play in all tech activities.",
+      "Allow students to experiment and make mistakes – this is how they learn.",
+      "Focus on the process of problem-solving, not just the end product."
+    ],
+    "teacher_as_facilitator": [
+      "Guide students in their explorations rather than providing all the answers.",
+      "Ask open-ended questions to encourage thinking (e.g., 'What do you think will happen if you try this command?').",
+      "Model a positive and curious attitude towards technology."
+    ],
+    "managing_devices": [
+      "Establish clear routines for getting out, using, and putting away devices.",
+      "Ensure devices are charged and software is updated.",
+      "Have a plan for troubleshooting common tech issues."
+    ],
+    "ethical_use_of_tech": [
+      "Begin discussions about responsible tech use early on (sharing, taking turns with devices, being kind).",
+      "Model respectful use of technology."
+    ],
+    "differentiation": [
+      "Provide varying levels of challenge in coding apps or robot activities.",
+      "Offer choices in tools or apps where possible.",
+      "Pair students strategically for collaborative problem-solving."
+    ]
+  }
+}

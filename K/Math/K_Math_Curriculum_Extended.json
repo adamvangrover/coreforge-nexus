@@ -1,0 +1,138 @@
+{
+  "llm_prompts_for_expansion": {
+    "unit_1_counting_numbers_0_5": [
+      "Generate instructions for 3 different hands-on counting stations for kindergarteners focusing on numbers 0-5, using common classroom materials (e.g., counting bears into cups, stringing beads, placing pom-poms on numbered mats).",
+      "Create a short, interactive story (5-7 sentences) that involves counting objects up to 5, where students can participate by showing fingers or calling out numbers.",
+      "Develop a printable worksheet where kindergarteners match numerals (0-5) to sets of objects (0-5 items like apples, stars, dots)."
+    ],
+    "unit_2_exploring_shapes": [
+      "Design a 'Shape Hunt' activity where kindergarteners search the classroom or playground for real-world objects that match common 2D shapes (circle, square, triangle, rectangle) and 3D shapes (sphere, cube, cone, cylinder).",
+      "Generate a list of 5 open-ended questions to ask kindergarteners while they are building with 3D shape blocks to encourage descriptive language (e.g., 'Tell me about what you built.' 'Which shapes did you use?' 'Why did you choose that shape there?').",
+      "Create instructions for a simple art activity where students use pre-cut paper shapes (circles, squares, triangles, rectangles) to create a picture (e.g., a house, a person, a rocket)."
+    ],
+    "unit_3_counting_numbers_6_10": [
+      "Develop a game using a large number line (0-10) on the floor where students can hop to numbers called out, or roll a die and hop that many spaces, saying the number they land on.",
+      "Generate a set of 10 picture cards, each showing a group of 6-10 objects. Create corresponding numeral cards (6-10) for a matching game.",
+      "Create a simple song or chant (to a familiar tune) for rote counting from 1 to 20, emphasizing numbers 6-10."
+    ],
+    "unit_4_addition_subtraction_within_5": [
+      "Design 5 simple addition story problems (within 5) and 5 simple subtraction story problems (within 5) that kindergarteners can act out using themselves as counters or with small manipulatives.",
+      "Generate a 'Shake and Spill' activity plan: Students use two-color counters (e.g., red/yellow) in a cup, shake them, spill them, and record the different ways to make a target number (e.g., for 5: 2 red + 3 yellow, 4 red + 1 yellow).",
+      "Create a visual worksheet showing 'number bonds' for numbers 3, 4, and 5, where students can draw dots or write numerals to show parts that make the whole."
+    ],
+    "unit_5_measurement_data_basics": [
+      "Develop an activity where students use non-standard units (e.g., linking cubes, paper clips) to measure the length of various classroom objects (pencil, book, table edge) and then compare which is 'longer' or 'shorter.'",
+      "Generate instructions for a class graphing activity: Ask a simple question (e.g., 'What is your favorite color: red, blue, or yellow?'). Students place a sticky note or marker on a class pictograph or bar graph. Discuss which category has 'more,' 'less,' or 'the same.'",
+      "Create a sorting game with attribute blocks or a collection of diverse buttons where students sort by one attribute at a time (color, then shape, then size)."
+    ],
+    "unit_6_numbers_11_19": [
+      "Design an activity using two ten frames where students represent numbers 11-19 by filling one ten frame completely and then adding the appropriate number of counters to the second ten frame.",
+      "Generate a set of cards showing numbers 11-19 as '10 and ___ more' (e.g., a card showing '10 and 3' for the number 13). Students match these to numeral cards 11-19.",
+      "Create a building activity using linking cubes where students build towers of 10 in one color, and then add 1-9 cubes in another color to represent numbers 11-19, stating the total."
+    ]
+  },
+  "project_and_activity_plans": {
+    "unit_1_counting_numbers_0_5": [
+      {
+        "title": "Counting Jar Estimates",
+        "description": "Have a clear jar with a small number of items (0-5, changing daily). Students guess how many items are in the jar, then count together to check. Discuss 'more than,' 'less than' previous guesses.",
+        "materials": ["Clear jar", "Various small countable items (buttons, pom-poms, blocks)"],
+        "learning_focus": ["Estimation (early)", "Counting", "Cardinality", "Number sense"]
+      }
+    ],
+    "unit_2_exploring_shapes": [
+      {
+        "title": "Playdough Shape Creations",
+        "description": "Students use playdough and shape cookie cutters (or just their hands) to create different 2D shapes. They can also try to build simple 3D forms.",
+        "materials": ["Playdough", "Shape cookie cutters (optional)", "Playdough tools"],
+        "learning_focus": ["Shape recognition", "Shape attributes (informal)", "Fine motor skills"]
+      }
+    ],
+    "unit_3_counting_numbers_6_10": [
+      {
+        "title": "Number Line Mystery",
+        "description": "Use a large number line (0-10). Cover one number. Students have to figure out the 'mystery number' by looking at the numbers before and after.",
+        "materials": ["Large number line", "Post-it note or paper to cover a number"],
+        "learning_focus": ["Number order", "Number recognition", "Problem-solving"]
+      }
+    ],
+    "unit_4_addition_subtraction_within_5": [
+      {
+        "title": "Bowling for Numbers",
+        "description": "Set up 5 plastic bowling pins or cups. Students roll a soft ball. They count how many pins they knocked down and how many are still standing, representing a subtraction problem (5 - knocked_down = standing) or addition (knocked_down + standing = 5).",
+        "materials": ["5 plastic bowling pins or cups", "Soft ball"],
+        "learning_focus": ["Subtraction as take away", "Decomposition of numbers", "Counting"]
+      }
+    ],
+    "unit_5_measurement_data_basics": [
+      {
+        "title": "Which Weighs More? (Balance Scale)",
+        "description": "Provide a simple balance scale and various classroom objects. Students experiment by placing two objects on the scale to see which is heavier or lighter, or if they weigh about the same.",
+        "materials": ["Balance scale", "Various small classroom objects (block, crayon, eraser, toy car)"],
+        "learning_focus": ["Comparing weights (heavier/lighter/same)", "Observation skills"]
+      }
+    ],
+    "unit_6_numbers_11_19": [
+      {
+        "title": "Teen Number Concentration/Memory Game",
+        "description": "Create pairs of cards: one card with a numeral (11-19) and its matching card showing a ten frame representation (a full ten frame plus the additional ones). Students play a memory matching game.",
+        "materials": ["Cardstock for making cards", "Markers"],
+        "learning_focus": ["Teen number recognition", "Place value (10 and some more)", "Memory skills"]
+      }
+    ]
+  },
+  "framework_learning_management_system_integration": {
+    "general_notes": "LMS for Kindergarten Math should be teacher-facilitated, primarily for whole-group interactive games or sharing parent resources.",
+    "content_modules": "Units as modules. Could include links to online counting songs, interactive number or shape games (to be played as a class on IWB), or printable practice sheets for numeral writing.",
+    "assessment_tools": "Not for direct student use for quizzes. Teachers might use the LMS to record observational data or link to digital portfolio platforms where examples of student work (e.g., photos of block constructions, drawings of sorted objects) can be stored.",
+    "parent_communication": "Share unit goals, key vocabulary (e.g., 'more than,' 'less than,' 'circle,' 'cube'), and suggestions for simple math activities to do at home (e.g., 'Count the stairs as you walk,' 'Find circles in your kitchen')."
+  },
+  "further_dev_notes": {
+    "tech_integration": "Use interactive whiteboard tools for demonstrating counting on a number line, sorting shapes, or building with virtual manipulatives. Ensure any apps are developmentally appropriate, ad-free, and focus on conceptual understanding.",
+    "math_talks": "Implement short, daily 'number talks' where students solve a simple problem mentally and share their strategies. Focus on developing flexible thinking about numbers.",
+    "manipulative_access": "Ensure all students have easy access to a variety of manipulatives during math activities and free choice time."
+  },
+  "student_notes": {
+    "general_tips": [
+      "Math is all about exploring and discovering!",
+      "Counting helps us know 'how many.'",
+      "Shapes are everywhere around us.",
+      "It's okay to try different ways to solve a problem."
+    ],
+    "counting_tips": [
+      "Touch each object as you count it.",
+      "Say one number for each object.",
+      "The last number you say tells how many."
+    ],
+    "playing_with_shapes": [
+      "Look for shapes in your toys and books.",
+      "Try building towers or houses with blocks.",
+      "What new shapes can you make by putting smaller shapes together?"
+    ]
+  },
+  "teacher_notes": {
+    "concrete_to_representational_to_abstract": [
+      "Introduce all new concepts with concrete manipulatives.",
+      "Transition to pictorial representations (drawings, ten frames).",
+      "Finally, connect to abstract symbols (numerals, +, - signs)."
+    ],
+    "developing_number_sense": [
+      "Focus on understanding quantity, not just rote counting or numeral recognition.",
+      "Provide frequent opportunities for estimating, comparing, and composing/decomposing numbers.",
+      "Use ten frames regularly to build understanding of benchmarks of 5 and 10."
+    ],
+    "questioning_techniques": [
+      "Ask open-ended questions: 'How do you know?', 'Can you show me another way?', 'What do you notice?'",
+      "Encourage students to explain their thinking, even if it's incorrect, to uncover misconceptions."
+    ],
+    "math_centers_management": [
+      "Keep center activities engaging and hands-on.",
+      "Provide clear visual instructions for each center.",
+      "Rotate activities regularly to maintain student interest and target different skills."
+    ],
+    "addressing_common_misconceptions": [
+      "Common issues: not understanding one-to-one correspondence, reversing numerals, difficulty with cardinality (last number counted is the total).",
+      "Provide targeted reteaching with manipulatives and varied practice."
+    ]
+  }
+}

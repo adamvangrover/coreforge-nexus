@@ -1,0 +1,147 @@
+{
+  "llm_prompts_for_expansion": {
+    "unit_1_oral_language_print_awareness": [
+      "Generate 5 conversation starter prompts for kindergarten circle time that encourage sharing and listening skills (e.g., 'Tell us about something fun you did this weekend,' 'What is your favorite animal and why?').",
+      "Create a short, interactive read-aloud plan for a popular kindergarten book (e.g., 'The Very Hungry Caterpillar' or 'Brown Bear, Brown Bear, What Do You See?'), focusing on pointing out print concepts like title, author, and directionality.",
+      "Develop a list of 10 common classroom objects and create simple picture-word labels for them to build print awareness (e.g., 'door' with a picture of a door, 'table' with a picture of a table)."
+    ],
+    "unit_2_phonological_awareness": [
+      "Generate a list of 20 pairs of rhyming words suitable for kindergarteners (e.g., cat/hat, sun/fun, dog/log) for use in games and activities.",
+      "Create instructions for a 'Syllable Clap' game: Teacher says a word (1-3 syllables, e.g., 'apple,' 'banana,' 'butterfly'), and students clap the number of syllables.",
+      "Develop a set of 10 CVC (consonant-vowel-consonant) picture cards (e.g., cat, sun, pig, map, hen). For each, list prompts for isolating initial, medial, and final sounds (e.g., 'What's the first sound in /c/ /a/ /t/?')."
+    ],
+    "unit_3_abcs_letter_sounds": [
+      "Design a multi-sensory activity for learning a specific letter (e.g., letter 'S'): include tracing the letter in sand, forming it with playdough, finding objects that start with 'S', and practicing its sound.",
+      "Generate a list of 5 simple action verbs that start with different consonant sounds (e.g., Jump/J, Run/R, Sing/S, Dance/D, Hop/H) to connect letter sounds with movement.",
+      "Create a simple vowel song (to a familiar tune like 'Twinkle Twinkle') that introduces the short sounds of a, e, i, o, u."
+    ],
+    "unit_4_shared_reading_emergent_reading": [
+      "Develop a shared reading lesson plan for a predictable text (e.g., a book with repetitive phrases). Include pre-reading discussion, during-reading strategies (pointing to words, choral reading), and post-reading comprehension questions.",
+      "Generate a list of 10 common kindergarten sight words (e.g., I, a, see, the, like, to, and, go, we, you) and suggest a fun game for practicing them (e.g., 'Sight Word Bingo' or 'Memory Match').",
+      "Create 5 simple sentences using CVC words and a few sight words (e.g., 'I see a cat.' 'The pig is big.') for emergent reading practice."
+    ],
+    "unit_5_emergent_writing": [
+      "Design a 'Weekend News' writing prompt for kindergarteners where they draw a picture of something they did over the weekend and then dictate or write a simple sentence about it.",
+      "Generate a checklist for teachers to assess emergent writing samples, focusing on: picture conveys meaning, attempts to write letters/words, uses some known letter sounds, directionality (L-R).",
+      "Create a template for a class book on a simple topic (e.g., 'Our Favorite Animals' or 'Things We Like To Do at School'), where each student contributes a page with a drawing and a dictated/written sentence."
+    ],
+    "unit_6_genres_text_features": [
+      "Develop a T-chart template for comparing a fiction story and an informational text on the same topic (e.g., a story about a bear vs. a book with facts about bears). Focus on simple differences like 'tells a story' vs. 'gives facts,' 'has characters' vs. 'has photos/diagrams.'",
+      "Generate a list of 5 questions to ask kindergarteners to help them understand the role of an illustrator (e.g., 'What do the pictures tell us that the words don't?', 'How do the pictures make you feel?').",
+      "Create a 'Book Hunt' activity where students search for specific text features in various books (e.g., 'Find the title page,' 'Point to the author's name,' 'Show me the back cover')."
+    ]
+  },
+  "project_and_activity_plans": {
+    "unit_1_oral_language_print_awareness": [
+      {
+        "title": "Morning Message Interactive Writing",
+        "description": "Teacher writes a daily message on chart paper, leaving blanks for students to help fill in (e.g., letters, words they know). Focus on print concepts like spaces between words, capitalization, punctuation.",
+        "materials": ["Chart paper", "Markers"],
+        "learning_focus": ["Print awareness", "Shared writing", "Letter/word recognition"]
+      }
+    ],
+    "unit_2_phonological_awareness": [
+      {
+        "title": "Rhyming Basket Sort",
+        "description": "Collect pairs of small objects or picture cards that rhyme (e.g., toy car/star, block/sock). Students sort them into rhyming pairs in a basket.",
+        "materials": ["Small rhyming objects or picture cards", "Basket"],
+        "learning_focus": ["Rhyme recognition", "Auditory discrimination"]
+      },
+      {
+        "title": "Sound Segmenting Train",
+        "description": "Use connecting cubes or toy train cars. For a CVC word like 'cat,' students say each sound (/c/-/a/-/t/) as they connect three cubes/cars to build the 'sound train.'",
+        "materials": ["Connecting cubes or toy train cars"],
+        "learning_focus": ["Phoneme segmentation", "Auditory processing"]
+      }
+    ],
+    "unit_3_abcs_letter_sounds": [
+      {
+        "title": "Alphabet Soup Sensory Bin",
+        "description": "Fill a sensory bin with rice or beans and hide magnetic letters or foam letters. Students find letters, name them, and say their sounds.",
+        "materials": ["Sensory bin", "Filler (rice, beans)", "Magnetic/foam letters"],
+        "learning_focus": ["Letter recognition", "Letter-sound correspondence", "Tactile exploration"]
+      }
+    ],
+    "unit_4_shared_reading_emergent_reading": [
+      {
+        "title": "Pocket Chart Sentences",
+        "description": "Use sentence strips with sight words and picture cards for nouns/verbs to build simple sentences in a pocket chart. Students help arrange the words and read the sentences.",
+        "materials": ["Pocket chart", "Sentence strips", "Picture cards", "Sight word cards"],
+        "learning_focus": ["Sentence structure", "Sight word recognition", "Concepts of print"]
+      }
+    ],
+    "unit_5_emergent_writing": [
+      {
+        "title": "Label the Classroom",
+        "description": "As a class, walk around and create labels for common classroom items (door, window, chair, table, etc.). Students can help write or decorate the labels. This builds print awareness and vocabulary.",
+        "materials": ["Cardstock or sentence strips", "Markers"],
+        "learning_focus": ["Environmental print", "Word recognition", "Purposeful writing"]
+      }
+    ],
+    "unit_6_genres_text_features": [
+      {
+        "title": "Author/Illustrator Study (Simple)",
+        "description": "Read several books by the same author/illustrator (e.g., Eric Carle, Mo Willems). Discuss their unique style and common themes. Students can try to draw or write in that style.",
+        "materials": ["Books by a chosen author/illustrator", "Art supplies"],
+        "learning_focus": ["Author/illustrator roles", "Text-to-text connections", "Artistic/literary styles"]
+      }
+    ]
+  },
+  "framework_learning_management_system_integration": {
+    "general_notes": "LMS for Kindergarten ELA should be primarily teacher-facilitated for whole-group activities or for sharing resources with families.",
+    "content_modules": "Units as modules. Can include links to online read-alouds (e.g., Storyline Online), alphabet song videos, or simple interactive letter/sound games (teacher-led on IWB).",
+    "assessment_tools": "Teachers can use simple digital checklists within the LMS to track student progress on letter recognition, sight words, etc. if the system supports it. Not for student-facing quizzes.",
+    "parent_resources": "LMS is ideal for sharing weekly newsletters with ELA focuses, vocabulary lists, sight word lists for home practice, and links to recommended educational apps or websites for parents to use with their children."
+  },
+  "further_dev_notes": {
+    "tech_integration": "Use document cameras to project books for shared reading, allowing all students to see text and illustrations clearly. Interactive whiteboard apps for letter formation practice or sorting words/pictures.",
+    "differentiated_instruction": "Plan small group activities based on skill levels for phonics, sight words, and emergent reading. Provide varied levels of support for writing tasks (e.g., sentence starters, dictation options).",
+    "classroom_library": "Maintain a diverse and engaging classroom library with books at various reading levels and representing different cultures and experiences. Rotate books regularly."
+  },
+  "student_notes": {
+    "general_tips": [
+      "Reading books is an adventure!",
+      "Listen to the sounds in words – it's like a secret code!",
+      "Drawing and writing helps you share your super ideas.",
+      "Ask questions if you don't understand something in a story."
+    ],
+    "when_reading": [
+      "Point to the words as you read (or as someone reads to you).",
+      "Look at the pictures – they help tell the story.",
+      "Think about what might happen next."
+    ],
+    "when_writing": [
+      "Say the word slowly and listen for the sounds.",
+      "Try your best to write the letters you hear.",
+      "Your pictures help tell your story too!"
+    ]
+  },
+  "teacher_notes": {
+    "creating_literacy_rich_environment": [
+      "Label extensively throughout the classroom.",
+      "Display alphabet charts, word walls (interactive if possible), and student writing.",
+      "Provide easy access to a variety of books and writing materials."
+    ],
+    "phonics_instruction": [
+      "Follow a systematic phonics scope and sequence.",
+      "Provide daily, explicit instruction in letter-sound correspondences.",
+      "Offer ample opportunities for students to apply phonics skills in reading and writing decodable text."
+    ],
+    "read_aloud_strategies": [
+      "Choose high-quality, engaging literature.",
+      "Model fluent reading with expression.",
+      "Pause to ask questions, make predictions, and discuss vocabulary.",
+      "Re-read favorite books to build fluency and comprehension."
+    ],
+    "supporting_emergent_writers": [
+      "Value all attempts at writing, from scribbles to phonetic spelling.",
+      "Encourage students to 'stretch out' words to hear sounds.",
+      "Model writing frequently (shared writing, interactive writing).",
+      "Provide opportunities for students to share their writing."
+    ],
+    "assessment_for_instruction": [
+      "Use ongoing formative assessments to monitor student progress in foundational skills.",
+      "Analyze assessment data to plan targeted instruction and interventions for individuals and small groups."
+    ]
+  }
+}

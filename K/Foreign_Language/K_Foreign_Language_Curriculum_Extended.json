@@ -1,0 +1,134 @@
+{
+  "llm_prompts_for_expansion": {
+    "unit_1_greetings": [
+      "Generate a script for a simple puppet show (2-3 minutes) for kindergarteners where two characters meet, greet each other, ask each other's names, and say goodbye in [Target Language: Spanish, e.g., ¡Hola!, ¿Cómo te llamas?, Me llamo..., Adiós].",
+      "Create lyrics for a short, catchy 'Hello Song' in [Target Language: Spanish] for kindergarteners that incorporates 'Hola', 'Buenos días', and asking '¿Cómo te llamas?'. Include simple actions.",
+      "Develop a list of 5 visuals (e.g., flashcard ideas) that reinforce politeness expressions like 'Por favor', 'Gracias', 'De nada' in [Target Language: Spanish]."
+    ],
+    "unit_2_colors_shapes": [
+      "Design a 'Color Scavenger Hunt' activity plan for kindergarteners to find objects of specific colors (rojo, azul, amarillo, verde) in the classroom, saying the color name in [Target Language: Spanish] when they find one.",
+      "Generate instructions for a simple craft activity where kindergarteners create a 'Shape Monster' using cut-out circles, squares, and triangles, labeling the shapes in [Target Language: Spanish] with teacher assistance.",
+      "Create a short call-and-response chant in [Target Language: Spanish] for practicing colors and shapes (e.g., Teacher: '¿De qué color es el círculo?' Students: 'El círculo es rojo.')."
+    ],
+    "unit_3_numbers": [
+      "Develop a game idea similar to 'Duck, Duck, Goose' but using numbers 1-10 in [Target Language: Spanish] (e.g., 'Uno, Dos, Tres... ¡Diez!').",
+      "Generate a printable worksheet for kindergarteners with groups of objects (1-10) that they can count and circle the correct numeral, with numerals also written in [Target Language: Spanish].",
+      "Create lyrics for a simple counting song (1-10) in [Target Language: Spanish] that involves finger play or actions for each number."
+    ],
+    "unit_4_family": [
+      "Design a 'My Family' drawing activity where kindergarten students draw their family members and then, with teacher help, label them with the correct terms in [Target Language: Spanish] (Mamá, Papá, Hermano, Hermana, etc.).",
+      "Generate a list of 5 simple questions a teacher can ask students about their family drawings in [Target Language: Spanish] (e.g., '¿Quién es?' while pointing, '¿Es tu mamá?').",
+      "Create a matching game where students match pictures of family members to the written word in [Target Language: Spanish]."
+    ],
+    "unit_5_animals": [
+      "Develop a 'Charades' or 'Act It Out' game where students pick an animal card and act out the animal for others to guess the name in [Target Language: Spanish]. Include a list of 8-10 common animals (perro, gato, pájaro, pez, vaca, etc.).",
+      "Generate a simple story outline (5-7 sentences) about a farm that includes common farm animals, with key animal names repeated in [Target Language: Spanish]. The teacher can tell the story using animal puppets or pictures.",
+      "Create a sound matching activity: Play an animal sound, and students have to say the animal's name in [Target Language: Spanish]."
+    ],
+    "unit_6_food": [
+      "Design a 'Play Store' or 'Market' role-play scenario where students can 'buy' and 'sell' plastic food items using [Target Language: Spanish] for food names, 'por favor', and 'gracias'.",
+      "Generate a list of 5 common fruits (manzana, plátano, naranja, uvas, fresa) and 5 common drinks (leche, agua, jugo) with their [Target Language: Spanish] names for a flashcard game.",
+      "Create a simple 'I like / I don't like' (Me gusta / No me gusta) worksheet where students can circle smiley or frowny faces next to pictures of food, and then say the sentence in [Target Language: Spanish] with teacher support."
+    ]
+  },
+  "project_and_activity_plans": {
+    "unit_1_greetings": [
+      {
+        "title": "Greeting Ball Toss",
+        "description": "Students stand in a circle. Teacher tosses a soft ball to a student, saying '¡Hola! Me llamo [Teacher's Name]. ¿Cómo te llamas?'. The student catches it, responds 'Me llamo [Student's Name]', and tosses it to another student, repeating the greeting.",
+        "materials": ["Soft ball"],
+        "learning_focus": ["Greetings", "Asking/telling names", "Turn-taking"]
+      }
+    ],
+    "unit_2_colors_shapes": [
+      {
+        "title": "Color & Shape Sorting Game",
+        "description": "Provide a mixed collection of colored paper shapes. Have students sort them by color into labeled containers (labels in [Target Language: Spanish]), then by shape.",
+        "materials": ["Construction paper shapes (circles, squares, triangles in red, yellow, blue, green)", "Containers", "Labels"],
+        "learning_focus": ["Color recognition", "Shape recognition", "Sorting skills"]
+      }
+    ],
+    "unit_3_numbers": [
+      {
+        "title": "Number Hopscotch (Rayuela de Números)",
+        "description": "Create a hopscotch grid with numerals 1-10. Students toss a marker, hop to the number, and say the number in [Target Language: Spanish] when they land on it.",
+        "materials": ["Chalk or tape for grid", "Beanbag or marker"],
+        "learning_focus": ["Number recognition", "Counting sequence", "Gross motor skills"]
+      }
+    ],
+    "unit_4_family": [
+      {
+        "title": "Family Puppets",
+        "description": "Students create simple stick puppets or paper bag puppets of family members. They can then use them to introduce their 'family' in [Target Language: Spanish].",
+        "materials": ["Craft sticks or paper bags", "Crayons/markers", "Yarn", "Fabric scraps", "Glue/tape"],
+        "learning_focus": ["Family vocabulary", "Oral presentation (simple)", "Creativity"]
+      }
+    ],
+    "unit_5_animals": [
+      {
+        "title": "Old MacDonald Had a Farm (El Viejo MacDonald)",
+        "description": "Sing 'Old MacDonald' using animal names and sounds in [Target Language: Spanish]. Use animal puppets or pictures as visuals.",
+        "materials": ["Animal puppets or flashcards", "Song lyrics"],
+        "learning_focus": ["Animal vocabulary", "Animal sounds", "Musical engagement"]
+      }
+    ],
+    "unit_6_food": [
+      {
+        "title": "Food Taste Test (Optional & Allergy Aware)",
+        "description": "If feasible and allergy-safe, have a small taste test of simple fruits (e.g., manzana, plátano). Students can say 'Me gusta' or 'No me gusta' in [Target Language: Spanish].",
+        "materials": ["Small samples of fruits", "Plates", "Napkins"],
+        "learning_focus": ["Food vocabulary", "Expressing preferences", "Sensory exploration"]
+      }
+    ]
+  },
+  "framework_learning_management_system_integration": {
+    "general_notes": "LMS use for Kindergarten Foreign Language should be extremely minimal and teacher-facilitated, focusing on providing resources for parents or interactive games for in-class use.",
+    "content_modules": "Units as modules. Could contain links to approved song videos in [Target Language], printable coloring pages with vocabulary, or simple matching games if the LMS supports them.",
+    "assessment_submission": "Not applicable for direct student submission. Teachers might note observations.",
+    "parent_resources": "LMS could be a place to share vocabulary lists for each unit, song lyrics, or suggestions for simple at-home activities to reinforce learning (e.g., 'Point to colors around the house and say them in [Target Language]')."
+  },
+  "further_dev_notes": {
+    "tech_integration": "Use QR codes linked to audio files of native speakers saying vocabulary words. Interactive whiteboard apps for drag-and-drop vocabulary matching. Ensure all online resources are ad-free, child-safe, and privacy-compliant.",
+    "cultural_artifacts": "Introduce simple, tangible cultural items (e.g., a sombrero for Spanish, a beret for French - avoiding stereotypes but providing concrete connections). Show pictures/videos of children in [Target Language] speaking countries.",
+    "guest_speakers": "If possible, invite a native speaker (parent, community member) to visit the class, share a simple story, or teach a song."
+  },
+  "student_notes": {
+    "general_tips": [
+      "Learning a new language is like a fun game!",
+      "Listen carefully to the sounds.",
+      "Don't be afraid to try saying new words.",
+      "Singing songs helps us remember!"
+    ],
+    "classroom_phrases_to_know": [
+      "Listen (Escucha / Écoutez)",
+      "Look (Mira / Regardez)",
+      "Repeat (Repite / Répétez)",
+      "Sit down (Siéntate / Asseyez-vous)",
+      "Stand up (Levántate / Levez-vous)"
+    ]
+  },
+  "teacher_notes": {
+    "immersion_level": [
+      "Aim for 70-90% target language use for instructions, praise, and interaction, supported by gestures, visuals, and context.",
+      "Use English for clarification only when necessary to avoid frustration."
+    ],
+    "error_correction": [
+      "Focus on positive reinforcement and modeling correct language rather than direct error correction for young learners.",
+      "If a student says something incorrectly, gently rephrase it correctly (e.g., Student: 'Yo ser [name].' Teacher: 'Ah, tú eres [name] o yo me llamo [name]. ¡Muy bien!')."
+    ],
+    "classroom_environment": [
+      "Label classroom objects in [Target Language].",
+      "Display student work with [Target Language] captions.",
+      "Create a print-rich environment with posters, alphabet charts (if applicable), and cultural images."
+    ],
+    "using_props_realia": [
+      "Use puppets, toys, real food items, clothing, etc., to make vocabulary concrete and engaging.",
+      "TPR (Total Physical Response) is highly effective: connect words with actions (e.g., 'Salta' while jumping)."
+    ],
+    "pacing_and_repetition": [
+      "Introduce small amounts of vocabulary at a time.",
+      "Incorporate spiral review: revisit previously learned vocabulary in new contexts regularly.",
+      "Keep activities short and varied to maintain engagement."
+    ]
+  }
+}

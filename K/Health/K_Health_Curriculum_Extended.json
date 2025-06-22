@@ -1,0 +1,136 @@
+{
+  "llm_prompts_for_expansion": {
+    "unit_1_my_body": [
+      "Generate lyrics for a simple 'Head, Shoulders, Knees, and Toes' style song in English that includes additional body parts like 'eyes, ears, mouth, nose, hands, feet.' Keep it rhythmic and easy for kindergarteners to follow with actions.",
+      "Create a list of 5 simple, observable functions for body parts that kindergarteners can easily understand (e.g., 'My legs help me jump,' 'My nose helps me smell flowers,' 'My hands help me build with blocks').",
+      "Develop 3 short 'I am special because...' sentence starters that kindergarteners can complete about themselves (e.g., 'I am special because I can...', 'I am special because I like to...', 'I am special because I am good at...')."
+    ],
+    "unit_2_hygiene": [
+      "Design a visual poster (concept for illustration) showing the 6 key steps of handwashing with simple pictures and minimal text, suitable for a kindergarten classroom.",
+      "Generate a short story (100-150 words) for kindergarteners about a friendly germ character who learns why it's important for kids to wash their hands, cover coughs, and stay home when sick.",
+      "Create a list of 5 interactive questions to ask kindergarteners after a tooth brushing demonstration (e.g., 'Why do we brush our teeth?', 'When should we brush?', 'What happens if we don't brush?')."
+    ],
+    "unit_3_nutrition": [
+      "Develop a 'Healthy Foods Rainbow' activity plan where kindergarteners sort pictures of fruits and vegetables by color and discuss why eating a variety of colors is good.",
+      "Generate a simple chant or rhyme (4-6 lines) for kindergarteners about choosing healthy snacks and drinking water.",
+      "Create a template for a 'My Healthy Plate' drawing activity where kindergarteners draw their favorite healthy foods in sections representing fruits, vegetables, grains, and protein (simplified for K)."
+    ],
+    "unit_4_physical_activity": [
+      "Design a 'Movement Break' dice game for kindergarteners. Create a printable die with simple actions on each face (e.g., 'Jump 5 times,' 'Spin around,' 'Touch your toes,' 'Wiggle like a worm,' 'Flap your arms,' 'March in place').",
+      "Generate a list of 10 outdoor play activities that promote different types of movement (running, jumping, throwing, balancing) suitable for kindergarteners.",
+      "Create 3 positive affirmations about physical activity for kindergarteners (e.g., 'Moving my body makes me feel strong!', 'Playing is fun and healthy!', 'I love to run and jump!')."
+    ],
+    "unit_5_safety": [
+      "Develop a role-playing scenario for kindergarteners: 'What to do if you get separated from your parent/caregiver in a store.' Include steps like 'stop, look around, find a store worker/cashier/mom with kids'.",
+      "Create a 'Safe or Unsafe?' picture card sorting activity. List 10 scenarios/pictures (5 safe, 5 unsafe) relevant to kindergarteners (e.g., holding hands to cross street vs. running into street; playing gently with a pet vs. pulling its tail; telling a trusted adult about a secret that makes them feel bad vs. keeping it).",
+      "Generate a simple song or rhyme about traffic safety (e.g., 'Stop, look, and listen before you cross the street...')."
+    ],
+    "unit_6_feelings": [
+      "Design a 'Feelings Faces' craft activity where kindergarteners create paper plate faces showing different emotions (happy, sad, angry, surprised) using yarn, paper scraps, etc.",
+      "Generate a list of 5 simple, calming strategies kindergarteners can use when they feel overwhelmed or angry (e.g., 'Take 3 deep breaths,' 'Hug a teddy bear,' 'Ask for a quiet minute,' 'Draw how I feel,' 'Tell a grown-up').",
+      "Create a short story (100-150 words) about a character who experiences a common kindergarten challenge (e.g., someone takes their toy) and successfully uses a healthy way to express their feelings and solve the problem."
+    ]
+  },
+  "project_and_activity_plans": {
+    "unit_1_my_body": [
+      {
+        "title": "Body Part Simon Says",
+        "description": "Play 'Simon Says' using commands related to body parts (e.g., 'Simon says touch your nose,' 'Simon says wiggle your fingers,' 'Jump on one foot' - if Simon didn't say, they don't jump).",
+        "materials": ["None"],
+        "learning_focus": ["Body part identification", "Listening skills", "Following directions"]
+      }
+    ],
+    "unit_2_hygiene": [
+      {
+        "title": "Glitter Germs Handwashing Experiment",
+        "description": "Put a little glitter (representing germs) on students' hands. Have them wash with just water, then with soap and water, to see how soap helps remove the 'germs.'",
+        "materials": ["Glitter", "Soap", "Water", "Towels"],
+        "learning_focus": ["Importance of soap", "Proper handwashing technique visualization"]
+      },
+      {
+        "title": "Cover Your Cough & Sneeze Relay",
+        "description": "Students practice covering their cough/sneeze into their elbow, then run to a designated spot and back. Reinforces the correct method in a fun way.",
+        "materials": ["None, or tissue box for demonstration"],
+        "learning_focus": ["Proper cough/sneeze etiquette", "Gross motor skills"]
+      }
+    ],
+    "unit_3_nutrition": [
+      {
+        "title": "Food Group Collage",
+        "description": "Students cut out pictures of foods from magazines or use pre-cut food pictures and glue them onto a paper plate divided into sections for different food groups (simplified: fruits, veggies, grains, protein).",
+        "materials": ["Magazines or food picture printouts", "Paper plates", "Scissors", "Glue"],
+        "learning_focus": ["Identifying healthy foods", "Food group recognition (simplified)", "Fine motor skills"]
+      }
+    ],
+    "unit_4_physical_activity": [
+      {
+        "title": "Animal Walks",
+        "description": "Call out different animals and have students move like that animal (e.g., bear walk, frog jump, snake slither, crab walk).",
+        "materials": ["None, optional: pictures of animals"],
+        "learning_focus": ["Gross motor skills", "Creativity", "Physical activity enjoyment"]
+      }
+    ],
+    "unit_5_safety": [
+      {
+        "title": "Community Helper Dress-Up & Talk",
+        "description": "Have a dress-up corner with items representing community helpers (firefighter hat, police badge, doctor coat). Discuss how these helpers keep us safe. If possible, invite a real community helper to visit.",
+        "materials": ["Dress-up clothes/props"],
+        "learning_focus": ["Identifying trusted adults/community helpers", "Safety awareness"]
+      }
+    ],
+    "unit_6_feelings": [
+      {
+        "title": "Feelings Charades",
+        "description": "Students pick a 'feeling card' (with a picture and word) and act out the feeling for others to guess.",
+        "materials": ["Feeling picture cards (happy, sad, angry, scared, surprised)"],
+        "learning_focus": ["Identifying feelings", "Non-verbal expression", "Empathy (recognizing feelings in others)"]
+      }
+    ]
+  },
+  "framework_learning_management_system_integration": {
+    "general_notes": "LMS for Kindergarten Health should be teacher-led and used primarily for sharing resources with parents or for in-class interactive activities.",
+    "content_modules": "Units as modules. Can host links to sing-along health songs, short animated videos (e.g., about handwashing from PBS Kids), printable coloring pages related to health topics.",
+    "interactive_elements": "Simple sorting games (e.g., healthy vs. unhealthy foods, safe vs. unsafe situations) if the LMS supports it, to be done as a whole class activity on an interactive whiteboard.",
+    "parent_communication": "Use LMS to share unit overviews, vocabulary, discussion prompts for home (e.g., 'Ask your child about one healthy food they learned about today'), and links to trusted parenting resources on health topics."
+  },
+  "further_dev_notes": {
+    "tech_integration": "Use child-safe apps that teach about body parts or healthy habits (with teacher supervision). QR codes linking to read-alouds of health-themed books.",
+    "guest_presenters": "Invite a school nurse, dentist, or firefighter to talk to the class about their roles in health and safety.",
+    "school_garden": "If available, connect nutrition lessons to a school garden, showing where food comes from.",
+    "mindfulness_activities": "Introduce very simple mindfulness exercises like 'belly breathing' or listening to calming sounds as part of the 'My Feelings' unit."
+  },
+  "student_notes": {
+    "general_tips": [
+      "Your body is amazing! Take good care of it.",
+      "Ask a grown-up for help if you feel sick or unsafe.",
+      "It's good to talk about your feelings.",
+      "Playing and moving every day helps you grow strong!"
+    ],
+    "key_safety_rules_to_remember": [
+      "Always tell a trusted grown-up if something makes you feel scared or uncomfortable.",
+      "Look both ways before crossing the street and hold a grown-up's hand.",
+      "Don't play with matches or fire.",
+      "If you get lost, find a police officer, a store worker, or a mom with kids to help you."
+    ]
+  },
+  "teacher_notes": {
+    "creating_safe_space": [
+      "Establish clear classroom rules and routines that promote respect and safety.",
+      "Use circle time for discussions about feelings and experiences in a supportive way.",
+      "Be a positive role model for healthy habits and emotional expression."
+    ],
+    "sensitive_topics": [
+      "Approach topics like 'safe/unsafe touches' with age-appropriate language, focusing on 'my body belongs to me' and identifying trusted adults. Use established, approved curricula for this (e.g., Second Step, Talking About Touching).",
+      "Be aware of diverse family structures and cultural backgrounds when discussing family and home life."
+    ],
+    "parent_involvement": [
+      "Send home newsletters or use the LMS to inform parents about health topics being covered.",
+      "Suggest simple ways parents can reinforce learning at home (e.g., practicing handwashing together, choosing healthy snacks, talking about feelings).",
+      "Be a resource for parents seeking information on child health and development."
+    ],
+    "integration_with_daily_routines": [
+      "Incorporate health messages into daily routines: handwashing before snacks/lunch, discussing healthy food choices at meal times, movement breaks throughout the day.",
+      "Use teachable moments (e.g., a child scrapes their knee - discuss playground safety and basic first aid)."
+    ]
+  }
+}

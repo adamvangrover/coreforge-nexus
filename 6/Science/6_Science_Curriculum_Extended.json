@@ -1,0 +1,135 @@
+{
+  "llm_prompts_for_expansion": {
+    "unit_1_earth_systems_resources": [
+      "Develop a detailed lesson plan for a 6th-grade lab activity where students create a model of the rock cycle using crayons (representing different rock types) and various processes (shaving for erosion, layering for sedimentary, melting/cooling for igneous/metamorphic). Include materials, procedure, guiding questions, and assessment ideas.",
+      "Generate a list of 10 real-world examples of weathering, erosion, and deposition that 6th graders can observe in their local environment or through images/videos.",
+      "Create a debate prompt for 6th graders: 'Should a local community allow mining for a valuable mineral resource if it means potentially disrupting a natural habitat?' Include points for both sides."
+    ],
+    "unit_2_earth_in_solar_system": [
+      "Design a hands-on activity where 6th graders use balls of different sizes (e.g., basketball, tennis ball, marble) and a light source to model the Earth-Sun-Moon system and demonstrate lunar phases and eclipses.",
+      "Generate 5 analogy explanations to help 6th graders understand the concept of gravity's role in keeping planets in orbit (e.g., 'like a string swinging a ball around your head').",
+      "Create a 'Travel Brochure' project outline for 6th graders where they research a planet in our solar system and create a brochure highlighting its key characteristics, conditions, and interesting facts."
+    ],
+    "unit_3_structure_function_living_organisms": [
+      "Develop a script for a short (3-5 minute) educational video explaining the main parts of a plant cell (cell wall, cell membrane, nucleus, chloroplasts, vacuole) and an animal cell (cell membrane, nucleus, mitochondria, cytoplasm) and their functions, using age-appropriate language and analogies.",
+      "Generate a list of 10 everyday examples that illustrate the levels of organization in multicellular organisms (e.g., heart muscle cells -> heart tissue -> heart (organ) -> circulatory system -> human (organism)).",
+      "Create a concept map template that 6th graders can use to organize information about photosynthesis, including inputs, outputs, location (chloroplasts), and importance for the plant and other organisms."
+    ],
+    "unit_4_matter_interactions": [
+      "Design a lab activity where 6th graders investigate the properties of different household substances (e.g., sugar, salt, flour, baking soda, cornstarch) including state of matter, color, texture, and solubility in water.",
+      "Generate 5 simple, safe chemical reaction demonstrations suitable for a 6th-grade classroom (e.g., baking soda and vinegar, steel wool and vinegar, Alka-Seltzer in water) and explain the observable signs of a chemical change for each.",
+      "Create a research task for 6th graders to investigate a common synthetic material (e.g., plastic, nylon, polyester), identify the natural resources it's derived from, and discuss its societal benefits and environmental impacts."
+    ],
+    "unit_5_forces_motion": [
+      "Develop an engineering design challenge for 6th graders to build a device (using limited materials like straws, paperclips, tape, rubber bands) that can protect a raw egg from breaking when dropped from a specific height. Students should apply concepts of force and impact.",
+      "Generate 5 scenarios illustrating Newton's First Law of Motion (inertia) in everyday life (e.g., why you lurch forward in a stopping car, why it's hard to push a heavy box initially).",
+      "Create a worksheet with diagrams of simple levers (e.g., seesaw, crowbar, wheelbarrow) where students identify the fulcrum, effort, and load, and explain how the lever makes work easier."
+    ]
+  },
+  "project_and_activity_plans": {
+    "unit_1_earth_systems_resources": [
+      {
+        "title": "DIY Rock Collection & Identification",
+        "description": "Students collect (or are provided with) various rock samples. They observe properties (color, texture, luster, hardness test with fingernail/penny) and use a simple dichotomous key or guide to try and identify them as igneous, sedimentary, or metamorphic.",
+        "materials": ["Rock samples", "Magnifying glasses", "Pennies", "Simple rock identification guide/key", "Science notebooks"],
+        "learning_focus": ["Rock types", "Observation skills", "Classification"]
+      },
+      {
+        "title": "Stream Table Erosion Model",
+        "description": "Students build a simple stream table using a plastic tub, sand/dirt, and water to model how water erodes landforms and deposits sediment.",
+        "materials": ["Plastic tub or tray", "Sand/dirt mixture", "Watering can or beaker", "Blocks or books to create slope"],
+        "learning_focus": ["Erosion", "Deposition", "Landform changes", "Modeling"]
+      }
+    ],
+    "unit_2_earth_in_solar_system": [
+      {
+        "title": "Scale Model of the Solar System (Distance or Size)",
+        "description": "Students work in groups to create a scale model of either the distances between planets or the relative sizes of planets using common objects or measurements on a field.",
+        "materials": ["Adding machine tape or string", "Markers", "Various sized balls or beads", "Measuring tools", "Planet data charts"],
+        "learning_focus": ["Scale", "Proportion", "Solar system structure", "Data interpretation"]
+      }
+    ],
+    "unit_3_structure_function_living_organisms": [
+      {
+        "title": "Microscope Lab: Observing Plant and Animal Cells",
+        "description": "Students prepare wet mounts of onion skin (plant cells) and cheek cells (animal cells) to observe under a microscope, identify key organelles, and draw what they see.",
+        "materials": ["Microscopes", "Slides", "Cover slips", "Onion", "Toothpicks", "Methylene blue stain (for cheek cells)", "Iodine solution (for onion cells)", "Droppers"],
+        "learning_focus": ["Cell structure", "Microscopy skills", "Observation and drawing"]
+      },
+      {
+        "title": "Organ System Concept Posters",
+        "description": "Groups of students research a specific human body system (e.g., digestive, circulatory, respiratory), create a poster illustrating its main organs and functions, and present to the class.",
+        "materials": ["Poster board", "Markers/colored pencils", "Reference books/internet access"],
+        "learning_focus": ["Organ systems", "Structure-function relationships", "Research and communication"]
+      }
+    ],
+    "unit_4_matter_interactions": [
+      {
+        "title": "Density Column Challenge",
+        "description": "Students layer various liquids (e.g., honey, corn syrup, dish soap, water, vegetable oil) in a clear cylinder to create a density column, then predict and test if small objects will float at different levels.",
+        "materials": ["Clear tall cylinder or jar", "Various household liquids", "Small objects (e.g., bead, paperclip, small cork)"],
+        "learning_focus": ["Density", "Properties of liquids", "Prediction and observation"]
+      }
+    ],
+    "unit_5_forces_motion": [
+      {
+        "title": "Friction Ramp Investigation",
+        "description": "Students investigate how different surfaces (e.g., sandpaper, wax paper, cloth) affect the distance a toy car travels down a ramp, exploring the concept of friction.",
+        "materials": ["Toy car", "Ramp (e.g., board)", "Various surface materials", "Meter stick"],
+        "learning_focus": ["Friction", "Variables in an experiment", "Data collection"]
+      }
+    ]
+  },
+  "framework_learning_management_system_integration": {
+    "general_notes": "LMS for 6th grade science can host resources, assignments, and quizzes. Encourage use for collaboration and project submission.",
+    "content_modules": "Units as modules. Each lesson can include links to simulations (PhET), virtual labs, curated videos (e.g., Crash Course Kids, SciShow Kids), and readings. Discussion forums for Q&A.",
+    "assessment_submission": "Online submission of lab reports (typed or scanned). Quizzes with varied question types (MCQ, short answer, matching, diagram labeling). Uploads of project files (presentations, videos of designs).",
+    "collaboration_tools": "Use LMS forums or integrated tools for group project planning and sharing resources. Peer review features for assignments if available."
+  },
+  "further_dev_notes": {
+    "tech_integration": "Explore citizen science projects suitable for middle schoolers. Use online graphing tools or spreadsheets for data analysis. Consider coding activities to model scientific phenomena (e.g., predator-prey dynamics, planetary motion using Scratch or similar).",
+    "safety_emphasis": "Embed lab safety quizzes and agreements within the LMS. Use videos to demonstrate correct lab procedures.",
+    "career_connections": "Include short features or links about careers in STEM fields related to each unit."
+  },
+  "student_notes": {
+    "lab_safety_rules": [
+      "Always follow teacher instructions.",
+      "Wear safety goggles when directed.",
+      "Never taste or smell chemicals unless told to by your teacher.",
+      "Report any spills or accidents immediately.",
+      "Tie back long hair and secure loose clothing."
+    ],
+    "scientific_method_steps_simplified": [
+      "Ask a Question.",
+      "Do Background Research.",
+      "Form a Hypothesis (an educated guess).",
+      "Test Your Hypothesis with an Experiment (identify variables).",
+      "Collect and Analyze Your Data.",
+      "Draw a Conclusion (was your hypothesis supported?).",
+      "Communicate Your Results."
+    ]
+  },
+  "teacher_notes": {
+    "inquiry_based_learning_tips": [
+      "Pose guiding questions rather than giving direct answers.",
+      "Encourage student questions and exploration.",
+      "Allow students to design parts of their investigations (with guidance).",
+      "Facilitate discussions where students share and defend their findings."
+    ],
+    "managing_lab_groups": [
+      "Assign roles within groups (e.g., materials manager, recorder, timekeeper, spokesperson).",
+      "Provide clear expectations for collaboration and individual accountability.",
+      "Circulate and monitor group progress, providing support as needed."
+    ],
+    "connecting_to_real_world": [
+      "Use current events and local issues to illustrate scientific concepts.",
+      "Invite guest speakers from STEM fields (virtual or in-person).",
+      "Discuss the science behind everyday technologies and phenomena."
+    ],
+    "ngss_alignment_focus": [
+      "Emphasize the three dimensions: Science and Engineering Practices (SEPs), Disciplinary Core Ideas (DCIs), and Crosscutting Concepts (CCCs).",
+      "Design lessons that integrate all three dimensions.",
+      "Use phenomena to drive learning."
+    ]
+  }
+}

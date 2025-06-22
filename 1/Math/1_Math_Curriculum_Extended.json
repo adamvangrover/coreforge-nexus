@@ -1,0 +1,158 @@
+{
+  "llm_prompts_for_expansion": {
+    "unit_1_addition_subtraction_concepts": [
+      "Generate 10 diverse word problems for 1st graders focusing on addition and subtraction within 10, covering 'add to,' 'take from,' 'put together,' 'take apart,' and 'compare' scenarios with unknowns in all positions.",
+      "Create a visual guide (concept for an infographic or poster) explaining the commutative property of addition (e.g., 3+2=2+3) using simple objects like apples or stars, suitable for 1st graders.",
+      "Develop a script for a short (2-3 minute) animated video that explains how subtraction can be thought of as finding an 'unknown addend' using a story about missing toys or cookies."
+    ],
+    "unit_2_counting_place_value": [
+      "Design an interactive game idea (for whiteboard or tablet) where 1st graders practice counting to 120 by filling in missing numbers on a number chart or by 'catching' falling numbers in sequence.",
+      "Generate 5 examples of how to represent two-digit numbers (e.g., 25, 42, 60, 18, 99) using base-ten block visuals (tens rods and ones cubes) and corresponding expanded form (e.g., 20 + 5).",
+      "Create a set of 10 comparison statements using two-digit numbers (e.g., '34 __ 43', '50 __ 29') for students to fill in with >, <, or =. Include an answer key."
+    ],
+    "unit_3_addition_subtraction_strategies_within_20": [
+      "Develop a step-by-step explanation with examples of the 'making ten' strategy for addition (e.g., for 8+5, think 8+2=10, then 10+3=13).",
+      "Generate a list of 10 'doubles facts' (1+1 to 10+10) and 10 'doubles plus one' facts (e.g., 6+7 is 6+6+1) for practice.",
+      "Create 5 true/false equations involving addition and subtraction within 20 (e.g., '7+5 = 12 (True/False)', '15-6 = 8 (True/False)') and explain how to determine if they are true or false."
+    ],
+    "unit_4_place_value_applications": [
+      "Generate 5 word problems that require adding a two-digit number and a one-digit number (e.g., 23 + 5) within 100, suitable for 1st graders. Include scenarios where regrouping is and is not needed (using models).",
+      "Create a visual worksheet where students practice finding '10 more' and '10 less' than given two-digit numbers using a hundreds chart snippet as a visual aid.",
+      "Develop a scenario-based activity where students use play money (dimes and pennies) to practice subtracting multiples of 10 from multiples of 10 (e.g., 'You have 7 dimes (70 cents) and spend 3 dimes (30 cents). How much do you have left?')."
+    ],
+    "unit_5_measurement_time": [
+      "Design a hands-on activity where students use non-standard units (e.g., paperclips, linking cubes) to measure the length of various classroom objects and then order 3 objects from shortest to longest.",
+      "Create a set of 10 cards showing analog clock faces (displaying time to the hour and half-hour) and another set of 10 cards with the corresponding digital time. This can be used for a matching game.",
+      "Generate a short story (100-150 words) for 1st graders that incorporates telling time to the hour and half-hour as part of the narrative (e.g., 'At 8 o'clock, Tom ate breakfast. At 8:30, he went to school.')."
+    ],
+    "unit_6_geometry_shapes_attributes": [
+      "Create a 'Shape Attribute' chart template for 1st graders to fill in for common 2D shapes (square, rectangle, triangle, circle) listing number of sides, number of corners/vertices, and if sides are straight or curved.",
+      "Generate instructions for a 'Composite Shape Creature' art activity where students combine various 2D pattern blocks or cut-out shapes to create an animal or creature, then describe the shapes used.",
+      "Develop a visual explanation (using diagrams) of how to partition a circle and a rectangle into 'halves' and 'fourths'/'quarters,' labeling the shares correctly."
+    ]
+  },
+  "project_and_activity_plans": {
+    "unit_1_addition_subtraction_concepts": [
+      {
+        "title": "Story Problem Actors",
+        "description": "Students act out addition and subtraction word problems. One student reads the problem, others act as the objects/people, demonstrating the action of adding or taking away.",
+        "materials": ["Simple props (e.g., counters, toys)", "Word problem cards"],
+        "learning_focus": ["Problem interpretation", "Representing operations", "Collaboration"]
+      },
+      {
+        "title": "Fact Family Houses",
+        "description": "Students create 'fact family houses' using three numbers (e.g., 2, 3, 5) to write all four related addition and subtraction equations.",
+        "materials": ["House templates (paper)", "Markers"],
+        "learning_focus": ["Relationship between addition/subtraction", "Number combinations"]
+      }
+    ],
+    "unit_2_counting_place_value": [
+      {
+        "title": "Race to 120",
+        "description": "Students take turns rolling dice and moving that many spaces on a 120 chart. The first to reach 120 wins. Variations can include starting at a number other than 1.",
+        "materials": ["120 charts", "Dice", "Game pieces/counters"],
+        "learning_focus": ["Number sequence", "Counting on", "Numeral recognition"]
+      },
+      {
+        "title": "Build a Number",
+        "description": "Teacher calls out a two-digit number. Students use base-ten blocks (tens rods and ones cubes) to build the number on their place value mats.",
+        "materials": ["Base-ten blocks", "Place value mats (tens/ones)"],
+        "learning_focus": ["Place value understanding", "Representing numbers"]
+      }
+    ],
+    "unit_3_addition_subtraction_strategies_within_20": [
+      {
+        "title": "Ten Frame Flash",
+        "description": "Quickly show a ten frame with some dots filled in. Students say how many dots they see and how many more are needed to make 10. Extend to two ten frames for numbers 11-20.",
+        "materials": ["Ten frames (large for teacher, individual for students)", "Counters"],
+        "learning_focus": ["Subitizing", "Making ten", "Complements to 10"]
+      }
+    ],
+    "unit_4_place_value_applications": [
+      {
+        "title": "Mystery Number (10 More/10 Less)",
+        "description": "Teacher says 'I'm thinking of a number. 10 more than my number is 35. What's my number?' or '10 less than my number is 42. What's my number?' Students use hundreds charts or mental math.",
+        "materials": ["Hundreds charts (optional)", "Whiteboards"],
+        "learning_focus": ["Mental math (10 more/less)", "Place value relationships"]
+      }
+    ],
+    "unit_5_measurement_time": [
+      {
+        "title": "Classroom Measurement Hunt",
+        "description": "Students use a chosen non-standard unit (e.g., their own foot, a linking cube train of 5) to measure various items around the classroom (desk, book, door width) and record their findings.",
+        "materials": ["Non-standard measuring tools", "Recording sheets", "Pencils"],
+        "learning_focus": ["Iterating units", "Comparing lengths", "Recording data"]
+      },
+      {
+        "title": "Human Clock",
+        "description": "Use a large circle on the floor (hula hoop or drawn). Students act as the hour and minute hands to show different times called out by the teacher (to the hour and half-hour).",
+        "materials": ["Large circle marker", "Optional: hour/minute hand signs"],
+        "learning_focus": ["Telling time (analog)", "Hour/minute hand functions"]
+      }
+    ],
+    "unit_6_geometry_shapes_attributes": [
+      {
+        "title": "Shape Sort Challenge",
+        "description": "Provide a collection of 2D shapes (attribute blocks or cutouts). Students sort them based on different attributes (e.g., number of sides, curved vs. straight sides, number of corners).",
+        "materials": ["Attribute blocks or shape cutouts", "Sorting mats (optional)"],
+        "learning_focus": ["Shape attributes", "Classification skills", "Logical reasoning"]
+      },
+      {
+        "title": "Equal Shares Pizza Party",
+        "description": "Students 'decorate' paper plate 'pizzas' and then practice cutting or drawing lines to divide them into halves and fourths to share equally with 'friends' (dolls, or other students).",
+        "materials": ["Paper plates", "Crayons/markers", "Safety scissors (optional, or draw lines)"],
+        "learning_focus": ["Fractions (halves, fourths)", "Equal sharing", "Geometric partitioning"]
+      }
+    ]
+  },
+  "framework_learning_management_system_integration": {
+    "general_notes": "LMS for 1st Grade Math should be highly visual and interactive. Teacher guidance is key. Use for supplemental practice, not primary instruction.",
+    "content_modules": "Units as modules. Each lesson could feature short instructional videos, links to interactive math games (vetted), and downloadable practice sheets (e.g., number line practice, shape coloring).",
+    "assessment_submission": "Teachers can upload photos of student work (e.g., math journal pages, completed manipulatives tasks). Simple LMS quizzes with multiple choice (e.g., 'Which clock shows 3:30?') or fill-in-the-blank (for number answers) could be used for quick checks. Interactive 'drag and drop' for sorting or matching.",
+    "progress_tracking": "Track completion of activities/games. Basic scores on simple quizzes. Focus on participation and effort."
+  },
+  "further_dev_notes": {
+    "tech_integration": "Incorporate virtual manipulatives (base-ten blocks, ten frames, number lines) if platform supports or through embedded links to safe external sites. Ensure any games are ad-free and curriculum-aligned.",
+    "accessibility_tools": "Text-to-speech for word problems. High contrast options for visuals. Keyboard navigation for interactive elements.",
+    "parent_communication": "LMS can provide parents with an overview of topics being covered, examples of strategies being taught (e.g., 'making ten'), and suggestions for at-home practice games."
+  },
+  "student_notes": {
+    "general_tips": [
+      "Math is like solving puzzles!",
+      "It's okay to ask for help. That's how we learn!",
+      "Use your fingers, counters, or drawings to help you understand.",
+      "Look for patterns in numbers."
+    ],
+    "problem_solving_steps": [
+      "Read the problem carefully (or listen).",
+      "What do you know?",
+      "What do you need to find out?",
+      "Choose a strategy (draw, use blocks, count).",
+      "Check your answer. Does it make sense?"
+    ]
+  },
+  "teacher_notes": {
+    "manipulatives_management": [
+      "Have individual baggies of common manipulatives (counters, linking cubes) for each student or table group.",
+      "Clearly model how to use and care for manipulatives.",
+      "Use 'math toolkits' that students can easily access."
+    ],
+    "number_talks_routine": [
+      "Present a problem, give think time.",
+      "Students share answers, then strategies.",
+      "Teacher records strategies visually (e.g., on whiteboard).",
+      "Focus on process and multiple ways to solve."
+    ],
+    "addressing_misconceptions": [
+      "Common misconceptions: reversing digits (12 for 21), misunderstanding the equals sign, errors in counting on/back.",
+      "Use targeted questioning and re-teaching with concrete materials.",
+      "Provide varied practice opportunities."
+    ],
+    "fostering_math_confidence": [
+      "Celebrate effort and persistence.",
+      "Emphasize that everyone can learn math.",
+      "Create a risk-free environment where mistakes are learning opportunities.",
+      "Use positive language about math."
+    ]
+  }
+}

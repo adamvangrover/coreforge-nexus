@@ -1,3 +1,11 @@
+---
+title: EarthScience NYSSLS
+grade_level: "9-12"
+subject: Science
+duration_minutes: 45
+tags: [science, intro]
+---
+
 **Note: The content herein is a proposed draft for Subject Matter Expert (SME) review and expansion.**
 
 # High School - Earth Science - NYS Science Learning Standards (NYSSLS)

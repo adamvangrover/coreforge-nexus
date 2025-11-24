@@ -4,6 +4,8 @@ import re
 
 CURRICULUM_DIR = "curriculum"
 OUTPUT_PATH = "public/curriculum_manifest.json"
+HTML_BROWSER_PATH = "public/browse_curriculum.html"
+
 # DEV_NOTE: Ensure this script is run from the root of the repository.
 
 def generate_human_readable_name(name_id, is_lesson=False):
@@ -13,6 +15,37 @@ def generate_human_readable_name(name_id, is_lesson=False):
     # Replace underscores and hyphens with spaces, then capitalize words
     name_parts = re.split(r'[_-]', name_id)
     return ' '.join(word.capitalize() for word in name_parts if word)
+
+def update_html_browser(manifest_data):
+    """Updates the fallback data in the HTML browser file."""
+    if not os.path.exists(HTML_BROWSER_PATH):
+        print(f"Warning: {HTML_BROWSER_PATH} not found. Skipping HTML update.")
+        return
+
+    try:
+        with open(HTML_BROWSER_PATH, 'r', encoding='utf-8') as f:
+            content = f.read()
+
+        # Create the JSON string for the fallback data
+        json_str = json.dumps(manifest_data, indent=2, ensure_ascii=False)
+
+        # Regex to find the variable definition: const fallbackCurriculumData = { ... };
+        # Using [\s\S]*? to match across lines non-greedily
+        pattern = r"(const\s+fallbackCurriculumData\s*=\s*)\{[\s\S]*?\};"
+
+        replacement = f"\\1{json_str};"
+
+        new_content, count = re.subn(pattern, replacement, content, count=1)
+
+        if count > 0:
+            with open(HTML_BROWSER_PATH, 'w', encoding='utf-8') as f:
+                f.write(new_content)
+            print(f"Successfully updated fallback data in {HTML_BROWSER_PATH}")
+        else:
+            print(f"Warning: Could not find 'const fallbackCurriculumData = ...;' in {HTML_BROWSER_PATH}")
+
+    except Exception as e:
+        print(f"Error updating HTML browser: {e}")
 
 def main():
     """
@@ -27,39 +60,51 @@ def main():
     manifest = {"gradeLevels": []}
 
     try:
+        # Traverse Grade Levels (e.g., Elementary_K-5, High_9-12)
         for grade_id in sorted(os.listdir(CURRICULUM_DIR)):
             grade_path = os.path.join(CURRICULUM_DIR, grade_id)
-            if os.path.isdir(grade_path) and not grade_id.startswith('.'):
-                grade_level_obj = {
-                    "id": grade_id,
-                    "name": generate_human_readable_name(grade_id),
-                    "subjects": []
+
+            # Skip files and hidden directories
+            if not os.path.isdir(grade_path) or grade_id.startswith('.'):
+                continue
+
+            grade_level_obj = {
+                "id": grade_id,
+                "name": generate_human_readable_name(grade_id),
+                "subjects": []
+            }
+
+            # Traverse Subjects (e.g., Mathematics, Science)
+            for subject_id in sorted(os.listdir(grade_path)):
+                subject_path = os.path.join(grade_path, subject_id)
+
+                # Skip files and hidden directories
+                if not os.path.isdir(subject_path) or subject_id.startswith('.'):
+                    continue
+
+                subject_obj = {
+                    "id": subject_id,
+                    "name": generate_human_readable_name(subject_id),
+                    "lessons": []
                 }
 
-                for subject_id in sorted(os.listdir(grade_path)):
-                    subject_path = os.path.join(grade_path, subject_id)
-                    if os.path.isdir(subject_path) and not subject_id.startswith('.'):
-                        subject_obj = {
-                            "id": subject_id,
-                            "name": generate_human_readable_name(subject_id),
-                            "lessons": []
+                # Traverse Lessons (Markdown files)
+                for lesson_filename in sorted(os.listdir(subject_path)):
+                    lesson_file_path = os.path.join(subject_path, lesson_filename)
+
+                    if os.path.isfile(lesson_file_path) and lesson_filename.endswith('.md') and not lesson_filename.startswith('.'):
+                        lesson_obj = {
+                            "id": lesson_filename,
+                            "name": generate_human_readable_name(lesson_filename, is_lesson=True),
+                            "path": lesson_file_path.replace(os.path.sep, '/') # Ensure forward slashes for web paths
                         }
+                        subject_obj["lessons"].append(lesson_obj)
 
-                        for lesson_filename in sorted(os.listdir(subject_path)):
-                            lesson_file_path = os.path.join(subject_path, lesson_filename)
-                            if os.path.isfile(lesson_file_path) and lesson_filename.endswith('.md') and not lesson_filename.startswith('.'):
-                                lesson_obj = {
-                                    "id": lesson_filename,
-                                    "name": generate_human_readable_name(lesson_filename, is_lesson=True),
-                                    "path": lesson_file_path.replace(os.path.sep, '/') # Ensure forward slashes for web paths
-                                }
-                                subject_obj["lessons"].append(lesson_obj)
+                if subject_obj["lessons"]: # Only add subject if it has lessons
+                    grade_level_obj["subjects"].append(subject_obj)
 
-                        if subject_obj["lessons"]: # Only add subject if it has lessons
-                            grade_level_obj["subjects"].append(subject_obj)
-
-                if grade_level_obj["subjects"]: # Only add grade level if it has subjects
-                    manifest["gradeLevels"].append(grade_level_obj)
+            if grade_level_obj["subjects"]: # Only add grade level if it has subjects
+                manifest["gradeLevels"].append(grade_level_obj)
 
         # Ensure output directory exists
         output_dir = os.path.dirname(OUTPUT_PATH)
@@ -67,12 +112,16 @@ def main():
             os.makedirs(output_dir)
             print(f"Created directory: {output_dir}")
 
+        # Write manifest JSON
         with open(OUTPUT_PATH, 'w', encoding='utf-8') as f:
             json.dump(manifest, f, indent=2, ensure_ascii=False)
 
         print(f"Successfully generated curriculum manifest at: {OUTPUT_PATH}")
         if not manifest["gradeLevels"]:
             print("Warning: No grade levels with content found. The manifest is empty.")
+
+        # Update HTML browser with fallback data
+        update_html_browser(manifest)
 
     except Exception as e:
         print(f"An error occurred: {e}")

@@ -1,3 +1,11 @@
+---
+title: Grade1 Math NYSNextGen
+grade_level: "1"
+subject: Mathematics
+duration_minutes: 45
+tags: [mathematics, intro]
+---
+
 # Grade 1 - Mathematics - NYS Next Generation Math Standards
 **Note: The content herein is a proposed draft for Subject Matter Expert (SME) review and expansion.**
 

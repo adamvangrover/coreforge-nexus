@@ -1,3 +1,11 @@
+---
+title: Grade3 Science NYSSLS
+grade_level: "3"
+subject: Science
+duration_minutes: 45
+tags: [science, intro]
+---
+
 # Grade 3 - Science - NYS Science Learning Standards (NYSSLS)
 **Note: The content herein is a proposed draft for Subject Matter Expert (SME) review and expansion.**
 

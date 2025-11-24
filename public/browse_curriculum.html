@@ -154,6 +154,43 @@
         .prose table { width: auto; border-collapse: collapse; margin-bottom: 1em; }
         .prose th, .prose td { border: 1px solid #d1d5db; padding: 0.5em 0.75em; }
         .prose th { background-color: #f9fafb; }
+
+        /* Metadata styling */
+        .metadata-box {
+            background-color: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9em;
+        }
+        .metadata-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #111827;
+        }
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .metadata-label {
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #6b7280;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        .metadata-value {
+            color: #374151;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
@@ -199,334 +236,359 @@
     <script>
         // DEV_NOTE: For standalone operation on GitHub Pages, this script fetches 
         // curriculum_manifest.json and then relative paths to .md files.
-        const MANIFEST_PATH = '../curriculum_manifest.json'; 
+        const MANIFEST_PATH = 'curriculum_manifest.json';
 
         // DEV_NOTE: fallbackCurriculumData is embedded as a fallback if MANIFEST_PATH fetch fails.
         // This data should be updated if the curriculum_manifest.json changes significantly.
         // Ideally, a build script would inject this. For now, it's manually inserted.
         const fallbackCurriculumData = {
-          "gradeLevels": [
+  "gradeLevels": [
+    {
+      "id": "Elementary_K-5",
+      "name": "Elementary K 5",
+      "subjects": [
+        {
+          "id": "Arts",
+          "name": "Arts",
+          "lessons": [
             {
-              "id": "Elementary_K-5",
-              "name": "Elementary K 5",
-              "subjects": [
-                {
-                  "id": "Arts",
-                  "name": "Arts",
-                  "lessons": [
-                    {
-                      "id": "Grade_K-5_Arts_NYSArts.md",
-                      "name": "Grade K 5 Arts NYSArts",
-                      "path": "curriculum/Elementary_K-5/Arts/Grade_K-5_Arts_NYSArts.md"
-                    }
-                  ]
-                },
-                {
-                  "id": "ComputerScience",
-                  "name": "ComputerScience",
-                  "lessons": [
-                    {
-                      "id": "Grade_K-5_CSDF_NYSCore.md",
-                      "name": "Grade K 5 CSDF NYSCore",
-                      "path": "curriculum/Elementary_K-5/ComputerScience/Grade_K-5_CSDF_NYSCore.md"
-                    }
-                  ]
-                },
-                {
-                  "id": "EnglishLanguageArts",
-                  "name": "EnglishLanguageArts",
-                  "lessons": [
-                    {
-                      "id": "GradeK_ELA_NYSNextGen.md",
-                      "name": "GradeK ELA NYSNextGen",
-                      "path": "curriculum/Elementary_K-5/EnglishLanguageArts/GradeK_ELA_NYSNextGen.md"
-                    }
-                  ]
-                },
-                {
-                  "id": "Health",
-                  "name": "Health",
-                  "lessons": [
-                    {
-                      "id": "Grade_K-5_Health_NYSEDS.md",
-                      "name": "Grade K 5 Health NYSEDS",
-                      "path": "curriculum/Elementary_K-5/Health/Grade_K-5_Health_NYSEDS.md"
-                    }
-                  ]
-                },
-                {
-                  "id": "Mathematics",
-                  "name": "Mathematics",
-                  "lessons": [
-                    {
-                      "id": "Grade1_Math_NYSNextGen.md",
-                      "name": "Grade1 Math NYSNextGen",
-                      "path": "curriculum/Elementary_K-5/Mathematics/Grade1_Math_NYSNextGen.md"
-                    }
-                  ]
-                },
-                {
-                  "id": "PhysicalEducation",
-                  "name": "PhysicalEducation",
-                  "lessons": [
-                    {
-                      "id": "Grade_K-5_PE_NYSSELS.md",
-                      "name": "Grade K 5 PE NYSSELS",
-                      "path": "curriculum/Elementary_K-5/PhysicalEducation/Grade_K-5_PE_NYSSELS.md"
-                    }
-                  ]
-                },
-                {
-                  "id": "Science",
-                  "name": "Science",
-                  "lessons": [
-                    {
-                      "id": "Grade3_Science_NYSSLS.md",
-                      "name": "Grade3 Science NYSSLS",
-                      "path": "curriculum/Elementary_K-5/Science/Grade3_Science_NYSSLS.md"
-                    }
-                  ]
-                },
-                {
-                  "id": "SocialStudies",
-                  "name": "SocialStudies",
-                  "lessons": [
-                    {
-                      "id": "Grade4_SocialStudies_NYSFramework.md",
-                      "name": "Grade4 SocialStudies NYSFramework",
-                      "path": "curriculum/Elementary_K-5/SocialStudies/Grade4_SocialStudies_NYSFramework.md"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "id": "High_9-12",
-              "name": "High 9 12",
-              "subjects": [
-                {
-                  "id": "Arts",
-                  "name": "Arts",
-                  "lessons": [
-                    {
-                      "id": "VisualArts_Foundation_NYSArts.md",
-                      "name": "VisualArts Foundation NYSArts",
-                      "path": "curriculum/High_9-12/Arts/VisualArts_Foundation_NYSArts.md"
-                    }
-                  ]
-                },
-                {
-                  "id": "ComputerScience",
-                  "name": "ComputerScience",
-                  "lessons": [
-                    {
-                      "id": "CS_Intro_NYSCore.md",
-                      "name": "CS Intro NYSCore",
-                      "path": "curriculum/High_9-12/ComputerScience/CS_Intro_NYSCore.md"
-                    }
-                  ]
-                },
-                {
-                  "id": "EnglishLanguageArts",
-                  "name": "EnglishLanguageArts",
-                  "lessons": [
-                    {
-                      "id": "English10_NYSNextGen.md",
-                      "name": "English10 NYSNextGen",
-                      "path": "curriculum/High_9-12/EnglishLanguageArts/English10_NYSNextGen.md"
-                    },
-                    {
-                      "id": "English11_NYSNextGen.md",
-                      "name": "English11 NYSNextGen",
-                      "path": "curriculum/High_9-12/EnglishLanguageArts/English11_NYSNextGen.md"
-                    },
-                    {
-                      "id": "English12_NYSNextGen.md",
-                      "name": "English12 NYSNextGen",
-                      "path": "curriculum/High_9-12/EnglishLanguageArts/English12_NYSNextGen.md"
-                    },
-                    {
-                      "id": "English9_NYSNextGen.md",
-                      "name": "English9 NYSNextGen",
-                      "path": "curriculum/High_9-12/EnglishLanguageArts/English9_NYSNextGen.md"
-                    }
-                  ]
-                },
-                {
-                  "id": "Health",
-                  "name": "Health",
-                  "lessons": [
-                    {
-                      "id": "Health_HS_NYSEDS.md",
-                      "name": "Health HS NYSEDS",
-                      "path": "curriculum/High_9-12/Health/Health_HS_NYSEDS.md"
-                    }
-                  ]
-                },
-                {
-                  "id": "Mathematics",
-                  "name": "Mathematics",
-                  "lessons": [
-                    {
-                      "id": "Algebra1_NYSNextGen.md",
-                      "name": "Algebra1 NYSNextGen",
-                      "path": "curriculum/High_9-12/Mathematics/Algebra1_NYSNextGen.md"
-                    },
-                    {
-                      "id": "Algebra2_NYSNextGen.md",
-                      "name": "Algebra2 NYSNextGen",
-                      "path": "curriculum/High_9-12/Mathematics/Algebra2_NYSNextGen.md"
-                    },
-                    {
-                      "id": "Geometry_NYSNextGen.md",
-                      "name": "Geometry NYSNextGen",
-                      "path": "curriculum/High_9-12/Mathematics/Geometry_NYSNextGen.md"
-                    }
-                  ]
-                },
-                {
-                  "id": "PhysicalEducation",
-                  "name": "PhysicalEducation",
-                  "lessons": [
-                    {
-                      "id": "PE_Year1_NYSPE.md",
-                      "name": "PE Year1 NYSPE",
-                      "path": "curriculum/High_9-12/PhysicalEducation/PE_Year1_NYSPE.md"
-                    },
-                    {
-                      "id": "PE_Year2_NYSPE.md",
-                      "name": "PE Year2 NYSPE",
-                      "path": "curriculum/High_9-12/PhysicalEducation/PE_Year2_NYSPE.md"
-                    },
-                    {
-                      "id": "PE_Year3_NYSPE.md",
-                      "name": "PE Year3 NYSPE",
-                      "path": "curriculum/High_9-12/PhysicalEducation/PE_Year3_NYSPE.md"
-                    },
-                    {
-                      "id": "PE_Year4_NYSPE.md",
-                      "name": "PE Year4 NYSPE",
-                      "path": "curriculum/High_9-12/PhysicalEducation/PE_Year4_NYSPE.md"
-                    }
-                  ]
-                },
-                {
-                  "id": "Science",
-                  "name": "Science",
-                  "lessons": [
-                    {
-                      "id": "EarthScience_NYSSLS.md",
-                      "name": "EarthScience NYSSLS",
-                      "path": "curriculum/High_9-12/Science/EarthScience_NYSSLS.md"
-                    },
-                    {
-                      "id": "LivingEnvironment_Biology_NYSSLS.md",
-                      "name": "LivingEnvironment Biology NYSSLS",
-                      "path": "curriculum/High_9-12/Science/LivingEnvironment_Biology_NYSSLS.md"
-                    },
-                    {
-                      "id": "PhysicalScience_Chemistry_NYSSLS.md",
-                      "name": "PhysicalScience Chemistry NYSSLS",
-                      "path": "curriculum/High_9-12/Science/PhysicalScience_Chemistry_NYSSLS.md"
-                    }
-                  ]
-                },
-                {
-                  "id": "SocialStudies",
-                  "name": "SocialStudies",
-                  "lessons": [
-                    {
-                      "id": "Economics_NYSFramework.md",
-                      "name": "Economics NYSFramework",
-                      "path": "curriculum/High_9-12/SocialStudies/Economics_NYSFramework.md"
-                    },
-                    {
-                      "id": "GlobalHistory10_NYSFramework.md",
-                      "name": "GlobalHistory10 NYSFramework",
-                      "path": "curriculum/High_9-12/SocialStudies/GlobalHistory10_NYSFramework.md"
-                    },
-                    {
-                      "id": "GlobalHistory9_NYSFramework.md",
-                      "name": "GlobalHistory9 NYSFramework",
-                      "path": "curriculum/High_9-12/SocialStudies/GlobalHistory9_NYSFramework.md"
-                    },
-                    {
-                      "id": "ParticipationInGovernment_NYSFramework.md",
-                      "name": "ParticipationInGovernment NYSFramework",
-                      "path": "curriculum/High_9-12/SocialStudies/ParticipationInGovernment_NYSFramework.md"
-                    },
-                    {
-                      "id": "USHistory11_NYSFramework.md",
-                      "name": "USHistory11 NYSFramework",
-                      "path": "curriculum/High_9-12/SocialStudies/USHistory11_NYSFramework.md"
-                    }
-                  ]
-                },
-                {
-                  "id": "WorldLanguages",
-                  "name": "WorldLanguages",
-                  "lessons": [
-                    {
-                      "id": "Spanish1_NYSLOTE.md",
-                      "name": "Spanish1 NYSLOTE",
-                      "path": "curriculum/High_9-12/WorldLanguages/Spanish1_NYSLOTE.md"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "id": "Middle_6-8",
-              "name": "Middle 6 8",
-              "subjects": [
-                {
-                  "id": "EnglishLanguageArts",
-                  "name": "EnglishLanguageArts",
-                  "lessons": [
-                    {
-                      "id": "Grade7_ELA_NYSNextGen.md",
-                      "name": "Grade7 ELA NYSNextGen",
-                      "path": "curriculum/Middle_6-8/EnglishLanguageArts/Grade7_ELA_NYSNextGen.md"
-                    }
-                  ]
-                },
-                {
-                  "id": "Mathematics",
-                  "name": "Mathematics",
-                  "lessons": [
-                    {
-                      "id": "Grade8_Math_NYSNextGen.md",
-                      "name": "Grade8 Math NYSNextGen",
-                      "path": "curriculum/Middle_6-8/Mathematics/Grade8_Math_NYSNextGen.md"
-                    }
-                  ]
-                },
-                {
-                  "id": "Science",
-                  "name": "Science",
-                  "lessons": [
-                    {
-                      "id": "Grade8_PhysicalScience_NYSSLS.md",
-                      "name": "Grade8 PhysicalScience NYSSLS",
-                      "path": "curriculum/Middle_6-8/Science/Grade8_PhysicalScience_NYSSLS.md"
-                    }
-                  ]
-                },
-                {
-                  "id": "SocialStudies",
-                  "name": "SocialStudies",
-                  "lessons": [
-                    {
-                      "id": "Grade8_USHistoryEarly_NYSFramework.md",
-                      "name": "Grade8 USHistoryEarly NYSFramework",
-                      "path": "curriculum/Middle_6-8/SocialStudies/Grade8_USHistoryEarly_NYSFramework.md"
-                    }
-                  ]
-                }
-              ]
+              "id": "Grade_K-5_Arts_NYSArts.md",
+              "name": "Grade K 5 Arts Nysarts",
+              "path": "curriculum/Elementary_K-5/Arts/Grade_K-5_Arts_NYSArts.md"
             }
           ]
-        };
+        },
+        {
+          "id": "ComputerScience",
+          "name": "Computerscience",
+          "lessons": [
+            {
+              "id": "Grade_K-5_CSDF_NYSCore.md",
+              "name": "Grade K 5 Csdf Nyscore",
+              "path": "curriculum/Elementary_K-5/ComputerScience/Grade_K-5_CSDF_NYSCore.md"
+            }
+          ]
+        },
+        {
+          "id": "EnglishLanguageArts",
+          "name": "Englishlanguagearts",
+          "lessons": [
+            {
+              "id": "EnglishLanguageArts_Lesson2_Intro.md",
+              "name": "Englishlanguagearts Lesson2 Intro",
+              "path": "curriculum/Elementary_K-5/EnglishLanguageArts/EnglishLanguageArts_Lesson2_Intro.md"
+            },
+            {
+              "id": "GradeK_ELA_NYSNextGen.md",
+              "name": "Gradek Ela Nysnextgen",
+              "path": "curriculum/Elementary_K-5/EnglishLanguageArts/GradeK_ELA_NYSNextGen.md"
+            }
+          ]
+        },
+        {
+          "id": "Health",
+          "name": "Health",
+          "lessons": [
+            {
+              "id": "Grade_K-5_Health_NYSEDS.md",
+              "name": "Grade K 5 Health Nyseds",
+              "path": "curriculum/Elementary_K-5/Health/Grade_K-5_Health_NYSEDS.md"
+            }
+          ]
+        },
+        {
+          "id": "Mathematics",
+          "name": "Mathematics",
+          "lessons": [
+            {
+              "id": "Grade1_Math_NYSNextGen.md",
+              "name": "Grade1 Math Nysnextgen",
+              "path": "curriculum/Elementary_K-5/Mathematics/Grade1_Math_NYSNextGen.md"
+            },
+            {
+              "id": "Grade2_Math_NYSNextGen.md",
+              "name": "Grade2 Math Nysnextgen",
+              "path": "curriculum/Elementary_K-5/Mathematics/Grade2_Math_NYSNextGen.md"
+            }
+          ]
+        },
+        {
+          "id": "PhysicalEducation",
+          "name": "Physicaleducation",
+          "lessons": [
+            {
+              "id": "Grade_K-5_PE_NYSSELS.md",
+              "name": "Grade K 5 Pe Nyssels",
+              "path": "curriculum/Elementary_K-5/PhysicalEducation/Grade_K-5_PE_NYSSELS.md"
+            }
+          ]
+        },
+        {
+          "id": "Science",
+          "name": "Science",
+          "lessons": [
+            {
+              "id": "Grade3_Science_NYSSLS.md",
+              "name": "Grade3 Science Nyssls",
+              "path": "curriculum/Elementary_K-5/Science/Grade3_Science_NYSSLS.md"
+            },
+            {
+              "id": "Science_Lesson2_Intro.md",
+              "name": "Science Lesson2 Intro",
+              "path": "curriculum/Elementary_K-5/Science/Science_Lesson2_Intro.md"
+            }
+          ]
+        },
+        {
+          "id": "SocialStudies",
+          "name": "Socialstudies",
+          "lessons": [
+            {
+              "id": "Grade4_SocialStudies_NYSFramework.md",
+              "name": "Grade4 Socialstudies Nysframework",
+              "path": "curriculum/Elementary_K-5/SocialStudies/Grade4_SocialStudies_NYSFramework.md"
+            },
+            {
+              "id": "SocialStudies_Lesson2_Intro.md",
+              "name": "Socialstudies Lesson2 Intro",
+              "path": "curriculum/Elementary_K-5/SocialStudies/SocialStudies_Lesson2_Intro.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "High_9-12",
+      "name": "High 9 12",
+      "subjects": [
+        {
+          "id": "Arts",
+          "name": "Arts",
+          "lessons": [
+            {
+              "id": "VisualArts_Foundation_NYSArts.md",
+              "name": "Visualarts Foundation Nysarts",
+              "path": "curriculum/High_9-12/Arts/VisualArts_Foundation_NYSArts.md"
+            }
+          ]
+        },
+        {
+          "id": "ComputerScience",
+          "name": "Computerscience",
+          "lessons": [
+            {
+              "id": "CS_Intro_NYSCore.md",
+              "name": "Cs Intro Nyscore",
+              "path": "curriculum/High_9-12/ComputerScience/CS_Intro_NYSCore.md"
+            }
+          ]
+        },
+        {
+          "id": "EnglishLanguageArts",
+          "name": "Englishlanguagearts",
+          "lessons": [
+            {
+              "id": "English10_NYSNextGen.md",
+              "name": "English10 Nysnextgen",
+              "path": "curriculum/High_9-12/EnglishLanguageArts/English10_NYSNextGen.md"
+            },
+            {
+              "id": "English11_NYSNextGen.md",
+              "name": "English11 Nysnextgen",
+              "path": "curriculum/High_9-12/EnglishLanguageArts/English11_NYSNextGen.md"
+            },
+            {
+              "id": "English12_NYSNextGen.md",
+              "name": "English12 Nysnextgen",
+              "path": "curriculum/High_9-12/EnglishLanguageArts/English12_NYSNextGen.md"
+            },
+            {
+              "id": "English9_NYSNextGen.md",
+              "name": "English9 Nysnextgen",
+              "path": "curriculum/High_9-12/EnglishLanguageArts/English9_NYSNextGen.md"
+            }
+          ]
+        },
+        {
+          "id": "Health",
+          "name": "Health",
+          "lessons": [
+            {
+              "id": "Health_HS_NYSEDS.md",
+              "name": "Health Hs Nyseds",
+              "path": "curriculum/High_9-12/Health/Health_HS_NYSEDS.md"
+            }
+          ]
+        },
+        {
+          "id": "Mathematics",
+          "name": "Mathematics",
+          "lessons": [
+            {
+              "id": "Algebra1_NYSNextGen.md",
+              "name": "Algebra1 Nysnextgen",
+              "path": "curriculum/High_9-12/Mathematics/Algebra1_NYSNextGen.md"
+            },
+            {
+              "id": "Algebra2_NYSNextGen.md",
+              "name": "Algebra2 Nysnextgen",
+              "path": "curriculum/High_9-12/Mathematics/Algebra2_NYSNextGen.md"
+            },
+            {
+              "id": "Geometry_NYSNextGen.md",
+              "name": "Geometry Nysnextgen",
+              "path": "curriculum/High_9-12/Mathematics/Geometry_NYSNextGen.md"
+            }
+          ]
+        },
+        {
+          "id": "PhysicalEducation",
+          "name": "Physicaleducation",
+          "lessons": [
+            {
+              "id": "PE_Year1_NYSPE.md",
+              "name": "Pe Year1 Nyspe",
+              "path": "curriculum/High_9-12/PhysicalEducation/PE_Year1_NYSPE.md"
+            },
+            {
+              "id": "PE_Year2_NYSPE.md",
+              "name": "Pe Year2 Nyspe",
+              "path": "curriculum/High_9-12/PhysicalEducation/PE_Year2_NYSPE.md"
+            },
+            {
+              "id": "PE_Year3_NYSPE.md",
+              "name": "Pe Year3 Nyspe",
+              "path": "curriculum/High_9-12/PhysicalEducation/PE_Year3_NYSPE.md"
+            },
+            {
+              "id": "PE_Year4_NYSPE.md",
+              "name": "Pe Year4 Nyspe",
+              "path": "curriculum/High_9-12/PhysicalEducation/PE_Year4_NYSPE.md"
+            }
+          ]
+        },
+        {
+          "id": "Science",
+          "name": "Science",
+          "lessons": [
+            {
+              "id": "EarthScience_NYSSLS.md",
+              "name": "Earthscience Nyssls",
+              "path": "curriculum/High_9-12/Science/EarthScience_NYSSLS.md"
+            },
+            {
+              "id": "LivingEnvironment_Biology_NYSSLS.md",
+              "name": "Livingenvironment Biology Nyssls",
+              "path": "curriculum/High_9-12/Science/LivingEnvironment_Biology_NYSSLS.md"
+            },
+            {
+              "id": "PhysicalScience_Chemistry_NYSSLS.md",
+              "name": "Physicalscience Chemistry Nyssls",
+              "path": "curriculum/High_9-12/Science/PhysicalScience_Chemistry_NYSSLS.md"
+            },
+            {
+              "id": "Physics_NYSSLS.md",
+              "name": "Physics Nyssls",
+              "path": "curriculum/High_9-12/Science/Physics_NYSSLS.md"
+            }
+          ]
+        },
+        {
+          "id": "SocialStudies",
+          "name": "Socialstudies",
+          "lessons": [
+            {
+              "id": "Economics_NYSFramework.md",
+              "name": "Economics Nysframework",
+              "path": "curriculum/High_9-12/SocialStudies/Economics_NYSFramework.md"
+            },
+            {
+              "id": "GlobalHistory10_NYSFramework.md",
+              "name": "Globalhistory10 Nysframework",
+              "path": "curriculum/High_9-12/SocialStudies/GlobalHistory10_NYSFramework.md"
+            },
+            {
+              "id": "GlobalHistory9_NYSFramework.md",
+              "name": "Globalhistory9 Nysframework",
+              "path": "curriculum/High_9-12/SocialStudies/GlobalHistory9_NYSFramework.md"
+            },
+            {
+              "id": "ParticipationInGovernment_NYSFramework.md",
+              "name": "Participationingovernment Nysframework",
+              "path": "curriculum/High_9-12/SocialStudies/ParticipationInGovernment_NYSFramework.md"
+            },
+            {
+              "id": "USHistory11_NYSFramework.md",
+              "name": "Ushistory11 Nysframework",
+              "path": "curriculum/High_9-12/SocialStudies/USHistory11_NYSFramework.md"
+            }
+          ]
+        },
+        {
+          "id": "WorldLanguages",
+          "name": "Worldlanguages",
+          "lessons": [
+            {
+              "id": "Spanish1_NYSLOTE.md",
+              "name": "Spanish1 Nyslote",
+              "path": "curriculum/High_9-12/WorldLanguages/Spanish1_NYSLOTE.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Middle_6-8",
+      "name": "Middle 6 8",
+      "subjects": [
+        {
+          "id": "EnglishLanguageArts",
+          "name": "Englishlanguagearts",
+          "lessons": [
+            {
+              "id": "Grade7_ELA_NYSNextGen.md",
+              "name": "Grade7 Ela Nysnextgen",
+              "path": "curriculum/Middle_6-8/EnglishLanguageArts/Grade7_ELA_NYSNextGen.md"
+            }
+          ]
+        },
+        {
+          "id": "Mathematics",
+          "name": "Mathematics",
+          "lessons": [
+            {
+              "id": "Grade8_Math_NYSNextGen.md",
+              "name": "Grade8 Math Nysnextgen",
+              "path": "curriculum/Middle_6-8/Mathematics/Grade8_Math_NYSNextGen.md"
+            }
+          ]
+        },
+        {
+          "id": "Science",
+          "name": "Science",
+          "lessons": [
+            {
+              "id": "Grade8_PhysicalScience_NYSSLS.md",
+              "name": "Grade8 Physicalscience Nyssls",
+              "path": "curriculum/Middle_6-8/Science/Grade8_PhysicalScience_NYSSLS.md"
+            }
+          ]
+        },
+        {
+          "id": "SocialStudies",
+          "name": "Socialstudies",
+          "lessons": [
+            {
+              "id": "Grade8_USHistoryEarly_NYSFramework.md",
+              "name": "Grade8 Ushistoryearly Nysframework",
+              "path": "curriculum/Middle_6-8/SocialStudies/Grade8_USHistoryEarly_NYSFramework.md"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
 
         let curriculumData = null; 
 
@@ -599,28 +661,62 @@
             }
         }
         
+        function parseFrontmatter(markdown) {
+            const frontmatterRegex = /^---\s*[\r\n]+([\s\S]*?)[\r\n]+---\s*[\r\n]+([\s\S]*)$/;
+            const match = frontmatterRegex.exec(markdown);
+            if (match) {
+                const yamlBlock = match[1];
+                const content = match[2];
+                const metadata = {};
+                yamlBlock.split('\n').forEach(line => {
+                    const parts = line.split(':');
+                    if (parts.length >= 2) {
+                        const key = parts[0].trim();
+                        let value = parts.slice(1).join(':').trim();
+                        // Handle arrays like [a, b, c]
+                        if (value.startsWith('[') && value.endsWith(']')) {
+                             value = value.substring(1, value.length - 1).split(',').map(s => s.trim());
+                        } else {
+                             value = value.replace(/^["']|["']$/g, '');
+                        }
+                        metadata[key] = value;
+                    }
+                });
+                return { metadata, content };
+            }
+            return { metadata: null, content: markdown };
+        }
+
         async function loadLessonContent(lesson) { // lesson is an object from manifest
             setLoading('content', true);
             lessonContentArea.style.display = 'none'; // Hide plain text area
             lessonContentRendered.style.display = 'none'; // Hide rendered area
             lessonContentRendered.innerHTML = ''; // Clear previous rendered content
             
-            // Path in manifest is relative to repo root.
-            // browse_curriculum.html is in public/. So, need to adjust path.
-            // Example: manifest path "curriculum/Elementary_K-5/Arts/Grade_K-5_Arts_NYSArts.md"
-            // needs to be fetched as "../curriculum/Elementary_K-5/Arts/Grade_K-5_Arts_NYSArts.md"
-            // if browse_curriculum.html is in public/
-            // Or, if the manifest path itself is already correct for relative fetching from public/:
-            // e.g. path: "../curriculum/..." - current manifest has "curriculum/..."
-            // So, we prepend "../" to the path from manifest.
             const relativePath = `../${lesson.path}`;
 
             try {
                 const response = await fetch(relativePath);
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status} ${response.statusText} for ${relativePath}`);
                 const markdownText = await response.text();
+
+                const { metadata, content } = parseFrontmatter(markdownText);
+
+                let htmlContent = '';
+                if (metadata) {
+                    htmlContent += `<div class="metadata-box">`;
+                    if (metadata.title) htmlContent += `<div class="metadata-title">${metadata.title}</div>`;
+                    htmlContent += `<div class="metadata-grid">`;
+                    for (const [key, value] of Object.entries(metadata)) {
+                        if (key === 'title') continue;
+                        htmlContent += `<div class="metadata-item"><span class="metadata-label">${key.replace(/_/g, ' ')}</span><span class="metadata-value">${Array.isArray(value) ? value.join(', ') : value}</span></div>`;
+                    }
+                    htmlContent += `</div></div>`;
+                }
+
                 if (typeof marked !== 'undefined') {
-                    lessonContentRendered.innerHTML = marked.parse(markdownText);
+                    htmlContent += marked.parse(content);
+                    lessonContentRendered.innerHTML = htmlContent;
                     lessonContentRendered.style.display = 'block';
                 } else {
                     lessonContentArea.textContent = markdownText; // Fallback to plain text

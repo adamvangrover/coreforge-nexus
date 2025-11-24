@@ -1,3 +1,11 @@
+---
+title: USHistory11 NYSFramework
+grade_level: "9-12"
+subject: SocialStudies
+duration_minutes: 45
+tags: [socialstudies, intro]
+---
+
 # High School - United States History and Government (Grade 11) - NYS K-12 Social Studies Framework
 
 ## I. Overview and Alignment

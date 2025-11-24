@@ -1,51 +1,28 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Target, BarChart2, BookOpen, Star, PlayCircle, BrainCircuit, CheckCircle, XCircle, Lightbulb } from 'lucide-react';
-
-// Mock Data for the application
-const mockData = {
-  user: {
-    name: 'Alex',
-    progress: {
-      'algebra-basics': 0.8,
-      'geometry-intro': 0.5,
-      'fractions': 0.95,
-      'calculus-1': 0.2,
-    },
-    achievements: [
-      { id: 1, name: 'Algebra Adept', icon: Star, date: '2024-06-20' },
-      { id: 2, name: 'Fraction Fanatic', icon: Star, date: '2024-06-18' },
-      { id: 3, name: 'First Steps', icon: PlayCircle, date: '2024-06-15' },
-    ],
-  },
-  curriculum: [
-    { id: 'algebra-basics', name: 'Algebra Basics', description: 'Introduction to variables and equations.', subtopics: ['Variables', 'Linear Equations', 'Inequalities'] },
-    { id: 'geometry-intro', name: 'Geometry Intro', description: 'Exploring shapes, angles, and space.', subtopics: ['Points & Lines', 'Angles', 'Triangles', 'Circles'] },
-    { id: 'fractions', name: 'Fractions', description: 'Understanding parts of a whole.', subtopics: ['What is a Fraction?', 'Adding Fractions', 'Multiplying Fractions'] },
-    { id: 'calculus-1', name: 'Calculus I', description: 'The study of continuous change.', subtopics: ['Limits', 'Derivatives', 'Integration'] },
-    { id: 'trigonometry', name: 'Trigonometry', description: 'Relationships between side lengths and angles of triangles.', subtopics: ['Sine', 'Cosine', 'Tangent'] },
-  ],
-  problems: {
-    'algebra-basics': [
-      { id: 'ab-1', type: 'mcq', question: 'What is the value of x in the equation 2x + 5 = 15?', options: ['3', '5', '10', '-5'], answer: '5', hint: 'Try subtracting 5 from both sides first.' },
-      { id: 'ab-2', type: 'input', question: 'Solve for y: 3y - 7 = 14', answer: '7', hint: 'Add 7 to both sides, then divide by 3.' },
-    ],
-    'geometry-intro': [
-      { id: 'gi-1', type: 'mcq', question: 'How many degrees are in a right angle?', options: ['45', '90', '180', '360'], answer: '90', hint: 'A right angle is like the corner of a square.' },
-    ],
-  },
-};
-
+import { userData, curriculumData, problemsData } from './data';
 
 // Main App Component
 const App = () => {
   const [activeView, setActiveView] = useState('dashboard');
-  const [currentUser, setCurrentUser] = useState(mockData.user);
+  const [currentUser, setCurrentUser] = useState(userData);
   const [currentTopic, setCurrentTopic] = useState(null);
+
+  // Helper to find a topic by ID across the entire curriculum
+  const findTopicById = (topicId) => {
+    for (const grade in curriculumData) {
+      for (const subject in curriculumData[grade]) {
+        const topic = curriculumData[grade][subject].find(t => t.id === topicId);
+        if (topic) return topic;
+      }
+    }
+    return null;
+  };
 
   const navigateTo = (view, topicId = null) => {
     setActiveView(view);
     if (topicId) {
-      const topic = mockData.curriculum.find(t => t.id === topicId);
+      const topic = findTopicById(topicId);
       setCurrentTopic(topic);
     }
   };
@@ -121,6 +98,9 @@ const Header = ({ activeView, setActiveView }) => {
 
 // Dashboard Component
 const Dashboard = ({ user, navigateTo }) => {
+    const [selectedGrade, setSelectedGrade] = useState('K');
+    const [selectedSubject, setSelectedSubject] = useState('Math');
+
     const getGreeting = () => {
         const hour = new Date().getHours();
         if (hour < 12) return 'Good Morning';
@@ -128,43 +108,90 @@ const Dashboard = ({ user, navigateTo }) => {
         return 'Good Evening';
     }
 
+    const grades = Object.keys(curriculumData);
+    const subjects = curriculumData[selectedGrade] ? Object.keys(curriculumData[selectedGrade]) : [];
+    const currentTopics = curriculumData[selectedGrade]?.[selectedSubject] || [];
+
+    // Flatten all topics for "Continue Learning" search
+    const allTopics = Object.values(curriculumData).flatMap(g => Object.values(g).flat());
+
+    // Find topics with progress > 0
+    const inProgressTopics = allTopics.filter(t => (user.progress[t.id] || 0) > 0 && (user.progress[t.id] || 0) < 1).slice(0, 3);
+
     return (
         <div className="space-y-6">
             <div>
                 <h2 className="text-3xl font-bold text-gray-900">{getGreeting()}, {user.name}!</h2>
-                <p className="text-gray-500 mt-1">Ready to solve some problems?</p>
+                <p className="text-gray-500 mt-1">What would you like to learn today?</p>
+            </div>
+
+            {/* Selection Controls */}
+            <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-200 flex flex-col sm:flex-row gap-4 items-center">
+                <div className="flex items-center space-x-2 w-full sm:w-auto">
+                    <span className="font-semibold text-gray-700">Grade:</span>
+                    <select
+                        value={selectedGrade}
+                        onChange={(e) => { setSelectedGrade(e.target.value); setSelectedSubject(Object.keys(curriculumData[e.target.value])[0] || ''); }}
+                        className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md border"
+                    >
+                        {grades.map(g => <option key={g} value={g}>{g === 'High School' ? 'High School' : `Grade ${g}`}</option>)}
+                    </select>
+                </div>
+                <div className="flex items-center space-x-2 w-full sm:w-auto">
+                    <span className="font-semibold text-gray-700">Subject:</span>
+                    <select
+                        value={selectedSubject}
+                        onChange={(e) => setSelectedSubject(e.target.value)}
+                        className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md border"
+                    >
+                        {subjects.map(s => <option key={s} value={s}>{s}</option>)}
+                    </select>
+                </div>
             </div>
 
             {/* Main Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                {/* Left Column: Continue Learning & Recommendations */}
+                {/* Left Column: Curriculum & Learning */}
                 <div className="lg:col-span-2 space-y-6">
-                    <Card title="Continue Learning" icon={PlayCircle}>
-                         <div className="space-y-4">
-                            {mockData.curriculum.slice(0, 2).map(topic => (
-                                <div key={topic.id} className="flex items-center p-3 bg-gray-50 rounded-lg">
-                                    <div className="flex-grow">
-                                        <h3 className="font-semibold text-gray-800">{topic.name}</h3>
-                                        <p className="text-sm text-gray-500">{topic.description}</p>
-                                        <ProgressRing progress={user.progress[topic.id] || 0} />
+                    {inProgressTopics.length > 0 && (
+                        <Card title="Continue Learning" icon={PlayCircle}>
+                             <div className="space-y-4">
+                                {inProgressTopics.map(topic => (
+                                    <div key={topic.id} className="flex items-center p-3 bg-gray-50 rounded-lg">
+                                        <div className="flex-grow">
+                                            <h3 className="font-semibold text-gray-800">{topic.name}</h3>
+                                            <p className="text-sm text-gray-500">{topic.description}</p>
+                                            <ProgressRing progress={user.progress[topic.id] || 0} />
+                                        </div>
+                                        <button
+                                            onClick={() => navigateTo('learningZone', topic.id)}
+                                            className="ml-4 bg-indigo-600 text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-indigo-700 transition-transform transform hover:scale-105">
+                                            Resume
+                                        </button>
                                     </div>
-                                    <button
-                                        onClick={() => navigateTo('learningZone', topic.id)}
-                                        className="ml-4 bg-indigo-600 text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-indigo-700 transition-transform transform hover:scale-105">
-                                        Start
-                                    </button>
-                                </div>
-                            ))}
-                        </div>
-                    </Card>
-                     <Card title="Recommended For You" icon={Lightbulb}>
+                                ))}
+                            </div>
+                        </Card>
+                    )}
+
+                     <Card title={`${selectedGrade === 'High School' ? 'High School' : 'Grade ' + selectedGrade} ${selectedSubject} Units`} icon={BookOpen}>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {mockData.curriculum.slice(2, 4).map(topic => (
-                                <div key={topic.id} className="border border-gray-200 p-4 rounded-lg hover:shadow-md transition-shadow cursor-pointer" onClick={() => navigateTo('learningZone', topic.id)}>
-                                     <h3 className="font-semibold text-gray-800">{topic.name}</h3>
+                            {currentTopics.map(topic => (
+                                <div key={topic.id} className="border border-gray-200 p-4 rounded-lg hover:shadow-md transition-shadow cursor-pointer bg-gray-50" onClick={() => navigateTo('learningZone', topic.id)}>
+                                     <div className="flex justify-between items-start">
+                                        <h3 className="font-semibold text-gray-800">{topic.name}</h3>
+                                        {user.progress[topic.id] >= 1 && <CheckCircle className="h-5 w-5 text-green-500" />}
+                                     </div>
                                      <p className="text-sm text-gray-500 mt-1">{topic.description}</p>
+                                     {/* Simple Subtopics List */}
+                                     <div className="mt-2 flex flex-wrap gap-1">
+                                         {topic.subtopics.slice(0, 3).map(sub => (
+                                             <span key={sub} className="text-xs bg-white border border-gray-200 px-2 py-1 rounded-full text-gray-600">{sub}</span>
+                                         ))}
+                                     </div>
                                 </div>
                             ))}
+                            {currentTopics.length === 0 && <p className="text-gray-500">No content available for this selection yet.</p>}
                         </div>
                     </Card>
                 </div>
@@ -176,6 +203,7 @@ const Dashboard = ({ user, navigateTo }) => {
                             {user.achievements.map(ach => (
                                 <li key={ach.id} className="flex items-center space-x-4">
                                     <div className="bg-yellow-100 p-2 rounded-full">
+                                        {/* Determine icon dynamically if possible, else fallback */}
                                         <ach.icon className="h-6 w-6 text-yellow-500" />
                                     </div>
                                     <div>
@@ -199,11 +227,12 @@ const LearningZone = ({ topic }) => {
     const [feedback, setFeedback] = useState(null); // null, 'correct', 'incorrect'
     const [showHint, setShowHint] = useState(false);
 
-    const problems = mockData.problems[topic.id] || [];
+    const problems = problemsData[topic.id] || [];
     const currentProblem = problems[problemIndex];
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (!currentProblem) return;
         if(userAnswer.toLowerCase().trim() === currentProblem.answer.toLowerCase().trim()) {
             setFeedback('correct');
         } else {
@@ -216,6 +245,10 @@ const LearningZone = ({ topic }) => {
         setUserAnswer('');
         setShowHint(false);
         setProblemIndex(prev => (prev + 1) % problems.length);
+    }
+
+    if (!topic) {
+        return <div className="text-center p-8">Topic not found.</div>;
     }
 
     if (!currentProblem) {
@@ -285,38 +318,46 @@ const LearningZone = ({ topic }) => {
 };
 
 // ProgressCenter Component
-const ProgressCenter = ({ user, navigateTo }) => (
-    <div className="space-y-6">
-        <h2 className="text-3xl font-bold text-gray-900">Your Progress</h2>
-        <Card title="Skills Map" icon={BarChart2}>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {mockData.curriculum.map(topic => {
-                    const progress = user.progress[topic.id] || 0;
-                    const getBackgroundColor = (p) => {
-                        if (p >= 0.9) return 'bg-green-100 border-green-400';
-                        if (p >= 0.5) return 'bg-blue-100 border-blue-400';
-                        if (p > 0) return 'bg-yellow-100 border-yellow-400';
-                        return 'bg-gray-100 border-gray-300';
-                    };
-                    return (
-                        <div
-                           key={topic.id}
-                           className={`p-4 rounded-lg border-2 cursor-pointer hover:shadow-lg transition-shadow ${getBackgroundColor(progress)}`}
-                           onClick={() => navigateTo('learningZone', topic.id)}
-                        >
-                            <h3 className="font-bold text-gray-800">{topic.name}</h3>
-                            <p className="text-sm text-gray-600 mt-1">{topic.description}</p>
-                            <div className="w-full bg-gray-200 rounded-full h-2.5 mt-4">
-                                <div className="bg-indigo-600 h-2.5 rounded-full" style={{ width: `${progress * 100}%` }}></div>
+const ProgressCenter = ({ user, navigateTo }) => {
+    // Helper to get all topics flattened
+    const allTopics = Object.values(curriculumData).flatMap(g => Object.values(g).flat());
+
+    return (
+        <div className="space-y-6">
+            <h2 className="text-3xl font-bold text-gray-900">Your Progress</h2>
+            <Card title="Skills Map" icon={BarChart2}>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {allTopics.map(topic => {
+                        const progress = user.progress[topic.id] || 0;
+                        if (progress === 0) return null; // Hide items with no progress for cleanliness, or show all? Let's show only started/completed ones to avoid clutter
+
+                        const getBackgroundColor = (p) => {
+                            if (p >= 0.9) return 'bg-green-100 border-green-400';
+                            if (p >= 0.5) return 'bg-blue-100 border-blue-400';
+                            if (p > 0) return 'bg-yellow-100 border-yellow-400';
+                            return 'bg-gray-100 border-gray-300';
+                        };
+                        return (
+                            <div
+                            key={topic.id}
+                            className={`p-4 rounded-lg border-2 cursor-pointer hover:shadow-lg transition-shadow ${getBackgroundColor(progress)}`}
+                            onClick={() => navigateTo('learningZone', topic.id)}
+                            >
+                                <h3 className="font-bold text-gray-800">{topic.name}</h3>
+                                <p className="text-sm text-gray-600 mt-1">{topic.description}</p>
+                                <div className="w-full bg-gray-200 rounded-full h-2.5 mt-4">
+                                    <div className="bg-indigo-600 h-2.5 rounded-full" style={{ width: `${progress * 100}%` }}></div>
+                                </div>
+                                <p className="text-right text-sm font-semibold mt-1 text-indigo-800">{(progress * 100).toFixed(0)}% Mastered</p>
                             </div>
-                             <p className="text-right text-sm font-semibold mt-1 text-indigo-800">{(progress * 100).toFixed(0)}% Mastered</p>
-                        </div>
-                    )
-                })}
-            </div>
-        </Card>
-    </div>
-);
+                        )
+                    })}
+                     {allTopics.filter(t => (user.progress[t.id] || 0) > 0).length === 0 && <p className="text-gray-500">Start learning to see your progress here!</p>}
+                </div>
+            </Card>
+        </div>
+    );
+};
 
 
 // ExplorationZone Component

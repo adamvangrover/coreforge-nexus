@@ -46,7 +46,6 @@
     ]
   },
   "devDependencies": {
-    "@types/react-markdown": "^9.0.1",
     "tailwindcss": "^3.4.3"
   }
 }

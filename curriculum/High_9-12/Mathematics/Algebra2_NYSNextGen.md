@@ -1,3 +1,11 @@
+---
+title: Algebra2 NYSNextGen
+grade_level: "9-12"
+subject: Mathematics
+duration_minutes: 45
+tags: [mathematics, intro]
+---
+
 **Note: The content herein is a proposed draft for Subject Matter Expert (SME) review and expansion.**
 
 # High School - Algebra II - NYS Next Generation Mathematics Learning Standards

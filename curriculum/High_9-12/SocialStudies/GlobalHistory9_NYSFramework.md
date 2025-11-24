@@ -1,3 +1,11 @@
+---
+title: GlobalHistory9 NYSFramework
+grade_level: "9-12"
+subject: SocialStudies
+duration_minutes: 45
+tags: [socialstudies, intro]
+---
+
 # High School - Global History and Geography I (Grade 9) - NYS K-12 Social Studies Framework
 **Note: The content herein is a proposed draft for Subject Matter Expert (SME) review and expansion.**
 

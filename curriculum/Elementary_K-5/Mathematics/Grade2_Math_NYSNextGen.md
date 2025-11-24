@@ -1,3 +1,11 @@
+---
+title: Grade2 Math NYSNextGen
+grade_level: "2"
+subject: Mathematics
+duration_minutes: 45
+tags: [mathematics, intro]
+---
+
 # Grade 2 - Mathematics - NYS Next Generation Math Standards
 **Note: The content herein is a proposed draft for Subject Matter Expert (SME) review and expansion. Specific NYS Learning Standards for Grade 2 need to be populated by an SME as direct online access was unavailable.**
 

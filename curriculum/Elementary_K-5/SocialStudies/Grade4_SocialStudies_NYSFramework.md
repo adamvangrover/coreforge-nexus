@@ -1,3 +1,11 @@
+---
+title: Grade4 SocialStudies NYSFramework
+grade_level: "4"
+subject: SocialStudies
+duration_minutes: 45
+tags: [socialstudies, intro]
+---
+
 # Grade 4 - Social Studies - NYS K-12 Social Studies Framework
 **Note: The content herein is a proposed draft for Subject Matter Expert (SME) review and expansion.**
 

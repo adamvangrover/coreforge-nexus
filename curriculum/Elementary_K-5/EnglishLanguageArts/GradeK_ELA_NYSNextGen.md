@@ -1,3 +1,11 @@
+---
+title: GradeK ELA NYSNextGen
+grade_level: "K"
+subject: EnglishLanguageArts
+duration_minutes: 45
+tags: [englishlanguagearts, intro]
+---
+
 # Kindergarten - English Language Arts - NYS Next Generation ELA Standards
 **Note: The content herein is a proposed draft for Subject Matter Expert (SME) review and expansion.**
 

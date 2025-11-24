@@ -50,14 +50,13 @@ const AppContent: React.FC = () => {
             <Route element={<MainLayout />}>
                 <Route path="/" element={<Navigate replace to="/dashboard" />} />
                 <Route path="/dashboard" element={<DashboardView />} />
-                {/*
-                  DEV_NOTE: LearningView might need specific topicId handling.
-                  For now, it's a general route. This will be refined.
-                  Example: /learning/:courseId/:lessonId or similar.
-                  The old navigateTo(view, topicId) logic will need a new home or approach with routing.
-                */}
+
+                {/* Learning Routes */}
                 <Route path="/learning" element={<LearningView />} />
-                {/* <Route path="/learning/:topicId" element={<LearningView />} /> */}
+                <Route path="/learning/:gradeId" element={<LearningView />} />
+                <Route path="/learning/:gradeId/:subjectId" element={<LearningView />} />
+                <Route path="/learning/:gradeId/:subjectId/:lessonId" element={<LearningView />} />
+
                 <Route path="/progress" element={<ProgressView />} />
                 <Route path="/explore" element={<ExplorationView />} />
                 <Route path="/resources" element={<ResourcesView />} />

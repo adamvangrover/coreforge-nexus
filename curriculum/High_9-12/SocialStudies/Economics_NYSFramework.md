@@ -1,3 +1,11 @@
+---
+title: Economics NYSFramework
+grade_level: "9-12"
+subject: SocialStudies
+duration_minutes: 45
+tags: [socialstudies, intro]
+---
+
 **Note: The content herein is a proposed draft for Subject Matter Expert (SME) review and expansion.**
 
 # High School - Economics (Grade 12) - NYS K-12 Social Studies Framework (0.5 Credit)

@@ -1,3 +1,11 @@
+---
+title: GlobalHistory10 NYSFramework
+grade_level: "9-12"
+subject: SocialStudies
+duration_minutes: 45
+tags: [socialstudies, intro]
+---
+
 # High School - Global History and Geography II (Grade 10) - NYS K-12 Social Studies Framework
 
 ## I. Overview and Alignment

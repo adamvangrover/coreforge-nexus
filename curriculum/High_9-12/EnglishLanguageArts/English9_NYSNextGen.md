@@ -1,3 +1,11 @@
+---
+title: English9 NYSNextGen
+grade_level: "9-12"
+subject: EnglishLanguageArts
+duration_minutes: 45
+tags: [englishlanguagearts, intro]
+---
+
 # High School - English 9 - NYS Next Generation ELA Standards
 **Note: The content herein is a proposed draft for Subject Matter Expert (SME) review and expansion.**
 

@@ -53,13 +53,81 @@ export const curriculumData = {
       { id: '1-math-6', name: 'Unit 6: Geometry', description: 'Shapes and attributes.', subtopics: ['Defining Attributes', 'Composing Shapes', 'Halves/Fourths'] },
     ]
   },
-  "High School": {
+  "2": {
+    "Math": [{ id: '2-math-1', name: 'Unit 1: Place Value to 1,000', description: 'Understanding hundreds, tens, and ones.', subtopics: ['Hundreds', 'Counting by 5s, 10s, 100s', 'Comparing Numbers'] }],
+    "Language Arts": [{ id: '2-la-1', name: 'Unit 1: Phonics & Fluency', description: 'Decoding and reading with expression.', subtopics: ['Vowel Teams', 'Two-Syllable Words', 'Reading Speed'] }],
+    "Science": [{ id: '2-sci-1', name: 'Unit 1: Properties of Matter', description: 'Solids, liquids, and gases.', subtopics: ['Solids', 'Liquids', 'Reversible Changes'] }]
+  },
+  "3": {
+    "Math": [{ id: '3-math-1', name: 'Unit 1: Multiplication', description: 'Introduction to equal groups and arrays.', subtopics: ['Repeated Addition', 'Arrays', 'Facts 0-5'] }],
+    "Language Arts": [{ id: '3-la-1', name: 'Unit 1: Sentences', description: 'Grammar and sentence structure.', subtopics: ['Subjects', 'Predicates', 'Compound Sentences'] }],
+    "Science": [{ id: '3-sci-1', name: 'Unit 1: Life Cycles', description: 'How organisms grow and change.', subtopics: ['Plant Life Cycle', 'Animal Life Cycle', 'Inheritance'] }]
+  },
+  "4": {
+    "Math": [{ id: '4-math-1', name: 'Unit 1: Factors & Multiples', description: 'Number patterns and properties.', subtopics: ['Factor Pairs', 'Prime vs Composite', 'Patterns'] }],
+    "Language Arts": [{ id: '4-la-1', name: 'Unit 1: Main Idea', description: 'Reading comprehension strategies.', subtopics: ['Key Details', 'Summarizing', 'Inference'] }],
+    "Science": [{ id: '4-sci-1', name: 'Unit 1: Energy', description: 'Forms and transfer of energy.', subtopics: ['Speed & Energy', 'Light', 'Sound'] }]
+  },
+  "5": {
+    "Math": [{ id: 'fractions', name: 'Fractions', description: 'Understanding parts of a whole.', subtopics: ['Adding Fractions', 'Multiplying Fractions', 'Decimals'] }],
+    "Language Arts": [{ id: '5-la-1', name: 'Unit 1: Essay Structure', description: 'Writing opinion and informative essays.', subtopics: ['Introductions', 'Body Paragraphs', 'Conclusions'] }],
+    "Science": [{ id: '5-sci-1', name: 'Unit 1: Earth Systems', description: 'Geosphere, biosphere, hydrosphere, atmosphere.', subtopics: ['Water Cycle', 'Earth Spheres', 'Space'] }]
+  },
+  "6": {
+    "Math": [{ id: '6-math-1', name: 'Unit 1: Ratios', description: 'Relationships between quantities.', subtopics: ['Ratio Language', 'Unit Rates', 'Percentages'] }],
+    "Language Arts": [{ id: '6-la-1', name: 'Unit 1: Plot & Setting', description: 'Analyzing story elements.', subtopics: ['Exposition', 'Climax', 'Resolution'] }],
+    "Science": [{ id: '6-sci-1', name: 'Unit 1: Cells', description: 'Basic units of life.', subtopics: ['Cell Theory', 'Organelles', 'Microscope'] }]
+  },
+  "7": {
+    "Math": [{ id: '7-math-1', name: 'Unit 1: Rational Numbers', description: 'Operations with negative numbers.', subtopics: ['Integers', 'Number Line', 'Absolute Value'] }],
+    "Language Arts": [{ id: '7-la-1', name: 'Unit 1: Point of View', description: 'Analyzing perspective in literature.', subtopics: ['First Person', 'Third Person', 'Evidence'] }],
+    "Science": [{ id: '7-sci-1', name: 'Unit 1: Ecosystems', description: 'Interactions within environments.', subtopics: ['Food Webs', 'Energy Flow', 'Populations'] }]
+  },
+  "8": {
+    "Math": [{ id: '8-math-1', name: 'Unit 1: Linear Equations', description: 'Slope and graphing.', subtopics: ['Slope-Intercept Form', 'Solving Equations', 'Systems'] }],
+    "Language Arts": [{ id: '8-la-1', name: 'Unit 1: Argumentative Writing', description: 'Building a strong case.', subtopics: ['Claims', 'Counterclaims', 'Rebuttal'] }],
+    "Science": [{ id: '8-sci-1', name: 'Unit 1: Forces & Motion', description: 'Newton\'s laws.', subtopics: ['Inertia', 'Acceleration', 'Action/Reaction'] }]
+  },
+  "9": {
     "Math": [
-      { id: 'algebra-basics', name: 'Algebra Basics', description: 'Introduction to variables and equations.', subtopics: ['Variables', 'Linear Equations', 'Inequalities'] },
-      { id: 'geometry-intro', name: 'Geometry Intro', description: 'Exploring shapes, angles, and space.', subtopics: ['Points & Lines', 'Angles', 'Triangles', 'Circles'] },
-      { id: 'fractions', name: 'Fractions', description: 'Understanding parts of a whole.', subtopics: ['What is a Fraction?', 'Adding Fractions', 'Multiplying Fractions'] },
-      { id: 'calculus-1', name: 'Calculus I', description: 'The study of continuous change.', subtopics: ['Limits', 'Derivatives', 'Integration'] },
-      { id: 'trigonometry', name: 'Trigonometry', description: 'Relationships between side lengths and angles of triangles.', subtopics: ['Sine', 'Cosine', 'Tangent'] },
+      { id: 'algebra-basics', name: 'Algebra I', description: 'Introduction to variables and equations.', subtopics: ['Variables', 'Linear Equations', 'Inequalities'] }
+    ],
+    "Science": [{ id: '9-sci-1', name: 'Biology', description: 'Cellular processes and genetics.', subtopics: ['Mitosis', 'DNA', 'Heredity'] }],
+    "Language Arts": [{ id: '9-la-1', name: 'Literature I', description: 'Analysis of world literature.', subtopics: ['Short Stories', 'Poetry', 'Drama'] }]
+  },
+  "10": {
+    "Math": [
+      { id: 'geometry-intro', name: 'Geometry', description: 'Exploring shapes, angles, and space.', subtopics: ['Points & Lines', 'Angles', 'Triangles', 'Circles'] }
+    ],
+    "Science": [{ id: '10-sci-1', name: 'Chemistry', description: 'Atomic structure and reactions.', subtopics: ['Periodic Table', 'Bonding', 'Stoichiometry'] }],
+    "History": [{ id: '10-hist-1', name: 'World History', description: 'Civilizations and global changes.', subtopics: ['Renaissance', 'Industrial Revolution', 'Modern Era'] }]
+  },
+  "11": {
+    "Math": [
+      { id: 'trigonometry', name: 'Trigonometry', description: 'Relationships between side lengths and angles.', subtopics: ['Sine', 'Cosine', 'Tangent'] }
+    ],
+    "Science": [{ id: '11-sci-1', name: 'Physics', description: 'Mechanics and thermodynamics.', subtopics: ['Kinematics', 'Dynamics', 'Energy'] }],
+    "History": [{ id: '11-hist-1', name: 'US History', description: 'Founding to present day.', subtopics: ['Revolution', 'Civil War', 'Civil Rights'] }]
+  },
+  "12": {
+    "Math": [
+      { id: 'calculus-1', name: 'Calculus', description: 'The study of continuous change.', subtopics: ['Limits', 'Derivatives', 'Integration'] }
+    ],
+    "Government": [{ id: '12-gov-1', name: 'US Government', description: 'Structures and functions of government.', subtopics: ['Constitution', 'Branches', 'Rights'] }],
+    "Economics": [{ id: '12-econ-1', name: 'Economics', description: 'Micro and macroeconomics.', subtopics: ['Supply & Demand', 'Markets', 'Fiscal Policy'] }]
+  },
+  "GED": {
+    "Math": [{ id: 'ged-math-1', name: 'GED Math', description: 'Mathematical reasoning for the GED.', subtopics: ['Quantitative Problem Solving', 'Algebraic Problem Solving'] }],
+    "Language Arts": [{ id: 'ged-rla-1', name: 'Reasoning Through Language Arts', description: 'Reading, writing, and language.', subtopics: ['Reading Comprehension', 'Argument Analysis', 'Grammar'] }],
+    "Science": [{ id: 'ged-sci-1', name: 'GED Science', description: 'Life, physical, and earth and space science.', subtopics: ['Life Science', 'Physical Science', 'Earth Science'] }],
+    "Social Studies": [{ id: 'ged-soc-1', name: 'GED Social Studies', description: 'Civics, government, history, economics, geography.', subtopics: ['Civics', 'History', 'Economics'] }]
+  },
+  "Advanced": {
+    "AI": [{ id: 'ai-1', name: 'Intro to Artificial Intelligence', description: 'Concepts of AI and ML.', subtopics: ['Machine Learning', 'Neural Networks', 'Ethics in AI'] }],
+    "Quantum": [{ id: 'quant-1', name: 'Quantum Computing', description: 'Introduction to quantum mechanics in computing.', subtopics: ['Superposition', 'Entanglement', 'Qubits'] }],
+    "STEAM": [
+        { id: 'steam-rob-1', name: 'Robotics', description: 'Design and programming of robots.', subtopics: ['Sensors', 'Actuators', 'Control Systems'] },
+        { id: 'steam-art-1', name: 'Digital Arts', description: 'Intersection of art and technology.', subtopics: ['Graphic Design', '3D Modeling', 'Animation'] }
     ]
   }
 };
@@ -85,7 +153,7 @@ export const problemsData = {
 
   // K Math
   'k-math-1': [
-    { id: 'km1-1', type: 'mcq', question: 'How many apples?', options: ['1', '2', '3'], answer: '3', hint: 'Count them one by one.' }, // Ideally would have an image
+    { id: 'km1-1', type: 'mcq', question: 'How many apples?', options: ['1', '2', '3'], answer: '3', hint: 'Count them one by one.' },
     { id: 'km1-2', type: 'mcq', question: 'What number comes after 2?', options: ['1', '3', '4'], answer: '3', hint: '1, 2, ...' },
     { id: 'km1-3', type: 'mcq', question: 'Which group has more?', options: ['2 cats', '5 dogs'], answer: '5 dogs', hint: 'Which number is bigger?' },
   ],
@@ -184,5 +252,67 @@ export const problemsData = {
   '1-math-6': [
       { id: '1m6-1', type: 'mcq', question: 'How many equal parts in a half?', options: ['2', '4'], answer: '2', hint: 'Split in two.'},
       { id: '1m6-2', type: 'mcq', question: 'A shape with 4 equal sides and 4 right angles is a...', options: ['Square', 'Rectangle', 'Rhombus'], answer: 'Square', hint: 'All sides same.'}
-  ]
+  ],
+
+  // 2 Math, LA, Sci
+  '2-math-1': [{ id: '2m1-1', type: 'input', question: 'What is the value of the 5 in 502?', answer: '500', hint: 'Hundreds place.' }],
+  '2-la-1': [{ id: '2la1-1', type: 'mcq', question: 'Which word has 2 syllables?', options: ['Dog', 'Pencil', 'Cat'], answer: 'Pencil', hint: 'Pen-cil.' }],
+  '2-sci-1': [{ id: '2sci1-1', type: 'mcq', question: 'Ice is a...', options: ['Solid', 'Liquid', 'Gas'], answer: 'Solid', hint: 'It is hard.' }],
+
+  // 3 Math, LA, Sci
+  '3-math-1': [{ id: '3m1-1', type: 'input', question: 'What is 3 x 4?', answer: '12', hint: '3 groups of 4.' }],
+  '3-la-1': [{ id: '3la1-1', type: 'mcq', question: 'Identify the subject: "The dog ran."', options: ['The dog', 'ran'], answer: 'The dog', hint: 'Who did the action?' }],
+  '3-sci-1': [{ id: '3sci1-1', type: 'mcq', question: 'What grows from a seed?', options: ['Rock', 'Plant'], answer: 'Plant', hint: 'It needs water and sun.' }],
+
+  // 4 Math, LA, Sci
+  '4-math-1': [{ id: '4m1-1', type: 'mcq', question: 'Is 7 a prime number?', options: ['Yes', 'No'], answer: 'Yes', hint: 'It only has factors 1 and 7.' }],
+  '4-la-1': [{ id: '4la1-1', type: 'mcq', question: 'What is the main idea?', options: ['A small detail', 'What the text is mostly about'], answer: 'What the text is mostly about', hint: 'The big picture.' }],
+  '4-sci-1': [{ id: '4sci1-1', type: 'mcq', question: 'Sound travels in...', options: ['Waves', 'Lines'], answer: 'Waves', hint: 'Vibrations.' }],
+
+  // 5 Math (Fractions already defined above as 'fractions'), LA, Sci
+  '5-la-1': [{ id: '5la1-1', type: 'mcq', question: 'An essay usually starts with an...', options: ['Introduction', 'Conclusion'], answer: 'Introduction', hint: 'The beginning.' }],
+  '5-sci-1': [{ id: '5sci1-1', type: 'mcq', question: 'Which sphere contains all water?', options: ['Atmosphere', 'Hydrosphere'], answer: 'Hydrosphere', hint: 'Hydro means water.' }],
+
+  // 6 Math, LA, Sci
+  '6-math-1': [{ id: '6m1-1', type: 'input', question: 'If the ratio of apples to oranges is 2:3 and there are 6 oranges, how many apples?', answer: '4', hint: 'Multiply 2 by 2.' }],
+  '6-la-1': [{ id: '6la1-1', type: 'mcq', question: 'The turning point of a story is the...', options: ['Climax', 'Exposition'], answer: 'Climax', hint: 'The most exciting part.' }],
+  '6-sci-1': [{ id: '6sci1-1', type: 'mcq', question: 'The powerhouse of the cell is the...', options: ['Nucleus', 'Mitochondria'], answer: 'Mitochondria', hint: 'Energy producer.' }],
+
+  // 7 Math, LA, Sci
+  '7-math-1': [{ id: '7m1-1', type: 'input', question: 'What is -5 + 3?', answer: '-2', hint: 'Start at -5 and move right 3.' }],
+  '7-la-1': [{ id: '7la1-1', type: 'mcq', question: 'I, me, my indicates which point of view?', options: ['First Person', 'Third Person'], answer: 'First Person', hint: 'The speaker is involved.' }],
+  '7-sci-1': [{ id: '7sci1-1', type: 'mcq', question: 'An animal that eats plants is a...', options: ['Herbivore', 'Carnivore'], answer: 'Herbivore', hint: 'Herbs/plants.' }],
+
+  // 8 Math, LA, Sci
+  '8-math-1': [{ id: '8m1-1', type: 'input', question: 'Find the slope: y = 2x + 1', answer: '2', hint: 'The coefficient of x.' }],
+  '8-la-1': [{ id: '8la1-1', type: 'mcq', question: 'A claim is...', options: ['A fact', 'An arguable statement'], answer: 'An arguable statement', hint: 'Something you prove.' }],
+  '8-sci-1': [{ id: '8sci1-1', type: 'mcq', question: 'For every action, there is an equal and opposite...', options: ['Reaction', 'Force'], answer: 'Reaction', hint: 'Newton\'s 3rd Law.' }],
+
+  // 9 Sci, Lit (Math is algebra-basics)
+  '9-sci-1': [{ id: '9sci1-1', type: 'mcq', question: 'DNA is found in the...', options: ['Nucleus', 'Membrane'], answer: 'Nucleus', hint: 'Center of the cell.' }],
+  '9-la-1': [{ id: '9la1-1', type: 'mcq', question: 'A poem with 14 lines is often a...', options: ['Haiku', 'Sonnet'], answer: 'Sonnet', hint: 'Shakespeare wrote many.' }],
+
+  // 10 Sci, Hist (Math is geometry-intro)
+  '10-sci-1': [{ id: '10sci1-1', type: 'mcq', question: 'Water is H2O. What is H?', options: ['Helium', 'Hydrogen'], answer: 'Hydrogen', hint: 'Element 1.' }],
+  '10-hist-1': [{ id: '10hist1-1', type: 'mcq', question: 'The Industrial Revolution began with...', options: ['Steam engines', 'Computers'], answer: 'Steam engines', hint: 'Coal power.' }],
+
+  // 11 Sci, Hist (Math is trigonometry)
+  '11-sci-1': [{ id: '11sci1-1', type: 'mcq', question: 'F = ma is associated with...', options: ['Newton', 'Einstein'], answer: 'Newton', hint: 'Laws of motion.' }],
+  '11-hist-1': [{ id: '11hist1-1', type: 'mcq', question: 'The Declaration of Independence was signed in...', options: ['1776', '1789'], answer: '1776', hint: 'July 4th.' }],
+
+  // 12 Gov, Econ (Math is calculus-1)
+  '12-gov-1': [{ id: '12gov1-1', type: 'mcq', question: 'How many branches of US government?', options: ['2', '3', '4'], answer: '3', hint: 'Legislative, Executive, Judicial.' }],
+  '12-econ-1': [{ id: '12econ1-1', type: 'mcq', question: 'When demand goes up and supply stays same, price...', options: ['Goes up', 'Goes down'], answer: 'Goes up', hint: 'Scarcity.' }],
+
+  // GED
+  'ged-math-1': [{ id: 'gedm1-1', type: 'input', question: 'Evaluate: 3(4+2) - 5', answer: '13', hint: 'Order of operations.' }],
+  'ged-rla-1': [{ id: 'gedrla1-1', type: 'mcq', question: 'Identify the thesis statement.', options: ['The main argument', 'A supporting detail'], answer: 'The main argument', hint: 'Usually at the end of the intro.' }],
+  'ged-sci-1': [{ id: 'gedsci1-1', type: 'mcq', question: 'Photosynthesis requires...', options: ['Sunlight', 'Darkness'], answer: 'Sunlight', hint: 'Photo means light.' }],
+  'ged-soc-1': [{ id: 'gedsoc1-1', type: 'mcq', question: 'The Bill of Rights is the first ___ amendments.', options: ['5', '10'], answer: '10', hint: 'Decimal base.' }],
+
+  // Advanced
+  'ai-1': [{ id: 'ai1-1', type: 'mcq', question: 'What does ML stand for?', options: ['Machine Learning', 'Maximum Load'], answer: 'Machine Learning', hint: 'Computers learning from data.' }],
+  'quant-1': [{ id: 'quant1-1', type: 'mcq', question: 'A quantum bit is called a...', options: ['Bit', 'Qubit'], answer: 'Qubit', hint: 'Quantum bit.' }],
+  'steam-rob-1': [{ id: 'srob1-1', type: 'mcq', question: 'Which component detects the environment?', options: ['Motor', 'Sensor'], answer: 'Sensor', hint: 'Like eyes or ears.' }],
+  'steam-art-1': [{ id: 'sart1-1', type: 'mcq', question: 'RGB stands for...', options: ['Red Green Blue', 'Real Good Bit'], answer: 'Red Green Blue', hint: 'Colors of light.' }],
 };

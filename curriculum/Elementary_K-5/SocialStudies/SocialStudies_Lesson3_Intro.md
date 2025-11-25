@@ -1,14 +1,14 @@
 ---
-title: "EnglishLanguageArts Lesson 2: Introduction"
+title: "SocialStudies Lesson 3: Introduction"
 grade_level: "K-5"
-subject: "EnglishLanguageArts"
+subject: "SocialStudies"
 duration_minutes: 45
-tags: ["englishlanguagearts", "new", "intro"]
+tags: ["socialstudies", "new", "intro"]
 ---
 
 
 ## I. Lesson Overview
-*   **Subject:** EnglishLanguageArts
+*   **Subject:** SocialStudies
 *   **Grade Level:** K-5
 *   **Topic:** Fundamental Concepts
 *   **Estimated Duration:** 45 minutes

@@ -1,15 +1,15 @@
 ---
-title: "EnglishLanguageArts Lesson 2: Introduction"
-grade_level: "K-5"
-subject: "EnglishLanguageArts"
+title: "Mathematics Lesson 2: Introduction"
+grade_level: "9-12"
+subject: "Mathematics"
 duration_minutes: 45
-tags: ["englishlanguagearts", "new", "intro"]
+tags: ["mathematics", "new", "intro"]
 ---
 
 
 ## I. Lesson Overview
-*   **Subject:** EnglishLanguageArts
-*   **Grade Level:** K-5
+*   **Subject:** Mathematics
+*   **Grade Level:** 9-12
 *   **Topic:** Fundamental Concepts
 *   **Estimated Duration:** 45 minutes
 

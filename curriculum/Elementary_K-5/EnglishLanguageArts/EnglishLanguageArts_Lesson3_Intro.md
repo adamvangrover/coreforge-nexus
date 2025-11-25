@@ -1,5 +1,5 @@
 ---
-title: "EnglishLanguageArts Lesson 2: Introduction"
+title: "EnglishLanguageArts Lesson 3: Introduction"
 grade_level: "K-5"
 subject: "EnglishLanguageArts"
 duration_minutes: 45

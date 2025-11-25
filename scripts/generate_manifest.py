@@ -2,11 +2,13 @@ import os
 import json
 import re
 
-CURRICULUM_DIR = "curriculum"
-OUTPUT_PATH = "public/curriculum_manifest.json"
-HTML_BROWSER_PATH = "public/browse_curriculum.html"
+# Determine the repository root based on the script location
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+REPO_ROOT = os.path.dirname(SCRIPT_DIR)
 
-# DEV_NOTE: Ensure this script is run from the root of the repository.
+CURRICULUM_DIR = os.path.join(REPO_ROOT, "curriculum")
+OUTPUT_PATH = os.path.join(REPO_ROOT, "public/curriculum_manifest.json")
+HTML_BROWSER_PATH = os.path.join(REPO_ROOT, "public/browse_curriculum.html")
 
 def generate_human_readable_name(name_id, is_lesson=False):
     """Converts a slug/filename to a more human-readable name."""
@@ -93,10 +95,12 @@ def main():
                     lesson_file_path = os.path.join(subject_path, lesson_filename)
 
                     if os.path.isfile(lesson_file_path) and lesson_filename.endswith('.md') and not lesson_filename.startswith('.'):
+                        # Create path relative to REPO_ROOT for portability
+                        rel_path = os.path.relpath(lesson_file_path, REPO_ROOT)
                         lesson_obj = {
                             "id": lesson_filename,
                             "name": generate_human_readable_name(lesson_filename, is_lesson=True),
-                            "path": lesson_file_path.replace(os.path.sep, '/') # Ensure forward slashes for web paths
+                            "path": rel_path.replace(os.path.sep, '/') # Ensure forward slashes for web paths
                         }
                         subject_obj["lessons"].append(lesson_obj)
 

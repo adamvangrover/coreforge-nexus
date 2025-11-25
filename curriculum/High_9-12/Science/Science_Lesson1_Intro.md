@@ -1,15 +1,15 @@
 ---
-title: "EnglishLanguageArts Lesson 2: Introduction"
-grade_level: "K-5"
-subject: "EnglishLanguageArts"
+title: "Science Lesson 1: Introduction"
+grade_level: "9-12"
+subject: "Science"
 duration_minutes: 45
-tags: ["englishlanguagearts", "new", "intro"]
+tags: ["science", "new", "intro"]
 ---
 
 
 ## I. Lesson Overview
-*   **Subject:** EnglishLanguageArts
-*   **Grade Level:** K-5
+*   **Subject:** Science
+*   **Grade Level:** 9-12
 *   **Topic:** Fundamental Concepts
 *   **Estimated Duration:** 45 minutes
 

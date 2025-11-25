@@ -33,10 +33,11 @@ async def health_check():
     return {"status": "ok"}
 
 # Import and include curriculum router
-from backend.routers import curriculum as curriculum_router # Use 'backend.routers' for absolute import if needed by uvicorn structure
-# DEV_NOTE: Depending on how uvicorn runs, you might need `from .routers import curriculum as curriculum_router` if backend is a package.
-# Or `from routers import curriculum as curriculum_router` if uvicorn runs from /app/backend directory.
-# Assuming standard project structure where `backend` is the root for python path for now.
+try:
+    from backend.routers import curriculum as curriculum_router
+except ImportError:
+    from routers import curriculum as curriculum_router
+
 app.include_router(curriculum_router.router)
 
 
@@ -49,4 +50,4 @@ if __name__ == "__main__":
     # This is for direct execution (e.g., python backend/main.py)
     # In Docker, uvicorn is typically run directly as a command.
     # DEV_NOTE: Ensure 'reload=True' is only for development.
-    uvicorn.run("backend.main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

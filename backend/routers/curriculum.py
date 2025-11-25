@@ -7,8 +7,11 @@ from typing import List
 
 # DEV_NOTE: Define the base path to the curriculum directory.
 # This should ideally be configurable or determined more robustly.
-CURRICULUM_BASE_PATH = "./curriculum"
-# DEV_NOTE: In a Docker container, this path is relative to the WORKDIR /app
+# We determine it relative to this file's location to be robust against CWD.
+# File is in backend/routers/curriculum.py
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+CURRICULUM_BASE_PATH = os.path.join(BASE_DIR, "curriculum")
+# DEV_NOTE: In a Docker container, ensure this structure is maintained.
 
 router = APIRouter(
     prefix="/api/v1/curriculum",

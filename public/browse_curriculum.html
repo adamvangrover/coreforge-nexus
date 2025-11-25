@@ -279,6 +279,11 @@
               "path": "curriculum/Elementary_K-5/EnglishLanguageArts/EnglishLanguageArts_Lesson2_Intro.md"
             },
             {
+              "id": "EnglishLanguageArts_Lesson3_Intro.md",
+              "name": "Englishlanguagearts Lesson3 Intro",
+              "path": "curriculum/Elementary_K-5/EnglishLanguageArts/EnglishLanguageArts_Lesson3_Intro.md"
+            },
+            {
               "id": "GradeK_ELA_NYSNextGen.md",
               "name": "Gradek Ela Nysnextgen",
               "path": "curriculum/Elementary_K-5/EnglishLanguageArts/GradeK_ELA_NYSNextGen.md"
@@ -309,6 +314,16 @@
               "id": "Grade2_Math_NYSNextGen.md",
               "name": "Grade2 Math Nysnextgen",
               "path": "curriculum/Elementary_K-5/Mathematics/Grade2_Math_NYSNextGen.md"
+            },
+            {
+              "id": "Mathematics_Lesson1_Intro.md",
+              "name": "Mathematics Lesson1 Intro",
+              "path": "curriculum/Elementary_K-5/Mathematics/Mathematics_Lesson1_Intro.md"
+            },
+            {
+              "id": "Mathematics_Lesson2_Intro.md",
+              "name": "Mathematics Lesson2 Intro",
+              "path": "curriculum/Elementary_K-5/Mathematics/Mathematics_Lesson2_Intro.md"
             }
           ]
         },
@@ -336,6 +351,11 @@
               "id": "Science_Lesson2_Intro.md",
               "name": "Science Lesson2 Intro",
               "path": "curriculum/Elementary_K-5/Science/Science_Lesson2_Intro.md"
+            },
+            {
+              "id": "Science_Lesson3_Intro.md",
+              "name": "Science Lesson3 Intro",
+              "path": "curriculum/Elementary_K-5/Science/Science_Lesson3_Intro.md"
             }
           ]
         },
@@ -352,6 +372,11 @@
               "id": "SocialStudies_Lesson2_Intro.md",
               "name": "Socialstudies Lesson2 Intro",
               "path": "curriculum/Elementary_K-5/SocialStudies/SocialStudies_Lesson2_Intro.md"
+            },
+            {
+              "id": "SocialStudies_Lesson3_Intro.md",
+              "name": "Socialstudies Lesson3 Intro",
+              "path": "curriculum/Elementary_K-5/SocialStudies/SocialStudies_Lesson3_Intro.md"
             }
           ]
         }
@@ -406,6 +431,16 @@
               "id": "English9_NYSNextGen.md",
               "name": "English9 Nysnextgen",
               "path": "curriculum/High_9-12/EnglishLanguageArts/English9_NYSNextGen.md"
+            },
+            {
+              "id": "EnglishLanguageArts_Lesson1_Intro.md",
+              "name": "Englishlanguagearts Lesson1 Intro",
+              "path": "curriculum/High_9-12/EnglishLanguageArts/EnglishLanguageArts_Lesson1_Intro.md"
+            },
+            {
+              "id": "EnglishLanguageArts_Lesson2_Intro.md",
+              "name": "Englishlanguagearts Lesson2 Intro",
+              "path": "curriculum/High_9-12/EnglishLanguageArts/EnglishLanguageArts_Lesson2_Intro.md"
             }
           ]
         },
@@ -438,6 +473,16 @@
               "id": "Geometry_NYSNextGen.md",
               "name": "Geometry Nysnextgen",
               "path": "curriculum/High_9-12/Mathematics/Geometry_NYSNextGen.md"
+            },
+            {
+              "id": "Mathematics_Lesson1_Intro.md",
+              "name": "Mathematics Lesson1 Intro",
+              "path": "curriculum/High_9-12/Mathematics/Mathematics_Lesson1_Intro.md"
+            },
+            {
+              "id": "Mathematics_Lesson2_Intro.md",
+              "name": "Mathematics Lesson2 Intro",
+              "path": "curriculum/High_9-12/Mathematics/Mathematics_Lesson2_Intro.md"
             }
           ]
         },
@@ -490,6 +535,16 @@
               "id": "Physics_NYSSLS.md",
               "name": "Physics Nyssls",
               "path": "curriculum/High_9-12/Science/Physics_NYSSLS.md"
+            },
+            {
+              "id": "Science_Lesson1_Intro.md",
+              "name": "Science Lesson1 Intro",
+              "path": "curriculum/High_9-12/Science/Science_Lesson1_Intro.md"
+            },
+            {
+              "id": "Science_Lesson2_Intro.md",
+              "name": "Science Lesson2 Intro",
+              "path": "curriculum/High_9-12/Science/Science_Lesson2_Intro.md"
             }
           ]
         },
@@ -516,6 +571,16 @@
               "id": "ParticipationInGovernment_NYSFramework.md",
               "name": "Participationingovernment Nysframework",
               "path": "curriculum/High_9-12/SocialStudies/ParticipationInGovernment_NYSFramework.md"
+            },
+            {
+              "id": "SocialStudies_Lesson1_Intro.md",
+              "name": "Socialstudies Lesson1 Intro",
+              "path": "curriculum/High_9-12/SocialStudies/SocialStudies_Lesson1_Intro.md"
+            },
+            {
+              "id": "SocialStudies_Lesson2_Intro.md",
+              "name": "Socialstudies Lesson2 Intro",
+              "path": "curriculum/High_9-12/SocialStudies/SocialStudies_Lesson2_Intro.md"
             },
             {
               "id": "USHistory11_NYSFramework.md",
@@ -675,7 +740,7 @@
                         let value = parts.slice(1).join(':').trim();
                         // Handle arrays like [a, b, c]
                         if (value.startsWith('[') && value.endsWith(']')) {
-                             value = value.substring(1, value.length - 1).split(',').map(s => s.trim());
+                             value = value.substring(1, value.length - 1).split(',').map(s => s.trim().replace(/^["']|["']$/g, ''));
                         } else {
                              value = value.replace(/^["']|["']$/g, '');
                         }

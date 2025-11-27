@@ -105,6 +105,16 @@
               "path": "curriculum/Elementary_K-5/Science/Grade3_Science_NYSSLS.md"
             },
             {
+              "id": "Grade5_Science_Lesson1_Matter.md",
+              "name": "Grade5 Science Lesson1 Matter",
+              "path": "curriculum/Elementary_K-5/Science/Grade5_Science_Lesson1_Matter.md"
+            },
+            {
+              "id": "Grade5_Science_NYSSLS.md",
+              "name": "Grade5 Science Nyssls",
+              "path": "curriculum/Elementary_K-5/Science/Grade5_Science_NYSSLS.md"
+            },
+            {
               "id": "Science_Lesson2_Intro.md",
               "name": "Science Lesson2 Intro",
               "path": "curriculum/Elementary_K-5/Science/Science_Lesson2_Intro.md"

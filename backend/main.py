@@ -32,18 +32,22 @@ async def health_check():
     """
     return {"status": "ok"}
 
-# Import and include curriculum router
+# Import and include routers
 try:
     from backend.routers import curriculum as curriculum_router
+    from backend.routers import problem_generator
+    from backend.routers import auth
+    from backend.routers import assessment
 except ImportError:
     from routers import curriculum as curriculum_router
+    from routers import problem_generator
+    from routers import auth
+    from routers import assessment
 
 app.include_router(curriculum_router.router)
-
-
-# DEV_NOTE: Placeholder for other future routers
-# from .routers import user_router # Example
-# app.include_router(user_router.router)
+app.include_router(problem_generator.router)
+app.include_router(auth.router)
+app.include_router(assessment.router)
 
 if __name__ == "__main__":
     import uvicorn

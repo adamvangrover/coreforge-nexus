@@ -6,7 +6,6 @@ aiofiles
 watchdog
 gunicorn
 sympy
-
-# DEV_NOTE: Flask and flask-cors were removed as we are migrating to FastAPI.
-# sympy is kept for now, but its usage should be reviewed.
-# gunicorn is kept as it can be used with FastAPI in production.
+python-jose[cryptography]
+passlib[bcrypt]
+bcrypt

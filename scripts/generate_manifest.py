@@ -18,6 +18,15 @@ def generate_human_readable_name(name_id, is_lesson=False):
     name_parts = re.split(r'[_-]', name_id)
     return ' '.join(word.capitalize() for word in name_parts if word)
 
+def format_category(rel_dir):
+    """Formats a relative directory path into a readable category string."""
+    if not rel_dir or rel_dir == '.':
+        return ""
+
+    parts = rel_dir.split(os.path.sep)
+    readable_parts = [generate_human_readable_name(p) for p in parts]
+    return " > ".join(readable_parts)
+
 def update_html_browser(manifest_data):
     """Updates the fallback data in the HTML browser file."""
     if not os.path.exists(HTML_BROWSER_PATH):
@@ -90,21 +99,36 @@ def main():
                     "lessons": []
                 }
 
-                # Traverse Lessons (Markdown files)
-                for lesson_filename in sorted(os.listdir(subject_path)):
-                    lesson_file_path = os.path.join(subject_path, lesson_filename)
+                # Recursively walk the subject directory to find all markdown files
+                for root, dirs, files in os.walk(subject_path):
+                    # Sort dirs and files in place for consistent ordering
+                    dirs.sort()
+                    files.sort()
 
-                    if os.path.isfile(lesson_file_path) and lesson_filename.endswith('.md') and not lesson_filename.startswith('.'):
-                        # Create path relative to REPO_ROOT for portability
-                        rel_path = os.path.relpath(lesson_file_path, REPO_ROOT)
-                        lesson_obj = {
-                            "id": lesson_filename,
-                            "name": generate_human_readable_name(lesson_filename, is_lesson=True),
-                            "path": rel_path.replace(os.path.sep, '/') # Ensure forward slashes for web paths
-                        }
-                        subject_obj["lessons"].append(lesson_obj)
+                    for lesson_filename in files:
+                        if lesson_filename.endswith('.md') and not lesson_filename.startswith('.'):
+                            lesson_file_path = os.path.join(root, lesson_filename)
+
+                            # Calculate relative path from the subject root to the file's directory
+                            # This will determine the "Category" or "Group"
+                            rel_dir = os.path.relpath(root, subject_path)
+
+                            category = format_category(rel_dir)
+
+                            # Create path relative to REPO_ROOT for web access
+                            rel_path_repo = os.path.relpath(lesson_file_path, REPO_ROOT)
+
+                            lesson_obj = {
+                                "id": lesson_filename,
+                                "name": generate_human_readable_name(lesson_filename, is_lesson=True),
+                                "path": rel_path_repo.replace(os.path.sep, '/'), # Ensure forward slashes
+                                "category": category
+                            }
+                            subject_obj["lessons"].append(lesson_obj)
 
                 if subject_obj["lessons"]: # Only add subject if it has lessons
+                    # Sort lessons by category then by name
+                    subject_obj["lessons"].sort(key=lambda x: (x["category"], x["name"]))
                     grade_level_obj["subjects"].append(subject_obj)
 
             if grade_level_obj["subjects"]: # Only add grade level if it has subjects

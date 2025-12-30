@@ -302,7 +302,12 @@
     </div>
 
     <!-- Marked.js for Markdown Rendering -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="js/marked.min.js"></script>
+    <script>
+        if (typeof marked === 'undefined') {
+            document.write('<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"><\/script>');
+        }
+    </script>
 
     <script>
         const MANIFEST_PATH = 'curriculum_manifest.json';
@@ -747,12 +752,6 @@
           "name": "Mathematics",
           "lessons": [
             {
-              "id": "Algebra1_NYSNextGen.md",
-              "name": "Algebra1 Nysnextgen",
-              "path": "curriculum/High_9-12/Mathematics/Algebra1_NYSNextGen.md",
-              "category": ""
-            },
-            {
               "id": "Algebra2_NYSNextGen.md",
               "name": "Algebra2 Nysnextgen",
               "path": "curriculum/High_9-12/Mathematics/Algebra2_NYSNextGen.md",
@@ -775,6 +774,30 @@
               "name": "Mathematics Lesson2 Intro",
               "path": "curriculum/High_9-12/Mathematics/Mathematics_Lesson2_Intro.md",
               "category": ""
+            },
+            {
+              "id": "Algebra1_NYSNextGen.md",
+              "name": "Algebra1 Nysnextgen",
+              "path": "curriculum/High_9-12/Mathematics/Algebra1/Algebra1_NYSNextGen.md",
+              "category": "Algebra1"
+            },
+            {
+              "id": "Lesson1_Variables_and_Expressions.md",
+              "name": "Lesson1 Variables And Expressions",
+              "path": "curriculum/High_9-12/Mathematics/Algebra1/Lessons/Lesson1_Variables_and_Expressions.md",
+              "category": "Algebra1 > Lessons"
+            },
+            {
+              "id": "Lesson2_Introduction_to_Polynomials.md",
+              "name": "Lesson2 Introduction To Polynomials",
+              "path": "curriculum/High_9-12/Mathematics/Algebra1/Lessons/Lesson2_Introduction_to_Polynomials.md",
+              "category": "Algebra1 > Lessons"
+            },
+            {
+              "id": "Unit_1_Foundations_of_Algebra_Overview.md",
+              "name": "Unit 1 Foundations Of Algebra Overview",
+              "path": "curriculum/High_9-12/Mathematics/Algebra1/Units/Unit_1_Foundations_of_Algebra_Overview.md",
+              "category": "Algebra1 > Units"
             }
           ]
         },

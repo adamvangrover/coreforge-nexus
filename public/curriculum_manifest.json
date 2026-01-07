@@ -613,6 +613,66 @@
               "name": "Science Lesson2 Intro",
               "path": "curriculum/High_9-12/Science/Science_Lesson2_Intro.md",
               "category": ""
+            },
+            {
+              "id": "Demo_01_Velocity_Vectors.md",
+              "name": "Demo 01 Velocity Vectors",
+              "path": "curriculum/High_9-12/Science/Physics/Demonstrations/Demo_01_Velocity_Vectors.md",
+              "category": "Physics > Demonstrations"
+            },
+            {
+              "id": "Experiment_01_Motion_Graphing.md",
+              "name": "Experiment 01 Motion Graphing",
+              "path": "curriculum/High_9-12/Science/Physics/Experiments/Experiment_01_Motion_Graphing.md",
+              "category": "Physics > Experiments"
+            },
+            {
+              "id": "Rubric_Lab_Report.md",
+              "name": "Rubric Lab Report",
+              "path": "curriculum/High_9-12/Science/Physics/Grading/Rubric_Lab_Report.md",
+              "category": "Physics > Grading"
+            },
+            {
+              "id": "Physics_Lesson1_Intro_Kinematics.md",
+              "name": "Physics Lesson1 Intro Kinematics",
+              "path": "curriculum/High_9-12/Science/Physics/Lessons/Unit1/Physics_Lesson1_Intro_Kinematics.md",
+              "category": "Physics > Lessons > Unit1"
+            },
+            {
+              "id": "Physics_Lesson2_Scalars_Vectors.md",
+              "name": "Physics Lesson2 Scalars Vectors",
+              "path": "curriculum/High_9-12/Science/Physics/Lessons/Unit1/Physics_Lesson2_Scalars_Vectors.md",
+              "category": "Physics > Lessons > Unit1"
+            },
+            {
+              "id": "Quiz_Unit1_Kinematics.md",
+              "name": "Quiz Unit1 Kinematics",
+              "path": "curriculum/High_9-12/Science/Physics/Quizzes/Quiz_Unit1_Kinematics.md",
+              "category": "Physics > Quizzes"
+            },
+            {
+              "id": "Course_Syllabus.md",
+              "name": "Course Syllabus",
+              "path": "curriculum/High_9-12/Science/Physics/Syllabus/Course_Syllabus.md",
+              "category": "Physics > Syllabus"
+            },
+            {
+              "id": "Test_Unit1_Kinematics.md",
+              "name": "Test Unit1 Kinematics",
+              "path": "curriculum/High_9-12/Science/Physics/Tests/Test_Unit1_Kinematics.md",
+              "category": "Physics > Tests"
+            },
+            {
+              "id": "Chapter1_Kinematics.md",
+              "name": "Chapter1 Kinematics",
+              "path": "curriculum/High_9-12/Science/Physics/Textbook/Chapter1_Kinematics.md",
+              "category": "Physics > Textbook"
+            },
+            {
+              "id": "Unit1_Kinematics.md",
+              "name": "Unit1 Kinematics",
+              "path": "curriculum/High_9-12/Science/Physics/Units/Unit1_Kinematics.md",
+              "category": "Physics > Units"
             }
           ]
         },

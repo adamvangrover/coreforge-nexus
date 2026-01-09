@@ -409,6 +409,84 @@
       ]
     },
     {
+      "id": "GED_Prep",
+      "name": "Ged Prep",
+      "subjects": [
+        {
+          "id": "Science",
+          "name": "Science",
+          "lessons": [
+            {
+              "id": "Demo_01_Photosynthesis.md",
+              "name": "Demo 01 Photosynthesis",
+              "path": "curriculum/GED_Prep/Science/Demonstrations/Demo_01_Photosynthesis.md",
+              "category": "Demonstrations"
+            },
+            {
+              "id": "Experiment_01_PlantCellModel.md",
+              "name": "Experiment 01 Plantcellmodel",
+              "path": "curriculum/GED_Prep/Science/Experiments/Experiment_01_PlantCellModel.md",
+              "category": "Experiments"
+            },
+            {
+              "id": "Rubric_Science_LabReport.md",
+              "name": "Rubric Science Labreport",
+              "path": "curriculum/GED_Prep/Science/Grading/Rubric_Science_LabReport.md",
+              "category": "Grading"
+            },
+            {
+              "id": "Science_Lesson01_CellStructure.md",
+              "name": "Science Lesson01 Cellstructure",
+              "path": "curriculum/GED_Prep/Science/Lessons/Science_Lesson01_CellStructure.md",
+              "category": "Lessons"
+            },
+            {
+              "id": "Science_Lesson02_EnergyTransfer.md",
+              "name": "Science Lesson02 Energytransfer",
+              "path": "curriculum/GED_Prep/Science/Lessons/Science_Lesson02_EnergyTransfer.md",
+              "category": "Lessons"
+            },
+            {
+              "id": "Quiz_Unit01_LifeScience.md",
+              "name": "Quiz Unit01 Lifescience",
+              "path": "curriculum/GED_Prep/Science/Quizzes/Quiz_Unit01_LifeScience.md",
+              "category": "Quizzes"
+            },
+            {
+              "id": "Course_Syllabus.md",
+              "name": "Course Syllabus",
+              "path": "curriculum/GED_Prep/Science/Syllabus/Course_Syllabus.md",
+              "category": "Syllabus"
+            },
+            {
+              "id": "Test_Unit01_LifeScience.md",
+              "name": "Test Unit01 Lifescience",
+              "path": "curriculum/GED_Prep/Science/Tests/Test_Unit01_LifeScience.md",
+              "category": "Tests"
+            },
+            {
+              "id": "Chapter01_LifeScience_CellsAndGenetics.md",
+              "name": "Chapter01 Lifescience Cellsandgenetics",
+              "path": "curriculum/GED_Prep/Science/Textbook/Chapter01_LifeScience_CellsAndGenetics.md",
+              "category": "Textbook"
+            },
+            {
+              "id": "Chapter02_PhysicalScience_EnergyAndWork.md",
+              "name": "Chapter02 Physicalscience Energyandwork",
+              "path": "curriculum/GED_Prep/Science/Textbook/Chapter02_PhysicalScience_EnergyAndWork.md",
+              "category": "Textbook"
+            },
+            {
+              "id": "Chapter03_EarthSpace_SystemsAndClimate.md",
+              "name": "Chapter03 Earthspace Systemsandclimate",
+              "path": "curriculum/GED_Prep/Science/Textbook/Chapter03_EarthSpace_SystemsAndClimate.md",
+              "category": "Textbook"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "High_9-12",
       "name": "High 9 12",
       "subjects": [

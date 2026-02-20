@@ -91,6 +91,60 @@
               "name": "Mathematics Lesson2 Intro",
               "path": "curriculum/Elementary_K-5/Mathematics/Mathematics_Lesson2_Intro.md",
               "category": ""
+            },
+            {
+              "id": "Grade5_Math_Curriculum_Map.md",
+              "name": "Grade5 Math Curriculum Map",
+              "path": "curriculum/Elementary_K-5/Mathematics/Grade5/Grade5_Math_Curriculum_Map.md",
+              "category": "Grade5"
+            },
+            {
+              "id": "Grade5_Math_Lesson1_PlaceValue.md",
+              "name": "Grade5 Math Lesson1 Placevalue",
+              "path": "curriculum/Elementary_K-5/Mathematics/Grade5/Lessons/Grade5_Math_Lesson1_PlaceValue.md",
+              "category": "Grade5 > Lessons"
+            },
+            {
+              "id": "Grade5_Math_Lesson2_PowersOf10.md",
+              "name": "Grade5 Math Lesson2 Powersof10",
+              "path": "curriculum/Elementary_K-5/Mathematics/Grade5/Lessons/Grade5_Math_Lesson2_PowersOf10.md",
+              "category": "Grade5 > Lessons"
+            },
+            {
+              "id": "Grade5_Math_Lesson3_ReadWriteDecimals.md",
+              "name": "Grade5 Math Lesson3 Readwritedecimals",
+              "path": "curriculum/Elementary_K-5/Mathematics/Grade5/Lessons/Grade5_Math_Lesson3_ReadWriteDecimals.md",
+              "category": "Grade5 > Lessons"
+            },
+            {
+              "id": "Quiz_Lesson1_PlaceValue.md",
+              "name": "Quiz Lesson1 Placevalue",
+              "path": "curriculum/Elementary_K-5/Mathematics/Grade5/Quizzes/Quiz_Lesson1_PlaceValue.md",
+              "category": "Grade5 > Quizzes"
+            },
+            {
+              "id": "Quiz_Unit1_Decimals.md",
+              "name": "Quiz Unit1 Decimals",
+              "path": "curriculum/Elementary_K-5/Mathematics/Grade5/Quizzes/Quiz_Unit1_Decimals.md",
+              "category": "Grade5 > Quizzes"
+            },
+            {
+              "id": "Grade5_Math_Syllabus.md",
+              "name": "Grade5 Math Syllabus",
+              "path": "curriculum/Elementary_K-5/Mathematics/Grade5/Syllabus/Grade5_Math_Syllabus.md",
+              "category": "Grade5 > Syllabus"
+            },
+            {
+              "id": "Chapter1_PlaceValue.md",
+              "name": "Chapter1 Placevalue",
+              "path": "curriculum/Elementary_K-5/Mathematics/Grade5/Textbook/Chapter1_PlaceValue.md",
+              "category": "Grade5 > Textbook"
+            },
+            {
+              "id": "Unit_1_PlaceValue_Overview.md",
+              "name": "Unit 1 Placevalue Overview",
+              "path": "curriculum/Elementary_K-5/Mathematics/Grade5/Units/Unit_1_PlaceValue_Overview.md",
+              "category": "Grade5 > Units"
             }
           ]
         },
@@ -417,9 +471,15 @@
           "name": "Mathematics",
           "lessons": [
             {
-              "id": "Course_Syllabus.md",
-              "name": "Course Syllabus",
-              "path": "curriculum/GED_Prep/Mathematics/Syllabus/Course_Syllabus.md",
+              "id": "GED_Math_Lesson1_FractionsDecimals.md",
+              "name": "Ged Math Lesson1 Fractionsdecimals",
+              "path": "curriculum/GED_Prep/Mathematics/Lessons/GED_Math_Lesson1_FractionsDecimals.md",
+              "category": "Lessons"
+            },
+            {
+              "id": "GED_Math_Syllabus.md",
+              "name": "Ged Math Syllabus",
+              "path": "curriculum/GED_Prep/Mathematics/Syllabus/GED_Math_Syllabus.md",
               "category": "Syllabus"
             },
             {
@@ -453,6 +513,12 @@
               "category": "Grading"
             },
             {
+              "id": "GED_Science_Lesson1_ScientificMethod.md",
+              "name": "Ged Science Lesson1 Scientificmethod",
+              "path": "curriculum/GED_Prep/Science/Lessons/GED_Science_Lesson1_ScientificMethod.md",
+              "category": "Lessons"
+            },
+            {
               "id": "Science_Lesson01_CellStructure.md",
               "name": "Science Lesson01 Cellstructure",
               "path": "curriculum/GED_Prep/Science/Lessons/Science_Lesson01_CellStructure.md",
@@ -471,9 +537,9 @@
               "category": "Quizzes"
             },
             {
-              "id": "Course_Syllabus.md",
-              "name": "Course Syllabus",
-              "path": "curriculum/GED_Prep/Science/Syllabus/Course_Syllabus.md",
+              "id": "GED_Science_Syllabus.md",
+              "name": "Ged Science Syllabus",
+              "path": "curriculum/GED_Prep/Science/Syllabus/GED_Science_Syllabus.md",
               "category": "Syllabus"
             },
             {
@@ -655,6 +721,48 @@
               "name": "Englishlanguagearts Lesson2 Intro",
               "path": "curriculum/High_9-12/EnglishLanguageArts/EnglishLanguageArts_Lesson2_Intro.md",
               "category": ""
+            },
+            {
+              "id": "ELA9_Lesson1_ShortStoryAnalysis.md",
+              "name": "Ela9 Lesson1 Shortstoryanalysis",
+              "path": "curriculum/High_9-12/EnglishLanguageArts/Grade9/Lessons/ELA9_Lesson1_ShortStoryAnalysis.md",
+              "category": "Grade9 > Lessons"
+            },
+            {
+              "id": "ELA9_Lesson2_Characterization.md",
+              "name": "Ela9 Lesson2 Characterization",
+              "path": "curriculum/High_9-12/EnglishLanguageArts/Grade9/Lessons/ELA9_Lesson2_Characterization.md",
+              "category": "Grade9 > Lessons"
+            },
+            {
+              "id": "ELA9_Lesson3_ConflictAndTheme.md",
+              "name": "Ela9 Lesson3 Conflictandtheme",
+              "path": "curriculum/High_9-12/EnglishLanguageArts/Grade9/Lessons/ELA9_Lesson3_ConflictAndTheme.md",
+              "category": "Grade9 > Lessons"
+            },
+            {
+              "id": "Quiz_Unit1_ShortStories.md",
+              "name": "Quiz Unit1 Shortstories",
+              "path": "curriculum/High_9-12/EnglishLanguageArts/Grade9/Quizzes/Quiz_Unit1_ShortStories.md",
+              "category": "Grade9 > Quizzes"
+            },
+            {
+              "id": "ELA9_Course_Syllabus.md",
+              "name": "Ela9 Course Syllabus",
+              "path": "curriculum/High_9-12/EnglishLanguageArts/Grade9/Syllabus/ELA9_Course_Syllabus.md",
+              "category": "Grade9 > Syllabus"
+            },
+            {
+              "id": "Chapter1_ShortStoryElements.md",
+              "name": "Chapter1 Shortstoryelements",
+              "path": "curriculum/High_9-12/EnglishLanguageArts/Grade9/Textbook/Chapter1_ShortStoryElements.md",
+              "category": "Grade9 > Textbook"
+            },
+            {
+              "id": "Unit_1_ShortStories_Overview.md",
+              "name": "Unit 1 Shortstories Overview",
+              "path": "curriculum/High_9-12/EnglishLanguageArts/Grade9/Units/Unit_1_ShortStories_Overview.md",
+              "category": "Grade9 > Units"
             }
           ]
         },
@@ -705,21 +813,63 @@
               "category": "Algebra1"
             },
             {
-              "id": "Lesson1_Variables_and_Expressions.md",
-              "name": "Lesson1 Variables And Expressions",
-              "path": "curriculum/High_9-12/Mathematics/Algebra1/Lessons/Lesson1_Variables_and_Expressions.md",
+              "id": "Algebra1_Lesson1_VariablesAndExpressions.md",
+              "name": "Algebra1 Lesson1 Variablesandexpressions",
+              "path": "curriculum/High_9-12/Mathematics/Algebra1/Lessons/Algebra1_Lesson1_VariablesAndExpressions.md",
               "category": "Algebra1 > Lessons"
             },
             {
-              "id": "Lesson2_Introduction_to_Polynomials.md",
-              "name": "Lesson2 Introduction To Polynomials",
-              "path": "curriculum/High_9-12/Mathematics/Algebra1/Lessons/Lesson2_Introduction_to_Polynomials.md",
+              "id": "Algebra1_Lesson2_OrderOfOperations.md",
+              "name": "Algebra1 Lesson2 Orderofoperations",
+              "path": "curriculum/High_9-12/Mathematics/Algebra1/Lessons/Algebra1_Lesson2_OrderOfOperations.md",
               "category": "Algebra1 > Lessons"
             },
             {
-              "id": "Unit_1_Foundations_of_Algebra_Overview.md",
-              "name": "Unit 1 Foundations Of Algebra Overview",
-              "path": "curriculum/High_9-12/Mathematics/Algebra1/Units/Unit_1_Foundations_of_Algebra_Overview.md",
+              "id": "Algebra1_Lesson3_SolvingLinearEquations.md",
+              "name": "Algebra1 Lesson3 Solvinglinearequations",
+              "path": "curriculum/High_9-12/Mathematics/Algebra1/Lessons/Algebra1_Lesson3_SolvingLinearEquations.md",
+              "category": "Algebra1 > Lessons"
+            },
+            {
+              "id": "Algebra1_Lesson4_LiteralEquations.md",
+              "name": "Algebra1 Lesson4 Literalequations",
+              "path": "curriculum/High_9-12/Mathematics/Algebra1/Lessons/Algebra1_Lesson4_LiteralEquations.md",
+              "category": "Algebra1 > Lessons"
+            },
+            {
+              "id": "Quiz_Unit1_Foundations.md",
+              "name": "Quiz Unit1 Foundations",
+              "path": "curriculum/High_9-12/Mathematics/Algebra1/Quizzes/Quiz_Unit1_Foundations.md",
+              "category": "Algebra1 > Quizzes"
+            },
+            {
+              "id": "Quiz_Unit1_LinearEquations.md",
+              "name": "Quiz Unit1 Linearequations",
+              "path": "curriculum/High_9-12/Mathematics/Algebra1/Quizzes/Quiz_Unit1_LinearEquations.md",
+              "category": "Algebra1 > Quizzes"
+            },
+            {
+              "id": "Algebra1_Course_Syllabus.md",
+              "name": "Algebra1 Course Syllabus",
+              "path": "curriculum/High_9-12/Mathematics/Algebra1/Syllabus/Algebra1_Course_Syllabus.md",
+              "category": "Algebra1 > Syllabus"
+            },
+            {
+              "id": "Test_Unit1_Foundations.md",
+              "name": "Test Unit1 Foundations",
+              "path": "curriculum/High_9-12/Mathematics/Algebra1/Tests/Test_Unit1_Foundations.md",
+              "category": "Algebra1 > Tests"
+            },
+            {
+              "id": "Chapter1_Foundations_of_Algebra.md",
+              "name": "Chapter1 Foundations Of Algebra",
+              "path": "curriculum/High_9-12/Mathematics/Algebra1/Textbook/Chapter1_Foundations_of_Algebra.md",
+              "category": "Algebra1 > Textbook"
+            },
+            {
+              "id": "Unit_1_Foundations_Overview.md",
+              "name": "Unit 1 Foundations Overview",
+              "path": "curriculum/High_9-12/Mathematics/Algebra1/Units/Unit_1_Foundations_Overview.md",
               "category": "Algebra1 > Units"
             }
           ]
@@ -815,14 +965,20 @@
             {
               "id": "Physics_Lesson1_Intro_Kinematics.md",
               "name": "Physics Lesson1 Intro Kinematics",
-              "path": "curriculum/High_9-12/Science/Physics/Lessons/Unit1/Physics_Lesson1_Intro_Kinematics.md",
-              "category": "Physics > Lessons > Unit1"
+              "path": "curriculum/High_9-12/Science/Physics/Lessons/Physics_Lesson1_Intro_Kinematics.md",
+              "category": "Physics > Lessons"
             },
             {
               "id": "Physics_Lesson2_Scalars_Vectors.md",
               "name": "Physics Lesson2 Scalars Vectors",
-              "path": "curriculum/High_9-12/Science/Physics/Lessons/Unit1/Physics_Lesson2_Scalars_Vectors.md",
-              "category": "Physics > Lessons > Unit1"
+              "path": "curriculum/High_9-12/Science/Physics/Lessons/Physics_Lesson2_Scalars_Vectors.md",
+              "category": "Physics > Lessons"
+            },
+            {
+              "id": "Physics_Lesson3_ProjectileMotion.md",
+              "name": "Physics Lesson3 Projectilemotion",
+              "path": "curriculum/High_9-12/Science/Physics/Lessons/Physics_Lesson3_ProjectileMotion.md",
+              "category": "Physics > Lessons"
             },
             {
               "id": "Quiz_Unit1_Kinematics.md",
@@ -831,9 +987,9 @@
               "category": "Physics > Quizzes"
             },
             {
-              "id": "Course_Syllabus.md",
-              "name": "Course Syllabus",
-              "path": "curriculum/High_9-12/Science/Physics/Syllabus/Course_Syllabus.md",
+              "id": "Physics_Course_Syllabus.md",
+              "name": "Physics Course Syllabus",
+              "path": "curriculum/High_9-12/Science/Physics/Syllabus/Physics_Course_Syllabus.md",
               "category": "Physics > Syllabus"
             },
             {
@@ -846,6 +1002,12 @@
               "id": "Chapter1_Kinematics.md",
               "name": "Chapter1 Kinematics",
               "path": "curriculum/High_9-12/Science/Physics/Textbook/Chapter1_Kinematics.md",
+              "category": "Physics > Textbook"
+            },
+            {
+              "id": "Chapter2_VectorsAnd2DMotion.md",
+              "name": "Chapter2 Vectorsand2dmotion",
+              "path": "curriculum/High_9-12/Science/Physics/Textbook/Chapter2_VectorsAnd2DMotion.md",
               "category": "Physics > Textbook"
             },
             {

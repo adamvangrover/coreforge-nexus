@@ -1,61 +1,52 @@
 ---
-title: "Experiment 01: Motion Graphing"
+title: Experiment 1 - Motion Graphing
 grade_level: "9-12"
-subject: Science
+subject: Physics
 duration_minutes: 90
-tags: [experiment, lab, physics, graphing]
+tags: [Physics, Lab, Kinematics, Graphing]
 ---
 
-# Experiment 01: Motion Graphing
+# Experiment 1: Motion Graphing
 
-## Introduction
-Graphs are powerful tools for visualizing motion. In this lab, you will become the object in motion! Using a motion detector, you will attempt to replicate specific position-time and velocity-time graphs by walking back and forth.
-
-## Learning Objectives
-*   Relate physical motion (walking) to graphical representation.
-*   Understand the relationship between slope and velocity on a position-time graph.
-*   Understand the meaning of positive and negative velocity.
+## Objective
+To understand the relationship between a moving object and its position-time ($x-t$) and velocity-time ($v-t$) graphs using an ultrasonic motion detector.
 
 ## Materials
-*   Computer with data collection software (e.g., Logger Pro, Capstone).
-*   Motion Detector (Ultrasonic sensor).
+*   Computer with Vernier Logger Pro or PASCO Capstone software.
+*   Ultrasonic Motion Sensor (connected to interface).
 *   Meter stick.
-*   Masking tape.
 
 ## Safety Precautions
-*   Ensure the walking path is clear of obstacles.
-*   Do not walk too fast or run.
+*   **Clear the Path:** Ensure the walking area (approx. 3 meters) is free of bags, cords, or obstacles to prevent tripping.
+*   **Do Not Run:** Move at a steady walking pace. There is no need to run to generate graphs.
+*   **Awareness:** Be aware of your surroundings when walking backward.
 
 ## Procedure
 
 ### Part 1: Position vs. Time
-
-1.  **Setup:** Connect the motion detector to the computer. Place the detector on a table facing an open area. Mark the floor with tape at 1m, 2m, and 3m from the detector.
-2.  **Prediction:** Sketch a graph of a person walking *slowly* away from the detector at a constant speed.
-3.  **Trial 1:** Start data collection. Stand at the 1m mark. Walk slowly away to the 3m mark. Stop.
-4.  **Analysis:** Compare your prediction to the real graph.
-    *   What does the slope represent? (Answer: Velocity).
-    *   Was the slope constant?
-5.  **Challenge:** The software will display a "Target Graph" (e.g., a "W" shape). Your goal is to walk in such a way that your motion matches the target graph.
-    *   Sketch the target graph.
-    *   Describe the motion required (e.g., "Start at 1m, stand still for 2s, walk fast away...").
-    *   Perform the walk and record the "Match Score".
+1.  Stand 1 meter away from the sensor.
+2.  Start data collection.
+3.  Walk slowly away from the sensor at a constant speed.
+4.  Stop for 2 seconds.
+5.  Walk quickly back towards the sensor.
+6.  **Sketch the Graph**: Look at the computer screen and sketch the $x-t$ graph in your notebook. Label the sections "Slow Away", "Stopped", "Fast Return".
 
 ### Part 2: Velocity vs. Time
+1.  Predict: What will the $v-t$ graph look like for the motion in Part 1?
+2.  Switch the display to Velocity-Time.
+3.  Repeat the motion.
+4.  **Analysis**:
+    *   Does "Moving Away" produce positive or negative velocity?
+    *   Does "Moving Towards" produce positive or negative velocity?
+    *   What does the velocity read when you are stopped?
 
-1.  **Setup:** Switch the graph display to Velocity vs. Time.
-2.  **Prediction:** Sketch a graph of a person walking *away* at a constant speed, then *stopping*, then walking *towards* the detector at a faster speed.
-3.  **Trial 2:** Perform the motion.
-4.  **Analysis:**
-    *   What does the "zero" line represent? (Rest).
-    *   What is the difference between positive and negative velocity values? (Direction).
-5.  **Challenge:** Match a "Target Velocity Graph" provided by the instructor.
+### Part 3: Match the Graph
+1.  The instructor will project a "Target Graph" (a complex shape with curves and lines).
+2.  Your Goal: Move your body to make the real-time graph match the target graph.
+3.  **Challenge**: Try to match a velocity graph where velocity increases (acceleration).
 
-## Analysis Questions
-1.  On a position-time graph, what does a horizontal line indicate?
-2.  On a velocity-time graph, what does a horizontal line (not at zero) indicate?
-3.  Which is harder to match: Position or Velocity graphs? Why?
-4.  Calculate your average velocity for Trial 1 using the slope formula ($m = \frac{y_2-y_1}{x_2-x_1}$).
-
-## Conclusion
-Write a paragraph summarizing how different types of motion (rest, constant velocity, changing direction) appear on both position-time and velocity-time graphs.
+## Lab Report Requirements
+1.  Sketches of all graphs.
+2.  Analysis Questions:
+    *   What is the slope of an $x-t$ graph? (Velocity).
+    *   What is the slope of a $v-t$ graph? (Acceleration).
